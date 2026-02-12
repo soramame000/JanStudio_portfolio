@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery | JAN Studio</title>
+    <meta
+      name="description"
+      content="JAN Studio のギャラリー。アメリカンフットボールを中心に、音楽イベント撮影の作品を掲載しています。"
+    />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="page-gallery">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">JAN Studio</a>
+        <nav class="global-nav" aria-label="メインナビゲーション">
+          <button
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="global-nav-list"
+          >
+            <span></span><span></span>
+          </button>
+          <ul id="global-nav-list">
+            <li><a href="index.html">Top</a></li>
+            <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li>
+              <a
+                href="https://example.com/jan-studio-presets"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Presets</a
+              >
+            </li>
+            <li><a href="contact.html" class="nav-cta">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="apple-chargers-gallery">
+      <div class="fx-grid-overlay" aria-hidden="true"></div>
+      <div class="fx-orb fx-orb-a" aria-hidden="true"></div>
+      <div class="fx-orb fx-orb-b" aria-hidden="true"></div>
+
+      <section class="page-hero page-hero-gallery container">
+        <div class="page-hero-copy">
+          <p class="hero-collab-tag">JAN Studio Visual Signature</p>
+          <p class="page-eyebrow">Gallery</p>
+          <h1 class="page-title fx-glitch-heading" data-text="LIMITLESS SPORTS VISUALS">
+            LIMITLESS SPORTS VISUALS
+          </h1>
+          <p class="page-lead">
+            現在の公開作品はアメリカンフットボールを中心に掲載しています。音楽イベント撮影の作品も順次掲載予定です。
+          </p>
+          <div class="gallery-hero-pills">
+            <span>Electric Color Grade</span>
+            <span>Action-first Framing</span>
+            <span>Story-driven Sequence</span>
+          </div>
+        </div>
+        <div class="gallery-hero-visual" aria-hidden="true">
+          <video
+            class="gallery-hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="https://images.pexels.com/photos/159515/football-american-ball-sport-159515.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          >
+            <source
+              src="https://videos.pexels.com/video-files/1880074/1880074-sd_640_360_30fps.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div class="hero-lightning"></div>
+        </div>
+      </section>
+
+      <section class="section section-energy-ticker" aria-label="ギャラリーメッセージ">
+        <div class="ticker-track">
+          <p>
+            GAME SPEED / ELECTRIC IMPACT / PREMIUM MINIMAL / LIVE MOMENT /
+            GAME SPEED / ELECTRIC IMPACT / PREMIUM MINIMAL / LIVE MOMENT /
+          </p>
+          <p aria-hidden="true">
+            GAME SPEED / ELECTRIC IMPACT / PREMIUM MINIMAL / LIVE MOMENT /
+            GAME SPEED / ELECTRIC IMPACT / PREMIUM MINIMAL / LIVE MOMENT /
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container gallery-controls gallery-controls-panel">
+          <div class="gallery-controls-head">
+            <p class="section-kicker">Filter</p>
+            <h2 class="section-title">競技で絞り込み</h2>
+            <p class="gallery-count" id="gallery-count" aria-live="polite"></p>
+            <p class="section-lead">
+              ギャラリーは公開許諾を確認した写真のみ掲載しています。個人が特定される情報は、未承諾の場合は公開しません。
+            </p>
+          </div>
+          <div class="filter-group" aria-label="競技で絞り込み">
+            <button class="filter-btn is-active" data-genre="all">
+              すべて
+            </button>
+            <button class="filter-btn" data-genre="american-football">アメリカンフットボール</button>
+            <button class="filter-btn" data-genre="music-event">音楽イベント</button>
+          </div>
+        </div>
+
+        <div
+          class="container gallery-grid gallery-grid-premium"
+          id="gallery-grid"
+          aria-live="polite"
+        >
+          <!-- CMSから取得した写真をJavaScriptで描画 -->
+        </div>
+      </section>
+
+      <section class="section section-super-cta">
+        <div class="container super-cta-inner">
+          <p class="super-cta-eyebrow">Need Team Branding Shot?</p>
+          <h2>From sideline to campaign quality.</h2>
+          <p>
+            ただ記録するだけでなく、チームの魅力を伝えるビジュアルまで設計。試合撮影、SNS用素材、告知用カットまで一貫して対応します。
+          </p>
+          <div class="super-cta-actions">
+            <a href="index.html" class="btn ghost">トップへ戻る</a>
+            <a href="contact.html" class="btn primary">撮影を相談する</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="lightbox" id="lightbox" aria-hidden="true">
+        <div class="lightbox-backdrop" data-lightbox-close></div>
+        <div class="lightbox-dialog" role="dialog" aria-modal="true">
+          <button
+            class="lightbox-close"
+            type="button"
+            aria-label="閉じる"
+            data-lightbox-close
+          >
+            ×
+          </button>
+          <div class="lightbox-image-wrapper">
+            <img src="" alt="" id="lightbox-image" />
+            <button
+              class="lightbox-nav lightbox-prev"
+              type="button"
+              id="lightbox-prev"
+              aria-label="前の写真"
+            >
+              ‹
+            </button>
+            <button
+              class="lightbox-nav lightbox-next"
+              type="button"
+              id="lightbox-next"
+              aria-label="次の写真"
+            >
+              ›
+            </button>
+          </div>
+          <div class="lightbox-meta">
+            <p class="lightbox-title" id="lightbox-title"></p>
+            <p class="lightbox-caption" id="lightbox-caption"></p>
+            <div class="lightbox-thumbs" id="lightbox-thumbs" aria-label="サムネイル一覧"></div>
+            <a
+              href="#"
+              id="lightbox-project-link"
+              class="section-link"
+              target="_self"
+            >
+              案件の詳細を見る
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="logo-small">Itsuki Serikawa / JAN Studio</span>
+          <p class="footer-copy">
+            © <span id="footer-year-gallery"></span> Itsuki Serikawa / JAN Studio. All
+            rights reserved.
+          </p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-sns">
+            <a
+              href="https://www.instagram.com/itsu_photoooo"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram @itsu_photoooo"
+              >Instagram @itsu_photoooo</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/gallery.js"></script>
+    <script src="assets/js/ultra-effects.js"></script>
+  </body>
+</html>
+

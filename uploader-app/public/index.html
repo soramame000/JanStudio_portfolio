@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uploader App</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>Photo Uploader</h1>
+      <p class="lead">公開サイトとは分離した、管理専用アップローダーです。</p>
+
+      <section class="card">
+        <h2>ログイン</h2>
+        <form id="login-form">
+          <label for="password">管理パスワード</label>
+          <input id="password" name="password" type="password" required />
+          <button type="submit">ログイン</button>
+        </form>
+      </section>
+
+      <section class="card" id="uploader-section" hidden>
+        <h2>写真アップロード</h2>
+        <form id="upload-form">
+          <label for="imageFile">画像</label>
+          <input id="imageFile" name="imageFile" type="file" accept="image/*" required />
+
+          <label for="title">タイトル</label>
+          <input id="title" name="title" type="text" required />
+
+          <label for="genre">ジャンル</label>
+          <select id="genre" name="genre" required>
+            <option value="">選択してください</option>
+            <option value="american-football">アメリカンフットボール</option>
+            <option value="music-event">音楽イベント</option>
+            <option value="portrait">ポートレート</option>
+          </select>
+
+          <label for="eventDate">撮影日</label>
+          <input id="eventDate" name="eventDate" type="date" />
+
+          <label for="team">チーム / 被写体</label>
+          <input id="team" name="team" type="text" />
+
+          <label for="location">場所</label>
+          <input id="location" name="location" type="text" />
+
+          <label for="tags">タグ（カンマ区切り）</label>
+          <input id="tags" name="tags" type="text" placeholder="x3, week07, sideline" />
+
+          <label for="publishStatus">公開状態</label>
+          <select id="publishStatus" name="publishStatus">
+            <option value="draft">draft</option>
+            <option value="unlisted">unlisted</option>
+            <option value="public">public</option>
+          </select>
+
+          <label for="featuredPriority">featuredPriority</label>
+          <input id="featuredPriority" name="featuredPriority" type="number" min="1" />
+
+          <label for="projectId">projectId</label>
+          <input id="projectId" name="projectId" type="text" />
+
+          <label for="caption">キャプション</label>
+          <textarea id="caption" name="caption" rows="4"></textarea>
+
+          <button type="submit">アップロードして登録</button>
+        </form>
+      </section>
+
+      <p id="status" aria-live="polite"></p>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

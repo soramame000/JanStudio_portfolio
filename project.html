@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project | JAN Studio</title>
+    <meta name="description" content="JAN Studio の撮影案件詳細ページ。" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="page-project">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">JAN Studio</a>
+        <nav class="global-nav" aria-label="メインナビゲーション">
+          <button
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="global-nav-list"
+          >
+            <span></span><span></span>
+          </button>
+          <ul id="global-nav-list">
+            <li><a href="index.html">Top</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li>
+              <a
+                href="https://example.com/jan-studio-presets"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Presets</a
+              >
+            </li>
+            <li><a href="contact.html" class="nav-cta">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="project-root">
+      <section class="page-hero container">
+        <p class="page-eyebrow">Project</p>
+        <h1 class="page-title" id="project-title">撮影案件タイトル</h1>
+        <p class="page-meta" id="project-meta">
+          <!-- クライアント名やカテゴリーを表示 -->
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="container project-hero">
+          <div class="project-hero-image">
+            <img
+              src=""
+              alt=""
+              id="project-main-image"
+              class="responsive-image"
+            />
+          </div>
+          <div class="project-summary">
+            <h2 class="section-title">Overview</h2>
+            <p id="project-summary-text">
+              <!-- 案件の概要テキスト -->
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Gallery</h2>
+          <div
+            class="project-gallery-grid"
+            id="project-gallery"
+            aria-live="polite"
+          >
+            <!-- 案件に紐づく写真一覧 -->
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container project-story">
+          <h2 class="section-title">Story</h2>
+          <p id="project-story-text">
+            <!-- 撮影ストーリー -->
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container project-credits">
+          <h2 class="section-title">Credits</h2>
+          <ul id="project-credits-list">
+            <!-- クレジット情報 -->
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section-cta">
+        <div class="container">
+          <h2 class="section-title">似た雰囲気で撮影してみませんか？</h2>
+          <p class="section-lead">
+            この案件のようなテイストでの撮影や、別ジャンルのご相談もお気軽にどうぞ。
+          </p>
+          <a href="contact.html" class="btn primary">撮影の相談をする</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="logo-small">Itsuki Serikawa / JAN Studio</span>
+          <p class="footer-copy">
+            © <span id="footer-year-project"></span> Itsuki Serikawa / JAN Studio. All
+            rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/project.js"></script>
+  </body>
+</html>
+

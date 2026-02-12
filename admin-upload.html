@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Upload Admin | JAN Studio</title>
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta
+      name="description"
+      content="microCMSに写真をアップロードして公開用データを登録する管理ページ。"
+    />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="page-admin-upload">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">JAN Studio</a>
+        <nav class="global-nav" aria-label="メインナビゲーション">
+          <button
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="global-nav-list"
+          >
+            <span></span><span></span>
+          </button>
+          <ul id="global-nav-list">
+            <li><a href="index.html">Top</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="admin-upload.html" aria-current="page" class="nav-cta">Upload Admin</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero container">
+        <p class="page-eyebrow">Admin</p>
+        <h1 class="page-title">写真アップロード管理</h1>
+        <p class="page-lead">
+          画像をアップロードして `photos` に登録します。書き込みAPIキーは保存されません。
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="container admin-upload-layout">
+          <p class="form-note" id="admin-guard-message">
+            このページはローカル運用を推奨します（本番公開サイトでの使用は非推奨）。
+          </p>
+          <form id="upload-form" class="contact-form" novalidate>
+            <h2 class="section-title">接続設定</h2>
+
+            <div class="form-field">
+              <label for="base-url">CMS Base URL</label>
+              <input type="text" id="base-url" name="baseUrl" required />
+            </div>
+
+            <div class="form-field">
+              <label for="api-key">Write API Key</label>
+              <input type="password" id="api-key" name="apiKey" required />
+            </div>
+
+            <div class="form-field">
+              <label for="media-path">画像アップロードパス</label>
+              <input type="text" id="media-path" name="mediaPath" value="/media" />
+            </div>
+
+            <h2 class="section-title">写真情報</h2>
+
+            <div class="form-field">
+              <label for="image-file">画像ファイル <span class="required">*</span></label>
+              <input type="file" id="image-file" name="imageFile" accept="image/*" required />
+            </div>
+
+            <div class="form-field">
+              <label for="title">タイトル <span class="required">*</span></label>
+              <input type="text" id="title" name="title" required />
+            </div>
+
+            <div class="form-field">
+              <label for="genre">ジャンル <span class="required">*</span></label>
+              <select id="genre" name="genre" required>
+                <option value="">選択してください</option>
+                <option value="american-football">アメリカンフットボール</option>
+                <option value="music-event">音楽イベント</option>
+                <option value="portrait">ポートレート</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="event-date">撮影日（eventDate）</label>
+              <input type="date" id="event-date" name="eventDate" />
+            </div>
+
+            <div class="form-field">
+              <label for="team">チーム / 被写体名</label>
+              <input type="text" id="team" name="team" />
+            </div>
+
+            <div class="form-field">
+              <label for="location">場所</label>
+              <input type="text" id="location" name="location" />
+            </div>
+
+            <div class="form-field">
+              <label for="tags">タグ（カンマ区切り）</label>
+              <input
+                type="text"
+                id="tags"
+                name="tags"
+                placeholder="x3, week07, sideline"
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="publish-status">公開状態</label>
+              <select id="publish-status" name="publishStatus">
+                <option value="draft">draft</option>
+                <option value="unlisted">unlisted</option>
+                <option value="public">public</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="featured-priority">featuredPriority</label>
+              <input type="number" id="featured-priority" name="featuredPriority" min="1" />
+            </div>
+
+            <div class="form-field">
+              <label for="project-id">projectId</label>
+              <input type="text" id="project-id" name="projectId" />
+            </div>
+
+            <div class="form-field">
+              <label for="caption">キャプション</label>
+              <textarea id="caption" name="caption" rows="5"></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn primary">アップロードして登録</button>
+              <p class="form-status" id="upload-status" aria-live="polite"></p>
+            </div>
+          </form>
+
+          <aside class="contact-side">
+            <h2 class="section-title">運用メモ</h2>
+            <ul class="notes-list">
+              <li>画像公開許諾が確認できたものだけ `public` にしてください。</li>
+              <li>命名規則: `YYYYMMDD_genre_team_event_seq` を推奨。</li>
+              <li>接続エラー時は `mediaPath` を `/upload` に変更して再試行してください。</li>
+            </ul>
+            <p class="form-note">
+              入力値とキーはこのページで永続保存しません。必要に応じて再入力してください。
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="logo-small">Itsuki Serikawa / JAN Studio</span>
+          <p class="footer-copy">
+            © <span id="footer-year-upload"></span> Itsuki Serikawa / JAN Studio. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/admin-upload.js"></script>
+  </body>
+</html>

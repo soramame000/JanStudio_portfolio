@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Journal | JAN Studio</title>
+    <meta
+      name="description"
+      content="JAN Studio のジャーナル。撮影の舞台裏やアップデートを掲載します。"
+    />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="page-blog">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">JAN Studio</a>
+        <nav class="global-nav" aria-label="メインナビゲーション">
+          <button
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="global-nav-list"
+          >
+            <span></span><span></span>
+          </button>
+          <ul id="global-nav-list">
+            <li><a href="index.html">Top</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html" aria-current="page">Blog</a></li>
+            <li>
+              <a
+                href="https://example.com/jan-studio-presets"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Presets</a
+              >
+            </li>
+            <li><a href="contact.html" class="nav-cta">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero container">
+        <p class="page-eyebrow">Journal</p>
+        <h1 class="page-title">ブログ・お知らせ</h1>
+        <p class="page-lead">
+          試合当日の裏側や撮影ポジションの工夫、スタジアムの雰囲気、機材セッティングなどを少しずつ綴っていきます。
+        </p>
+      </section>
+
+      <section class="section">
+        <div
+          class="container blog-list"
+          id="blog-list"
+          aria-live="polite"
+        >
+          <!-- 最新記事をJavaScriptでCMSから取得して表示 -->
+        </div>
+      </section>
+
+      <section class="section blog-detail" id="blog-detail" hidden>
+        <div class="container">
+          <button
+            type="button"
+            class="section-link blog-back"
+            id="blog-back-button"
+          >
+            ← 記事一覧に戻る
+          </button>
+          <article>
+            <header class="blog-detail-header">
+              <p class="blog-detail-date" id="blog-detail-date"></p>
+              <h2 class="blog-detail-title" id="blog-detail-title"></h2>
+            </header>
+            <div class="blog-detail-body" id="blog-detail-body">
+              <!-- 記事本文をレンダリング -->
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="logo-small">Itsuki Serikawa / JAN Studio</span>
+          <p class="footer-copy">
+            © <span id="footer-year-blog"></span> Itsuki Serikawa / JAN Studio. All
+            rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/blog.js"></script>
+  </body>
+</html>
+
