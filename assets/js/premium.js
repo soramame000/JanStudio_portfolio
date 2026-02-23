@@ -79,49 +79,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. カスタム・マグネティック・カーソル
-    if (typeof gsap !== "undefined" && window.matchMedia("(pointer: fine)").matches) {
-        // JSが正常稼働し、かつマウス操作環境の場合のみカスタムカーソルを有効化
-        document.body.classList.add('has-custom-cursor');
-
-        const cursor = document.createElement('div');
-        cursor.classList.add('premium-cursor');
-        document.body.appendChild(cursor);
-
-        const cursorFollower = document.createElement('div');
-        cursorFollower.classList.add('premium-cursor-follower');
-        document.body.appendChild(cursorFollower);
-
-        // 中心を起点にするためのGSAP設定
-        gsap.set(cursor, { xPercent: -50, yPercent: -50 });
-        gsap.set(cursorFollower, { xPercent: -50, yPercent: -50 });
-
-        let mouseX = 0, mouseY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-
-            // メインカーソル（点）は瞬時に追従
-            gsap.to(cursor, { x: mouseX, y: mouseY, duration: 0 });
-            // フォロワー（円）は滑らかに追従
-            gsap.to(cursorFollower, {
-                x: mouseX,
-                y: mouseY,
-                duration: 0.5,
-                ease: "power3.out"
-            });
-        });
-
-        // リンクやボタンに乗った際のカーソルの変形（吸い付くようなホバー体験）
-        const selectables = document.querySelectorAll('a, button, .gallery-item, .blog-card, input, textarea');
-        selectables.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursorFollower.classList.add('is-hovering');
-            });
-            el.addEventListener('mouseleave', () => {
-                cursorFollower.classList.remove('is-hovering');
-            });
-        });
-    }
+    // 2. カスタムカーソルは削除しました（通常のOSカーソルを使用）
 });

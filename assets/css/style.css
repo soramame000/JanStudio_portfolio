@@ -436,21 +436,19 @@ body::after {
 }
 
 .btn.primary {
-  background: radial-gradient(circle at 20% 10%,
-      #ffe38a,
-      transparent 52%),
-    linear-gradient(135deg, #ffc20e, #ffde59);
-  color: #07306a;
-  border-color: rgba(5, 32, 74, 0.25);
-  box-shadow: 0 6px 0 rgba(255, 194, 14, 0.52),
-    0 16px 26px rgba(5, 32, 74, 0.22);
+  background: linear-gradient(120deg, #00E5FF, #7000FF);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(112, 0, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .btn.ghost {
-  background: #fefefe;
-  border-color: rgba(0, 128, 255, 0.52);
-  color: #005fca;
-  box-shadow: 0 5px 0 rgba(0, 128, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .btn.large {
@@ -750,19 +748,21 @@ body::after {
   padding-inline: 13px;
   padding-block: 6px;
   border-radius: 999px;
-  border: 2px solid rgba(0, 128, 255, 0.26);
-  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
   font-size: 0.86rem;
   cursor: pointer;
-  color: #084082;
+  color: #fff;
   font-weight: 700;
-  box-shadow: 0 4px 0 rgba(5, 32, 74, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
 }
 
 .filter-btn.is-active {
-  background: linear-gradient(135deg, #ffc20e, #ffde59);
-  border-color: #ffbf00;
-  color: #07306a;
+  background: linear-gradient(120deg, #00E5FF, #7000FF);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(112, 0, 255, 0.4);
 }
 
 .gallery-grid {
@@ -3034,58 +3034,4 @@ html.lenis body {
   pointer-events: none;
 }
 
-/* --- Premium Magnetic Cursor --- */
-@media (pointer: fine) {
-
-  /* JSが正常に動作した場合のみデフォルトカーソルを隠す */
-  body.has-custom-cursor,
-  body.has-custom-cursor *,
-  body.has-custom-cursor a,
-  body.has-custom-cursor button {
-    cursor: none !important;
-  }
-}
-
-.premium-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 6px;
-  background-color: #00E5FF;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  /* translate is handled by gsap xPercent now */
-}
-
-.premium-cursor-follower {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  border: 1.5px solid rgba(0, 219, 255, 0.6);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1), height 0.3s cubic-bezier(0.19, 1, 0.22, 1), border-color 0.3s ease, background-color 0.3s ease;
-  backdrop-filter: blur(2px);
-}
-
-.premium-cursor-follower.is-hovering {
-  width: 80px;
-  height: 80px;
-  border-color: rgba(255, 218, 74, 0.8);
-  background-color: rgba(255, 218, 74, 0.1);
-}
-
-@media (pointer: coarse) {
-
-  /* スマホ・タブレットではカスタムカーソル無効化 */
-  .premium-cursor,
-  .premium-cursor-follower {
-    display: none !important;
-  }
-}
+/* --- Custom cursor removed --- */
