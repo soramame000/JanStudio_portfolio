@@ -75,7 +75,7 @@
           </div>
           <div class="gallery-card-meta">
             <span>${item.title || "Untitled"}</span>
-            <span>${item.genre || ""}</span>
+            <span>${Array.isArray(item.genre) ? item.genre.join(", ") : (item.genre || "")}</span>
           </div>
         </article>
       `

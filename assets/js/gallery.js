@@ -39,7 +39,12 @@
   let currentIndex = -1;
 
   function getCurrentItems(genre) {
-    return genre === "all" ? allPhotos : allPhotos.filter((p) => p.genre === genre);
+    return genre === "all" ? allPhotos : allPhotos.filter((p) => {
+      if (Array.isArray(p.genre)) {
+        return p.genre.includes(genre);
+      }
+      return p.genre === genre;
+    });
   }
 
   function toTimestamp(value) {
@@ -137,7 +142,7 @@
         </div>
         <div class="gallery-item-label">
           <span>${item.title || "Untitled"}</span>
-          <span>${item.genre || ""}</span>
+          <span>${Array.isArray(item.genre) ? item.genre.join(", ") : (item.genre || "")}</span>
         </div>
       </article>
     `
