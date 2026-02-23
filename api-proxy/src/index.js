@@ -13,7 +13,9 @@ const router = AutoRouter({
 
 // microCMS API fetch function
 async function fetchCMS(endpoint, env) {
-    const url = new URL(endpoint, env.CMS_BASE_URL);
+    const baseUrl = env.CMS_BASE_URL.replace(/\/+$/, '');
+    const path = endpoint.startsWith('/') ? endpoint : '/' + endpoint;
+    const url = new URL(baseUrl + path);
     const response = await fetch(url.toString(), {
         method: 'GET',
         headers: {
@@ -61,7 +63,9 @@ router.get('/api/*', async (request, env) => {
 
     // 例: /api/photos?limit=10 -> https://your-service.microcms.io/api/v1/photos?limit=10
     const cmsPath = url.pathname.replace('/api/', '/');
-    const targetUrl = new URL(cmsPath, env.CMS_BASE_URL);
+    const baseUrl = env.CMS_BASE_URL.replace(/\/+$/, '');
+    const path = cmsPath.startsWith('/') ? cmsPath : '/' + cmsPath;
+    const targetUrl = new URL(baseUrl + path);
 
     url.searchParams.forEach((value, key) => {
         targetUrl.searchParams.append(key, value);
