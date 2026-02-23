@@ -454,6 +454,74 @@ body {
   color: var(--color-muted);
 }
 
+/* Pricing page readability */
+.page-pricing .pricing-grid {
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+
+.page-pricing .pricing-card {
+  padding: 24px 24px 20px;
+}
+
+.page-pricing .pricing-card h2 {
+  margin-bottom: 8px;
+}
+
+.pricing-card-lead {
+  margin-bottom: 14px;
+  color: #42688f;
+  font-size: 0.94rem;
+}
+
+.pricing-table {
+  display: grid;
+  gap: 10px;
+}
+
+.pricing-row {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.7fr) minmax(0, 2fr) minmax(100px, 0.7fr);
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba(0, 137, 255, 0.16);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.plan-name {
+  margin: 0;
+  font-weight: 700;
+  color: #0b3a70;
+}
+
+.plan-detail {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #355d85;
+}
+
+.plan-price {
+  margin: 0;
+  text-align: right;
+  font-weight: 800;
+  color: #0a4c94;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+@media (max-width: 780px) {
+  .pricing-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .plan-price {
+    text-align: left;
+  }
+}
+
 .blog-preview-list,
 .blog-list {
   display: grid;
@@ -1819,16 +1887,16 @@ body.page-index {
   margin-top: 20px;
 }
 
-/* Reveal system */
-.hero,
-.proof-pill,
-.gallery-card,
-.pricing-card,
-.blog-card,
-.super-cta-inner,
-.section-title,
-.section-kicker,
-.about-badges li {
+/* Reveal system (top page only) */
+body.page-index .hero,
+body.page-index .proof-pill,
+body.page-index .gallery-card,
+body.page-index .pricing-card,
+body.page-index .blog-card,
+body.page-index .super-cta-inner,
+body.page-index .section-title,
+body.page-index .section-kicker,
+body.page-index .about-badges li {
   opacity: 0;
   transform: translateY(20px) scale(0.985);
   transition:
@@ -1837,15 +1905,15 @@ body.page-index {
   transition-delay: var(--reveal-delay, 0ms);
 }
 
-.hero.is-visible,
-.proof-pill.is-visible,
-.gallery-card.is-visible,
-.pricing-card.is-visible,
-.blog-card.is-visible,
-.super-cta-inner.is-visible,
-.section-title.is-visible,
-.section-kicker.is-visible,
-.about-badges li.is-visible {
+body.page-index .hero.is-visible,
+body.page-index .proof-pill.is-visible,
+body.page-index .gallery-card.is-visible,
+body.page-index .pricing-card.is-visible,
+body.page-index .blog-card.is-visible,
+body.page-index .super-cta-inner.is-visible,
+body.page-index .section-title.is-visible,
+body.page-index .section-kicker.is-visible,
+body.page-index .about-badges li.is-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
@@ -2776,5 +2844,56 @@ html.fx-lite body.page-gallery {
 
 html.fx-lite .hero-lightning {
   animation: none !important;
+}
+
+/* --- Image Loading Animations --- */
+.img-skeleton {
+  background: linear-gradient(90deg, #e2ebf5 25%, #c8daec 50%, #e2ebf5 75%);
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.5s infinite;
+  display: block;
+}
+
+@keyframes skeletonPulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.img-skeleton-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.img-skeleton-wrapper img {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.img-skeleton-wrapper img.img-loaded {
+  opacity: 1;
+}
+
+.img-skeleton-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, #e2ebf5 25%, #c8daec 50%, #e2ebf5 75%);
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.5s infinite;
+  transition: opacity 0.5s ease-out;
+}
+
+.img-skeleton-wrapper.is-loaded::before {
+  opacity: 0;
 }
 

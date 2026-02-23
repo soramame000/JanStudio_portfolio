@@ -3,8 +3,7 @@
 
   async function fetchJson(path, params = {}) {
     const baseUrl = config.CMS_BASE_URL;
-    const apiKey = config.CMS_API_KEY;
-    if (!baseUrl || !apiKey) {
+    if (!baseUrl) {
       console.warn("CMSの設定が未完了のため、ブログはダミー表示になります。");
       return null;
     }
@@ -14,11 +13,7 @@
       url.searchParams.set(key, String(value))
     );
 
-    const res = await fetch(url.toString(), {
-      headers: {
-        "X-API-KEY": apiKey
-      }
-    });
+    const res = await fetch(url.toString());
     if (!res.ok) {
       console.error("CMS fetch error", res.status, await res.text());
       return null;
@@ -58,10 +53,9 @@
         (post) => `
       <article class="blog-card" data-id="${post.id}">
         <div class="blog-card-thumb">
-          ${
-            post.thumbnail?.url
-              ? `<img src="${post.thumbnail.url}" alt="${post.title}" />`
-              : ""
+          ${post.thumbnail?.url
+            ? `<img src="${post.thumbnail.url}?w=800&q=80" alt="${post.title}" />`
+            : ""
           }
         </div>
         <div class="blog-card-body">

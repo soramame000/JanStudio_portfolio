@@ -13,7 +13,7 @@ cp .env.example .env
 
 `.env` を編集:
 
-- `APP_PASSWORD`: Y7#nQ2v!Kp9sL4xT
+- `APP_PASSWORD`: your-secure-password
 - `CMS_BASE_URL`: 例 `https://your-service.microcms.io/api/v1`
 - `CMS_API_KEY`: 書き込みAPIキー
 

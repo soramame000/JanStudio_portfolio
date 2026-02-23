@@ -12,7 +12,6 @@
 - `pricing.html` 料金・サービス
 - `blog.html` ブログ／お知らせ
 - `contact.html` お問い合わせ
-- `admin-upload.html` 写真アップロード管理
 - `assets/css/` スタイル
 - `assets/js/` JavaScript ロジック
 - `uploader-app/` 公開サイトと分離したアップロード専用アプリ
@@ -48,14 +47,10 @@ CMS_BASE_URL: "https://<your-service>.microcms.io/api/v1",
 CMS_API_KEY: "<発行された API キー>",
 ```
 
-### 写真アップロード管理ページ（ローカル専用）
+### 写真アップロード運用（ローカル専用）
 
-`admin-upload.html` で画像アップロードと `photos` 登録ができます。  
-セキュリティのため **localhost でのみ有効** です（公開環境ではフォームが無効化されます）。  
-書き込みキーを入力して利用してください（キーはページに永続保存しません）。
-
-- 初期 `mediaPath`: `/media`
-- 失敗時は `/upload` に変更して再試行
+画像アップロードと `photos` 登録は `uploader-app/` を使用します。  
+公開サイトとは分離し、ローカル環境でのみ運用してください。
 
 ## フォーム送信設定
 

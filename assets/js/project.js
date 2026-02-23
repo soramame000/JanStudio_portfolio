@@ -3,8 +3,7 @@
 
   async function fetchJson(path, params = {}) {
     const baseUrl = config.CMS_BASE_URL;
-    const apiKey = config.CMS_API_KEY;
-    if (!baseUrl || !apiKey) {
+    if (!baseUrl) {
       console.warn("CMSの設定が未完了のため、案件詳細はダミー表示になります。");
       return null;
     }
@@ -14,11 +13,7 @@
       url.searchParams.set(key, String(value))
     );
 
-    const res = await fetch(url.toString(), {
-      headers: {
-        "X-API-KEY": apiKey
-      }
-    });
+    const res = await fetch(url.toString());
     if (!res.ok) {
       console.error("CMS fetch error", res.status, await res.text());
       return null;
@@ -62,7 +57,7 @@
     }
 
     if (mainImageEl && project.mainImage?.url) {
-      mainImageEl.src = project.mainImage.url;
+      mainImageEl.src = project.mainImage.url + "?w=1600&q=85";
       mainImageEl.alt = project.title || "";
     }
 
@@ -77,8 +72,8 @@
         galleryEl.innerHTML = photos
           .map(
             (p) => `
-          <div class="project-gallery-item">
-            <img src="${p.image?.url || ""}" alt="${p.title || ""}" />
+          <div class="project-gallery-item img-skeleton-wrapper" style="height: 200px;">
+            <img src="${p.image?.url ? p.image.url + '?w=800&q=80' : ''}" alt="${p.title || ""}" onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');" />
           </div>
         `
           )

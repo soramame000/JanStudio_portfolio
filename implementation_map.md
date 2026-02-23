@@ -19,10 +19,6 @@
   - `publishStatus=public` フィルタ
   - `eventDate` 優先の並び替え
   - ライトボックス遷移は既存仕様を維持
-- `admin-upload.html` / `assets/js/admin-upload.js`
-  - 画像アップロード + `photos` 登録
-  - 必須メタデータ入力の運用をUI化
-  - localhost でのみ有効（公開環境では無効化）
 - `uploader-app/`
   - 公開サイトと分離したアップロード専用アプリ
 

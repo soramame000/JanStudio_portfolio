@@ -20,6 +20,10 @@
 - `confirmed`: 2024年頃に撮影開始
 - `confirmed`: 「X3 クラブアイランズ公式カメラマン」
 - `confirmed`: 使用機材は公開する
+- `confirmed`: 使用ボディ（Nikon Z9 / Nikon Z6III / Sony α9III / Nikon Z fc / Sony α6000）を公開する
+- `confirmed`: 使用レンズ（NIKKOR Z 24-70 f/2.8 S, 24-120 f/4 S, 70-200 f/2.8 VR S, 180-600 f/5.6-6.3 VR, 50 f/1.8 S, MC 50 f/2.8, FE 50-150 F2 GM）を公開する
+- `confirmed`: ライティング機材（Godox V1Pro Nikon / V100S Sony / AD300Pro）を公開する
+- `confirmed`: メモリーカード（SD・CFexpress 256GB〜1TB複数運用）を公開する
 - `confirmed`: 健康情報（双極性障害・ADHD）を公開する
 
 ## Pricing (`pricing.html`)

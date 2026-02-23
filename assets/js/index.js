@@ -3,8 +3,7 @@
 
   async function fetchJson(path, params = {}) {
     const baseUrl = config.CMS_BASE_URL;
-    const apiKey = config.CMS_API_KEY;
-    if (!baseUrl || !apiKey) {
+    if (!baseUrl) {
       console.warn("CMSの設定が未完了のため、ダミーコンテンツを表示します。");
       return null;
     }
@@ -14,11 +13,7 @@
       url.searchParams.set(key, String(value))
     );
 
-    const res = await fetch(url.toString(), {
-      headers: {
-        "X-API-KEY": apiKey
-      }
-    });
+    const res = await fetch(url.toString());
     if (!res.ok) {
       console.error("CMS fetch error", res.status, await res.text());
       return null;
@@ -67,15 +62,17 @@
     container.innerHTML = items
       .map(
         (item) => `
-        <article class="gallery-card" data-project-id="${
-          item.projectId || ""
-        }">
-          <img
-            src="${item.image?.url || ""}"
-            alt="${item.title || ""}"
-            loading="lazy"
-            decoding="async"
-          />
+        <article class="gallery-card" data-project-id="${item.projectId || ""
+          }">
+          <div class="img-skeleton-wrapper" style="height: 220px;">
+            <img
+              src="${item.image?.url ? item.image.url + '?w=800&q=80' : ''}"
+              alt="${item.title || ""}"
+              loading="lazy"
+              decoding="async"
+              onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');"
+            />
+          </div>
           <div class="gallery-card-meta">
             <span>${item.title || "Untitled"}</span>
             <span>${item.genre || ""}</span>
@@ -119,12 +116,11 @@
       .map(
         (post) => `
         <article class="blog-card" data-id="${post.id}">
-          <div class="blog-card-thumb">
-            ${
-              post.thumbnail?.url
-                ? `<img src="${post.thumbnail.url}" alt="${post.title}" loading="lazy" decoding="async" />`
-                : ""
-            }
+          <div class="blog-card-thumb img-skeleton-wrapper">
+            ${post.thumbnail?.url
+            ? `<img src="${post.thumbnail.url}?w=600&q=80" alt="${post.title}" loading="lazy" decoding="async" onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');" />`
+            : ""
+          }
           </div>
           <div class="blog-card-body">
             <h3 class="blog-card-title">${post.title}</h3>

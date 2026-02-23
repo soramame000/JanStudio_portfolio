@@ -3,8 +3,7 @@
 
   async function fetchJson(path, params = {}) {
     const baseUrl = config.CMS_BASE_URL;
-    const apiKey = config.CMS_API_KEY;
-    if (!baseUrl || !apiKey) {
+    if (!baseUrl) {
       console.warn("CMSの設定が未完了のため、ギャラリーはダミー表示になります。");
       return null;
     }
@@ -14,11 +13,7 @@
       url.searchParams.set(key, String(value))
     );
 
-    const res = await fetch(url.toString(), {
-      headers: {
-        "X-API-KEY": apiKey
-      }
-    });
+    const res = await fetch(url.toString());
     if (!res.ok) {
       console.error("CMS fetch error", res.status, await res.text());
       return null;
@@ -80,12 +75,15 @@
           data-thumb-index="${index}"
           aria-label="${item.title || "Untitled"}"
         >
-          <img
-            src="${item.image?.url || ""}"
-            alt="${item.title || ""}"
-            loading="lazy"
-            decoding="async"
-          />
+          <div class="img-skeleton-wrapper" style="height: 100%;">
+            <img
+              src="${item.image?.url ? item.image.url + '?w=200&q=60' : ''}"
+              alt="${item.title || ""}"
+              loading="lazy"
+              decoding="async"
+              onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');"
+            />
+          </div>
         </button>
       `
       )
@@ -128,12 +126,15 @@
         data-index="${index}"
         style="--item-delay:${index * 36}ms"
       >
-        <img
-          src="${item.image?.url || ""}"
-          alt="${item.title || ""}"
-          loading="lazy"
-          decoding="async"
-        />
+        <div class="img-skeleton-wrapper" style="height: 220px;">
+          <img
+            src="${item.image?.url ? item.image.url + '?w=800&q=80' : ''}"
+            alt="${item.title || ""}"
+            loading="lazy"
+            decoding="async"
+            onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');"
+          />
+        </div>
         <div class="gallery-item-label">
           <span>${item.title || "Untitled"}</span>
           <span>${item.genre || ""}</span>
@@ -158,7 +159,7 @@
     const target = currentItems[normalizedIndex];
     currentIndex = normalizedIndex;
 
-    const src = target.image?.url || "";
+    const src = target.image?.url ? target.image.url + "?w=1600&q=85" : "";
     const title = target.title || "";
     const caption = target.caption || "";
     const projectId = target.projectId;
