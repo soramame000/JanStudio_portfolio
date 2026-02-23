@@ -1,46 +1,103 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:opsz,wght@8..14,100..900&display=swap");
 
 :root {
-  --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    Arial, "Yu Gothic", "YuGothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
-    sans-serif;
-  --font-display: "Inter Tight", "Helvetica Neue", Arial, "Yu Gothic",
-    "YuGothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
-  --color-bg: #f2f9ff;
-  --color-text: #05204a;
-  --color-muted: #416289;
-  --color-accent: #ffc20e;
-  --color-accent-soft: #fff3c4;
-  --color-accent-blue: #0080ff;
-  --color-border: #b8d4f2;
-  --color-surface: #ffffff;
-  --shadow-soft: 0 14px 0 rgba(5, 32, 74, 0.12);
-  --radius-lg: 20px;
-  --radius-md: 14px;
+  --font-base: "Inter Tight", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --font-display: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --color-bg: #050507;
+  --color-text: #f0f4f8;
+  --color-muted: #829ab1;
+  --color-accent: #00E5FF;
+  --color-accent-soft: rgba(0, 229, 255, 0.15);
+  --color-accent-blue: #7000FF;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-surface: rgba(20, 20, 25, 0.5);
+  --shadow-soft: 0 24px 48px rgba(0, 0, 0, 0.6);
+  --radius-lg: 24px;
+  --radius-md: 16px;
   --radius-full: 999px;
-  --container-max: 1100px;
+  --container-max: 1240px;
 }
 
 body {
   font-family: var(--font-base);
   background:
-    radial-gradient(circle at 8% -10%,
-      rgba(0, 128, 255, 0.35),
-      transparent 48%),
-    radial-gradient(circle at 96% 108%,
-      rgba(255, 194, 14, 0.36),
-      transparent 50%),
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.75),
-      rgba(231, 244, 255, 0.82)),
-    repeating-linear-gradient(-45deg,
-      rgba(5, 32, 74, 0.035) 0,
-      rgba(5, 32, 74, 0.035) 2px,
-      transparent 2px,
-      transparent 14px),
+    radial-gradient(circle at 15% 0%, rgba(112, 0, 255, 0.15), transparent 45%),
+    radial-gradient(circle at 85% 100%, rgba(0, 229, 255, 0.1), transparent 45%),
     var(--color-bg);
   color: var(--color-text);
   line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* === CINEMATIC PREMIUM OVERRIDES === */
+.site-header {
+  background: rgba(5, 5, 7, 0.6) !important;
+  backdrop-filter: blur(24px) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  box-shadow: none !important;
+}
+
+.hero {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid var(--color-border) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: none !important;
+}
+
+.hero-image {
+  border: none !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8) !important;
+}
+
+.gallery-card,
+.blog-card,
+.pricing-card,
+.contact-form,
+.lightbox-dialog {
+  background: rgba(25, 25, 30, 0.4) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  color: var(--color-text) !important;
+}
+
+.gallery-card-meta,
+.gallery-item-label {
+  background: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.hero-title,
+.page-title,
+.section-title {
+  color: #fff !important;
+  text-shadow: none !important;
+  letter-spacing: -0.02em !important;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #00E5FF, #7000FF) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 10px 20px rgba(112, 0, 255, 0.3) !important;
+}
+
+.btn.ghost {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+.btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 28px rgba(0, 229, 255, 0.3) !important;
+}
+
+.logo {
+  text-shadow: none !important;
+  letter-spacing: 0.2em !important;
 }
 
 .container {
