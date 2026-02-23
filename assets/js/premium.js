@@ -2,26 +2,29 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     // 1. Lenis (Smooth Scroll) の初期化
-    const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
-        infinite: false,
-    });
+    let lenis;
+    if (typeof Lenis !== "undefined") {
+        lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
 
-    function raf(time) {
-        lenis.raf(time);
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
         requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
 
     // GSAP と Lenis の連動
-    if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+    if (typeof gsap !== "undefined" && lenis && typeof ScrollTrigger !== "undefined") {
         gsap.registerPlugin(ScrollTrigger);
         lenis.on('scroll', ScrollTrigger.update);
         gsap.ticker.add((time) => {
@@ -77,22 +80,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 2. カスタム・マグネティック・カーソル
-    const cursor = document.createElement('div');
-    cursor.classList.add('premium-cursor');
-    document.body.appendChild(cursor);
+    if (typeof gsap !== "undefined" && window.matchMedia("(pointer: fine)").matches) {
+        // JSが正常稼働し、かつマウス操作環境の場合のみカスタムカーソルを有効化
+        document.body.classList.add('has-custom-cursor');
 
-    const cursorFollower = document.createElement('div');
-    cursorFollower.classList.add('premium-cursor-follower');
-    document.body.appendChild(cursorFollower);
+        const cursor = document.createElement('div');
+        cursor.classList.add('premium-cursor');
+        document.body.appendChild(cursor);
 
-    let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
+        const cursorFollower = document.createElement('div');
+        cursorFollower.classList.add('premium-cursor-follower');
+        document.body.appendChild(cursorFollower);
 
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+        // 中心を起点にするためのGSAP設定
+        gsap.set(cursor, { xPercent: -50, yPercent: -50 });
+        gsap.set(cursorFollower, { xPercent: -50, yPercent: -50 });
 
-        // メインカーソル（点）は瞬時に追従
-        if (typeof gsap !== "undefined") {
+        let mouseX = 0, mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            // メインカーソル（点）は瞬時に追従
             gsap.to(cursor, { x: mouseX, y: mouseY, duration: 0 });
             // フォロワー（円）は滑らかに追従
             gsap.to(cursorFollower, {
@@ -101,17 +111,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 duration: 0.5,
                 ease: "power3.out"
             });
-        }
-    });
+        });
 
-    // リンクやボタンに乗った際のカーソルの変形（吸い付くようなホバー体験）
-    const selectables = document.querySelectorAll('a, button, .gallery-item, .blog-card, input, textarea');
-    selectables.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursorFollower.classList.add('is-hovering');
+        // リンクやボタンに乗った際のカーソルの変形（吸い付くようなホバー体験）
+        const selectables = document.querySelectorAll('a, button, .gallery-item, .blog-card, input, textarea');
+        selectables.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorFollower.classList.add('is-hovering');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorFollower.classList.remove('is-hovering');
+            });
         });
-        el.addEventListener('mouseleave', () => {
-            cursorFollower.classList.remove('is-hovering');
-        });
-    });
+    }
 });

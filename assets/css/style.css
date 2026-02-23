@@ -2989,15 +2989,11 @@ html.lenis body {
 /* --- Premium Magnetic Cursor --- */
 @media (pointer: fine) {
 
-  /* デフォルトのカーソルを隠す（PCのみ） */
-  body,
-  a,
-  button,
-  input,
-  textarea,
-  select,
-  .gallery-item,
-  .blog-card {
+  /* JSが正常に動作した場合のみデフォルトカーソルを隠す */
+  body.has-custom-cursor,
+  body.has-custom-cursor *,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button {
     cursor: none !important;
   }
 }
@@ -3008,12 +3004,11 @@ html.lenis body {
   left: 0;
   width: 6px;
   height: 6px;
-  background-color: var(--accent-light, #00dbff);
+  background-color: #00E5FF;
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
-  mix-blend-mode: exclusion;
+  /* translate is handled by gsap xPercent now */
 }
 
 .premium-cursor-follower {
