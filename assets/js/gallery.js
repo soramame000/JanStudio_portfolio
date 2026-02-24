@@ -133,7 +133,7 @@
         data-index="${index}"
         style="--item-delay:${index * 36}ms"
       >
-        <div class="img-skeleton-wrapper" style="height: 220px;">
+        <div class="img-skeleton-wrapper">
           <img
             src="${item.image?.url ? item.image.url + '?w=800&q=80' : ''}"
             alt="${item.title || ""}"
