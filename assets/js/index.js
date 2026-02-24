@@ -40,7 +40,12 @@
         orders: "-createdAt"
       })) || {};
     const items = (data.contents || [])
-      .filter((item) => !item.publishStatus || item.publishStatus === "public")
+      .filter((item) => {
+        const status = item.publishStatus;
+        if (!status) return true;
+        if (Array.isArray(status)) return status.includes("public");
+        return status === "public";
+      })
       .sort((a, b) => {
         const byPriority = toPriority(a.featuredPriority) - toPriority(b.featuredPriority);
         if (byPriority !== 0) return byPriority;

@@ -208,7 +208,12 @@
         orders: "-createdAt"
       })) || {};
     allPhotos = (data.contents || [])
-      .filter((item) => !item.publishStatus || item.publishStatus === "public")
+      .filter((item) => {
+        const status = item.publishStatus;
+        if (!status) return true;
+        if (Array.isArray(status)) return status.includes("public");
+        return status === "public";
+      })
       .sort((a, b) => {
         const byEventDate = toTimestamp(b.eventDate) - toTimestamp(a.eventDate);
         if (byEventDate !== 0) return byEventDate;
