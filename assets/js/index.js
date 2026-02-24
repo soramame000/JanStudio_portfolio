@@ -8,7 +8,9 @@
       return null;
     }
 
-    const url = new URL(path, baseUrl);
+    const base = baseUrl.replace(/\/+$/, '');
+    const endpoint = path.startsWith('/') ? path : '/' + path;
+    const url = new URL(base + endpoint);
     Object.entries(params).forEach(([key, value]) =>
       url.searchParams.set(key, String(value))
     );
