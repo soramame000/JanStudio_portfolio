@@ -410,12 +410,27 @@ input, select, textarea {
 .lightbox-dialog {
   background: rgba(12, 12, 16, 0.95) !important;
   backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .lightbox-image-wrapper {
   max-width: 90vw !important;
   max-height: 75vh !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent !important;
+  width: auto !important;
+  height: auto !important;
 }
 #lightbox-image {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 75vh !important;
+  object-fit: contain !important;
   box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-  border-radius: 8px;
+  border-radius: 4px;
+  background: transparent !important;
 }
