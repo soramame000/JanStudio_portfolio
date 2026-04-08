@@ -4,27 +4,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JAN Studio | Sports & Creative Photography</title>
+  <title>JAN STUDIO | 写真で、人の軸をつくる。</title>
   <meta name="description"
-    content="Itsuki Serikawa / JAN Studio のポートフォリオ。アメリカンフットボールを中心に、スポーツ・音楽イベント・ポートレート撮影とLightroomプリセット販売を行っています。" />
-  <link rel="stylesheet" href="assets/css/reset.css?v=1771923701" />
-  <link rel="stylesheet" href="assets/css/style.css?v=1771923701" />
+    content="JAN STUDIOは、撮影、機材、育成という3つの事業を通じて、人の可能性を鍛える写真ブランドスタジオです。" />
+  <link rel="stylesheet" href="assets/css/reset.css?v=1" />
+  <link rel="stylesheet" href="assets/css/style.css?v=1" />
+  <link rel="stylesheet" href="assets/css/renewal.css?v=1" />
 </head>
 
 <body class="page-index">
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">JAN Studio</a>
+      <a href="index.html" class="logo">JAN STUDIO</a>
       <nav class="global-nav" aria-label="メインナビゲーション">
         <button class="nav-toggle" aria-expanded="false" aria-controls="global-nav-list">
           <span></span><span></span>
         </button>
         <ul id="global-nav-list">
-          <li><a href="index.html">Top</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="index.html" aria-current="page">Top</a></li>
+          <li><a href="works.html">Works</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="journal.html">Journal</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="blog.html">Blog</a></li>
           <li>
             <a href="https://thebase.com/" target="_blank" rel="noopener noreferrer">Store</a>
           </li>
@@ -34,60 +35,86 @@
     </div>
   </header>
 
-  <main class="apple-chargers-home">
-    <div class="fx-grid-overlay" aria-hidden="true"></div>
-    <div class="fx-orb fx-orb-a" aria-hidden="true"></div>
-    <div class="fx-orb fx-orb-b" aria-hidden="true"></div>
-    <section class="hero">
-      <div class="hero-media">
-        <div class="hero-lightning" aria-hidden="true"></div>
-        <div class="hero-image hero-image-placeholder">
-          <img class="hero-bg-video" src="assets/img/hero-bg.jpg" alt="Sports photography hero" loading="eager" />
-          <div class="hero-video-overlay" aria-hidden="true"></div>
+  <main>
+    <div class="fx-grid-overlay is-reduced" aria-hidden="true"></div>
+
+    <section class="hero-renewal">
+      <div class="hero-slideshow" id="hero-slider">
+        <div class="hero-slide active" style="background-image: url('assets/img/hero-bg.jpg')">
+          <span class="hero-slide-genre">Sports</span>
+        </div>
+        <div class="hero-slide" style="background-image: url('assets/img/hero-bg.jpg'); filter: hue-rotate(45deg);">
+          <span class="hero-slide-genre">Live</span>
+        </div>
+        <div class="hero-slide" style="background-image: url('assets/img/hero-bg.jpg'); filter: hue-rotate(90deg);">
+          <span class="hero-slide-genre">Portrait</span>
         </div>
       </div>
       <div class="hero-content container">
-        <p class="hero-collab-tag">JAN Studio Visual Signature</p>
-        <p class="hero-eyebrow">American Football & Sports Photography</p>
-        <h1 class="hero-title fx-glitch-heading">
-          <span class="hero-line" data-text="Clean. Bold. Electric.">Clean. Bold. Electric.</span>
-          <span class="hero-line" data-text="試合の熱を、研ぎ澄ます。">試合の熱を、研ぎ澄ます。</span>
-        </h1>
-        <p class="hero-text">
-          2024年から撮影を開始。現在の公開ポートフォリオはアメリカンフットボールを中心に構成しています。社会人アメフトX3リーグ「クラブアイランズ」の公式カメラマンとして活動し、音楽イベント撮影にも対応しています。
-        </p>
-        <ul class="hero-metrics" aria-label="特徴">
-          <li>Fast game emotion</li>
-          <li>Minimal premium look</li>
-          <li>Electric highlight color</li>
-        </ul>
+        <h1 class="hero-title">JAN STUDIO</h1>
+        <p class="hero-tagline">Shoot. Equip. Forge.</p>
+        <p class="hero-copy">一瞬を鍛え、記憶に残す。</p>
         <div class="hero-actions">
-          <a href="gallery.html" class="btn primary">作品を見る</a>
-          <a href="contact.html" class="btn ghost">試合撮影の相談をする</a>
+          <a href="works.html" class="btn primary">Works を見る</a>
+          <a href="contact.html?type=consult" class="btn ghost">撮影を相談する</a>
         </div>
       </div>
     </section>
 
-    <section class="section section-proof-strip">
-      <div class="container proof-strip-inner">
-        <div class="proof-pill">Exclusive Band Photographer</div>
-        <div class="proof-pill">X3 Club Islands Official Photographer</div>
-        <div class="proof-pill">Portfolio: American Football & Music</div>
-        <div class="proof-pill">Based in Kansai, business trip available</div>
+    <section class="section section-brand-statement">
+      <div class="container text-center">
+        <h2 class="statement-text">
+          撮影、機材、育成。<br>
+          写真を軸に、人の可能性を鍛えるスタジオ。
+        </h2>
+        <p class="statement-sub">
+          現場の熱量を切り取る「SHOOT」、現場から生まれた道具を届ける「EQUIP」、<br>
+          そして写真を通じて表現と仕事を鍛える「FORGE」。<br>
+          私たちは写真を通じて、人が自らの軸をつくるためのすべてのプロセスに伴走します。
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-pillars">
+      <div class="container pillars-grid">
+        <article class="pillar-card pointer" onclick="window.location.href='services.html'">
+          <div class="pillar-img-wrap">
+            <img src="assets/img/hero-bg.jpg" alt="SHOOT" />
+            <div class="pillar-label">SHOOT</div>
+          </div>
+          <h3>瞬間を鍛え<br>記憶に残す</h3>
+          <span class="pillar-link">詳しく →</span>
+        </article>
+        
+        <article class="pillar-card disabled">
+          <div class="pillar-img-wrap">
+            <img src="assets/img/hero-bg.jpg" alt="EQUIP" style="filter: grayscale(0.5);" />
+            <div class="pillar-label">EQUIP</div>
+            <div class="pillar-badge">2026</div>
+          </div>
+          <h3>現場から<br>生まれた道具</h3>
+          <span class="pillar-link">BASEへ進む →</span>
+        </article>
+        
+        <article class="pillar-card disabled">
+          <div class="pillar-img-wrap">
+            <img src="assets/img/profile.jpg" alt="FORGE" style="filter: grayscale(0.5);" />
+            <div class="pillar-label">FORGE</div>
+            <div class="pillar-badge">2026</div>
+          </div>
+          <h3>写真で<br>人の軸をつくる</h3>
+          <span class="pillar-link">準備中</span>
+        </article>
       </div>
     </section>
 
     <section class="section section-energy-ticker" aria-label="ブランドメッセージ">
       <div class="ticker-track">
         <p>
-          ELECTRIC MOMENT / APPLE-LEVEL MINIMAL / CHARGERS ENERGY / GAME DAY
-          STORY / ELECTRIC MOMENT / APPLE-LEVEL MINIMAL / CHARGERS ENERGY /
-          GAME DAY STORY /
+          SHOOT. EQUIP. FORGE. / JAN STUDIO / SHOOT. EQUIP. FORGE. / JAN STUDIO / SHOOT. EQUIP. FORGE. / JAN STUDIO /
         </p>
         <p aria-hidden="true">
-          ELECTRIC MOMENT / APPLE-LEVEL MINIMAL / CHARGERS ENERGY / GAME DAY
-          STORY / ELECTRIC MOMENT / APPLE-LEVEL MINIMAL / CHARGERS ENERGY /
-          GAME DAY STORY /
+          SHOOT. EQUIP. FORGE. / JAN STUDIO / SHOOT. EQUIP. FORGE. / JAN STUDIO / SHOOT. EQUIP. FORGE. / JAN STUDIO /
         </p>
       </div>
     </section>
@@ -95,94 +122,76 @@
     <section class="section section-gallery-preview landing-featured">
       <div class="container section-header section-header-stack">
         <p class="section-kicker">Featured Works</p>
-        <h2 class="section-title">瞬間を、プロダクトのように美しく。</h2>
+        <h2 class="section-title">最新の撮影実績</h2>
         <p class="section-lead">
-          American footballを中心に、緊張と歓喜が切り替わる一瞬を、クリアで力強いビジュアルに仕上げています。
+          スポーツ・音楽・ポートレートなど、一瞬を美しく切り取った案件をご紹介します。
         </p>
-        <a href="gallery.html" class="section-link">すべての作品を見る</a>
+        <a href="works.html" class="section-link">すべての作品を見る → Works</a>
       </div>
       <div class="container gallery-preview-grid" id="featured-gallery" aria-live="polite">
-        <!-- JavaScriptでCMSから取得して表示予定 -->
+        <!-- JavaScriptでCMSから取得 -->
+      </div>
+    </section>
+
+    <section class="section section-services-teaser">
+      <div class="container">
+        <div class="section-header section-header-stack">
+          <p class="section-kicker">Services</p>
+          <h2 class="section-title">どんな場面でも、一瞬を逃さない。</h2>
+          <p class="section-lead">
+            チーム撮影からイベント、ポートレートまで、目的に応じた撮影プランをご用意しています。
+          </p>
+        </div>
+        <div class="services-teaser-grid">
+           <div class="teaser-item">
+             <img src="assets/img/hero-bg.jpg" alt="Team Sports" />
+             <h4>スポーツチーム撮影</h4>
+           </div>
+           <div class="teaser-item">
+             <img src="assets/img/hero-bg.jpg" alt="Live Event" style="filter: hue-rotate(90deg);" />
+             <h4>イベント撮影</h4>
+           </div>
+           <div class="teaser-item">
+             <img src="assets/img/profile.jpg" alt="Portrait" />
+             <h4>ポートレート撮影</h4>
+           </div>
+        </div>
+        <a href="services.html" class="section-link" style="margin-top: 16px; display: inline-block;">料金・サービスの詳細 → Services</a>
       </div>
     </section>
 
     <section class="section section-about-preview landing-about">
       <div class="container about-preview-inner">
         <div class="about-preview-photo">
-          <img src="assets/img/profile.jpg" alt="Itsuki Serikawa" class="avatar-image"
+          <img src="assets/img/profile.jpg" alt="JAN STUDIO" class="avatar-image"
             onerror="this.outerHTML='<div class=\'avatar-placeholder\'></div>'">
         </div>
         <div class="about-preview-content">
-          <p class="section-kicker">About Photographer</p>
-          <h2 class="section-title">ストーリーを残すための、スポーツ・音楽撮影。</h2>
+          <p class="section-kicker">Founder</p>
+          <h2 class="section-title">JAN STUDIO 糴川 樹</h2>
           <p class="section-lead">
-            Itsuki Serikawa / 関西拠点のフォトグラファー。American footballや音楽ライブを中心に、競技のスピード感やアーティストの感情が伝わる一瞬を追いかけています。
+            アスリートとしての原体験から、スポーツ撮影の道へ。そして、写真を通じて人の可能性を鍛えるブランドの構想へ。
           </p>
           <p>
-            学生から社会人まで様々なスポーツ競技を撮影する傍ら、バンドの専属カメラマンとしても活動。現在は社会人アメフトリーグX3「クラブアイランズ」の公式チームカメラマンも務め、タックルやライブパフォーマンスの一瞬だけでなく、その前後のストーリーも含めて切り取ることを大切にしています。
+            自らもスポーツの最前線で競い合った経験を活かし、プレーヤーの息遣いや限界に挑む瞬間を鮮明に切り取ります。
           </p>
-          <ul class="about-badges" aria-label="撮影スタイル">
-            <li>Sideline documentary</li>
-            <li>Emotion-focused editing</li>
-            <li>Fast delivery workflow</li>
-          </ul>
-          <a href="about.html" class="section-link">プロフィールを詳しく見る</a>
+          
+          <a href="about.html" class="section-link">About JAN STUDIO → About</a>
         </div>
-      </div>
-    </section>
-
-    <section class="section section-pricing-preview landing-pricing">
-      <div class="container">
-        <div class="section-header section-header-stack">
-          <p class="section-kicker">Services & Pricing</p>
-          <h2 class="section-title">目的別に選べる、4つの撮影プラン。</h2>
-          <p class="section-lead">
-            スポーツチーム、アスリート個人、イベント、ポートレートまで、用途に合わせて選べる価格プランを公開しています。
-          </p>
-        </div>
-        <div class="pricing-preview-grid">
-          <article class="pricing-card">
-            <h3>A. スポーツチーム撮影</h3>
-            <p class="price">¥30,000〜</p>
-            <p>1試合のライトプランから、シーズン契約（月額 ¥50,000〜）まで対応します。</p>
-          </article>
-          <article class="pricing-card">
-            <h3>B. イベント撮影</h3>
-            <p class="price">¥20,000〜</p>
-            <p>スポーツイベント・音楽イベントの記録撮影に対応しています。</p>
-          </article>
-          <article class="pricing-card">
-            <h3>C. ポートレート撮影</h3>
-            <p class="price">¥15,000〜</p>
-            <p>個人プロフィール、宣材、SNS向けまで幅広く撮影します。</p>
-          </article>
-        </div>
-        <a href="pricing.html" class="section-link">料金・サービスの詳細を見る</a>
-      </div>
-    </section>
-
-    <section class="section section-preset-store">
-      <div class="container section-header section-header-stack">
-        <p class="section-kicker">Official Store (BASE)</p>
-        <h2 class="section-title">JAN Studio MERCH & PRESETS</h2>
-        <p class="section-lead">
-          JAN Studioのオリジナルグッズや、実際の編集で使用しているLightroomプリセットなどをBASE公式ショップにて販売しています。
-        </p>
-        <a href="https://thebase.com/" class="btn primary" target="_blank" rel="noopener noreferrer">BASE ショップへアクセス</a>
       </div>
     </section>
 
     <section class="section section-blog-preview landing-journal">
       <div class="container section-header section-header-stack">
         <p class="section-kicker">Journal</p>
-        <h2 class="section-title">現場の空気を、次の撮影に活かすノート。</h2>
+        <h2 class="section-title">活動の発信と現場の記録</h2>
         <p class="section-lead">
-          試合当日の裏側やスタジアムの雰囲気、撮影ポジションや機材の話などを綴っています。
+          撮影レポート、機材レビュー、そして育成事業への構想メモなど。
         </p>
-        <a href="blog.html" class="section-link">すべての記事を見る</a>
+        <a href="journal.html" class="section-link">すべての記事を見る</a>
       </div>
       <div class="container blog-preview-list" id="latest-posts">
-        <!-- JavaScriptでCMSから最新記事を取得して表示予定 -->
+        <!-- JavaScriptでCMSから取得 -->
       </div>
     </section>
 
@@ -193,32 +202,23 @@
         <p class="section-lead">
           撮影内容が固まっていなくても大丈夫です。イメージの段階から一緒に形にしていきましょう。
         </p>
-        <a href="contact.html" class="btn primary large">問い合わせフォームへ</a>
-      </div>
-    </section>
-
-    <section class="section section-super-cta">
-      <div class="container super-cta-inner">
-        <p class="super-cta-eyebrow">LIMITLESS SPORTS VISUAL</p>
-        <h2>Stadium Heat. Silicon Precision.</h2>
-        <p>
-          アメリカンスポーツの熱量を、プロダクトのように美しく。チームの魅力が一目で伝わるビジュアル設計まで含めてご提案します。
-        </p>
-        <div class="super-cta-actions">
-          <a href="gallery.html" class="btn ghost">作品を一気に見る</a>
-          <a href="contact.html" class="btn primary">今すぐ相談する</a>
+        <div style="display: flex; gap: 16px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
+          <a href="contact.html?type=shoot" class="btn primary large">撮影を依頼する</a>
+          <a href="https://thebase.com/" class="btn ghost large" target="_blank">Storeを見る</a>
+          <a href="contact.html?type=forge" class="btn ghost large">FORGEについて</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="logo-small">Itsuki Serikawa / JAN Studio</span>
+        <span class="logo-small">JAN STUDIO</span>
         <p class="footer-copy">
           © <span id="copyright-year"></span>
-          Itsuki Serikawa / JAN Studio. All rights reserved.
+          JAN STUDIO. All rights reserved.
         </p>
       </div>
       <div class="footer-links">
@@ -230,15 +230,36 @@
     </div>
   </footer>
 
-  <script src="assets/js/config.js?v=1771923741"></script>
-  <script src="assets/js/main.js?v=1771923741"></script>
-  <script src="assets/js/index.js?v=1771923741"></script>
-  <script src="assets/js/index-effects.js?v=1771923741"></script>
-  <script src="assets/js/ultra-effects.js?v=1771923741"></script>
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js?v=1771923741"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js?v=1771923741"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?v=1771923741"></script>
-  <script src="assets/js/premium.js?v=1771923741"></script>
+  <a href="contact.html?type=shoot" class="floating-cta" id="floating-cta">撮影を相談する</a>
+
+  <script src="assets/js/config.js?v=2"></script>
+  <script src="assets/js/main.js?v=2"></script>
+  <script src="assets/js/index.js?v=2"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const slides = document.querySelectorAll(".hero-slide");
+      let currentSlide = 0;
+      if (slides.length > 1) {
+        setInterval(() => {
+          slides[currentSlide].classList.remove("active");
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].classList.add("active");
+        }, 5000);
+      }
+
+      // Floating CTA logic
+      const floatingCta = document.getElementById("floating-cta");
+      if (floatingCta) {
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 500) {
+            floatingCta.classList.add("visible");
+          } else {
+            floatingCta.classList.remove("visible");
+          }
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>

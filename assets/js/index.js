@@ -98,7 +98,7 @@
           projectId
         )}`;
       } else {
-        window.location.href = "gallery.html";
+        window.location.href = "works.html";
       }
     });
   }
@@ -145,7 +145,7 @@
       if (!card) return;
       const id = card.dataset.id;
       if (id) {
-        window.location.href = `blog.html?id=${encodeURIComponent(id)}`;
+        window.location.href = `journal.html?id=${encodeURIComponent(id)}`;
       }
     });
   }

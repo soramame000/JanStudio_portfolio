@@ -4,28 +4,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | JAN Studio</title>
-  <meta name="description" content="Itsuki Serikawa / JAN Studio のプロフィール。スポーツ撮影の背景と活動内容を紹介します。" />
-  <link rel="stylesheet" href="assets/css/reset.css?v=1771923701" />
-  <link rel="stylesheet" href="assets/css/style.css?v=1771923701" />
+  <title>About | JAN STUDIO</title>
+  <meta name="description" content="JAN STUDIOのブランドストーリー。写真を軸に、人の可能性を鍛えるスタジオです。" />
+  <link rel="stylesheet" href="assets/css/reset.css?v=2" />
+  <link rel="stylesheet" href="assets/css/style.css?v=2" />
+  <link rel="stylesheet" href="assets/css/renewal.css?v=2" />
+  <style>
+    /* Add specific styles for about page accordion */
+    .equipment-accordion summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--color-accent);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--color-border);
+      outline: none;
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+    }
+    .equipment-accordion summary::after {
+      content: '+';
+      color: var(--color-muted);
+    }
+    .equipment-accordion[open] summary::after {
+      content: '-';
+    }
+    .equipment-accordion .accordion-content {
+      padding: 16px 0;
+    }
+  </style>
 </head>
 
 <body class="page-about">
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">JAN Studio</a>
+      <a href="index.html" class="logo">JAN STUDIO</a>
       <nav class="global-nav" aria-label="メインナビゲーション">
         <button class="nav-toggle" aria-expanded="false" aria-controls="global-nav-list">
           <span></span><span></span>
         </button>
         <ul id="global-nav-list">
           <li><a href="index.html">Top</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="works.html">Works</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="journal.html">Journal</a></li>
           <li><a href="about.html" aria-current="page">About</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="blog.html">Blog</a></li>
           <li>
-            <a href="#" target="_blank" rel="noopener noreferrer">Presets</a>
+            <a href="https://thebase.com/" target="_blank" rel="noopener noreferrer">Store</a>
           </li>
           <li><a href="contact.html" class="nav-cta">Contact</a></li>
         </ul>
@@ -36,60 +61,58 @@
   <main>
     <section class="page-hero container">
       <p class="page-eyebrow">About</p>
-      <h1 class="page-title">プロフィール</h1>
+      <h1 class="page-title">JAN STUDIOについて</h1>
       <p class="page-lead">
-        関西を拠点に、アメリカンフットボールを中心としたスポーツ撮影を行っています。自身の競技経験を背景に、プレーの熱量が伝わる写真を目指しています。
+        写真を軸に、人の可能性を鍛える。
       </p>
     </section>
 
-    <section class="section">
+    <!-- BRAND STORY -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <h2 class="section-title">ブランドストーリー</h2>
+        <div style="margin-top: 24px; max-width: 800px; color: var(--color-text);">
+          <p style="margin-bottom: 16px;">
+            JAN STUDIOは、ただ目の前の光景を記録するだけのカメラマンではありません。<br>
+            私たちは、被写体の「熱量」と「文脈」を理解し、一瞬をプロダクトのように美しく切り取ります。
+          </p>
+          <p style="margin-bottom: 16px;">
+            ブランドの核は「鍛える」こと。<br>
+            撮影現場では技術と研ぎ澄まされた集中力を。そして、近い将来に立ち上げる育成事業（FORGE）では、表現と仕事を育てるプロセスを。<br>
+            私たちは写真を通じて、人が自らの軸をつくるためのすべての実践に伴走します。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUNDER -->
+    <section class="section" style="background: rgba(255,255,255,0.03); border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
       <div class="container about-layout">
         <div class="about-photo">
-          <img src="assets/img/profile.jpg" alt="Itsuki Serikawa" class="avatar-image avatar-large-image"
+          <img src="assets/img/profile.jpg" alt="糴川 樹 / Itsuki Serikawa" class="avatar-image avatar-large-image"
             onerror="this.outerHTML='<div class=\'avatar-large-placeholder\'></div>'">
         </div>
         <div class="about-content">
-          <h2 class="section-title">糴川 樹 / Itsuki Serikawa</h2>
-          <p>
-            私立洛南高校出身。自身もアスリートとして活動し、中学生時に水泳で近畿選抜・全国2位、高校卒業時にはパワーリフティングU18世界3位を経験しました。2024年頃からカメラを始め、スポーツの迫力を写真で残すことに取り組んでいます。
+          <h2 class="section-title">Founder — 糴川 樹 / Itsuki Serikawa</h2>
+          <p style="margin-top: 24px; margin-bottom: 16px;">
+            アスリートとしての原体験（パワーリフティングU18世界3位・水泳全国2位）を持ち、競技者の息遣いや限界に挑む感覚を知るからこそ、プレーの文脈が伝わる撮影を信条としています。
           </p>
-          <p>
-            現在は関西を拠点に、アメリカンフットボールを中心に撮影。プレーのピークだけでなく、その前後の文脈まで伝わるカットを意識しています。音楽イベント撮影にも対応しています。
-          </p>
-          <p>
-            社会人アメフトX3リーグ「クラブアイランズ」の公式カメラマンとして活動中です。双極性障害とADHDを抱えながらも、現場での撮影を継続しています。
+          <p style="margin-bottom: 16px;">
+            現在は関西を拠点に、社会人アメフトリーグX3「クラブアイランズ」の公式カメラマンを務めるほか、多彩な分野の撮影に対応。また、自身が双極性障害とADHDを抱えながらも現場に立ち続ける実践そのものが、JAN STUDIOの「人の軸を鍛える」というブランド思想の原点になっています。（※当事者起点の育成事業は、現在準備中です。）
           </p>
         </div>
       </div>
     </section>
 
+    <!-- EQUIPMENT (Accordion) -->
     <section class="section">
-      <div class="container">
-        <h2 class="section-title">経歴・実績</h2>
-        <ul class="timeline">
-          <li>
-            <span class="timeline-year">中学生時代</span>
-            <p>水泳で近畿選抜、全国2位。</p>
-          </li>
-          <li>
-            <span class="timeline-year">高校卒業時</span>
-            <p>パワーリフティングU18世界3位。</p>
-          </li>
-          <li>
-            <span class="timeline-year">2024年〜現在</span>
-            <p>スポーツ撮影を開始。現在は社会人アメフトX3リーグ「クラブアイランズ」公式カメラマンとして活動。</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">使用機材</h2>
-        <div class="equipment-grid">
-          <div class="equipment-column">
-            <h3>Body</h3>
-            <ul>
+      <div class="container" style="max-width: 800px; margin: 0 auto;">
+        <h2 class="section-title" style="margin-bottom: 32px;">使用機材</h2>
+        
+        <details class="equipment-accordion">
+          <summary>Camera Bodies</summary>
+          <div class="accordion-content">
+            <ul class="options-list">
               <li>Nikon Z9</li>
               <li>Nikon Z6III</li>
               <li>Sony α9III</li>
@@ -97,9 +120,12 @@
               <li>SD・CFexpressカード（256GB〜1TB）を複数運用</li>
             </ul>
           </div>
-          <div class="equipment-column">
-            <h3>Lens</h3>
-            <ul>
+        </details>
+        
+        <details class="equipment-accordion">
+          <summary>Lenses</summary>
+          <div class="accordion-content">
+            <ul class="options-list">
               <li>NIKKOR Z 24-70mm f/2.8 S</li>
               <li>NIKKOR Z 24-120mm f/4 S</li>
               <li>NIKKOR Z 70-200mm f/2.8 VR S</li>
@@ -108,26 +134,30 @@
               <li>FE 50-150mm F2 GM (SEL50150GM)</li>
             </ul>
           </div>
-          <div class="equipment-column">
-            <h3>Lighting & Other</h3>
-            <ul>
-              <li>Godox V1Pro Nikon</li>
-              <li>Godox V100S Sony</li>
+        </details>
+        
+        <details class="equipment-accordion">
+          <summary>Lighting & Other</summary>
+          <div class="accordion-content">
+            <ul class="options-list">
+              <li>Godox V1Pro Nikon / Godox V100S Sony</li>
               <li>Godox AD300Pro</li>
             </ul>
           </div>
-        </div>
+        </details>
       </div>
     </section>
 
     <section class="section section-cta">
-      <div class="container">
+      <div class="container text-center">
         <h2 class="section-title">撮影のご依頼について</h2>
-        <p class="section-lead">
+        <p class="section-lead" style="margin: 0 auto 24px auto;">
           撮影の目的やイメージ、納期やご予算などをお伺いしながら、最適なプランをご提案します。
         </p>
-        <a href="pricing.html" class="btn ghost">料金プランを見る</a>
-        <a href="contact.html" class="btn primary">問い合わせフォームへ</a>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="services.html" class="btn ghost">料金プランを見る</a>
+          <a href="contact.html" class="btn primary">問い合わせフォームへ</a>
+        </div>
       </div>
     </section>
   </main>
@@ -135,21 +165,29 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="logo-small">Itsuki Serikawa / JAN Studio</span>
+        <span class="logo-small">JAN STUDIO</span>
         <p class="footer-copy">
-          © <span id="footer-year-about"></span> Itsuki Serikawa / JAN Studio. All
-          rights reserved.
+          © <span id="footer-year-about"></span> JAN STUDIO. All rights reserved.
         </p>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/config.js?v=1771923741"></script>
-  <script src="assets/js/main.js?v=1771923741"></script>
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js?v=1771923741"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js?v=1771923741"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?v=1771923741"></script>
-  <script src="assets/js/premium.js?v=1771923741"></script>
-</body>
+  <a href="contact.html?type=shoot" class="floating-cta" id="floating-cta">撮影を相談する</a>
 
+  <script src="assets/js/config.js?v=2"></script>
+  <script src="assets/js/main.js?v=2"></script>
+  <script>
+    const floatingCta = document.getElementById("floating-cta");
+    if (floatingCta) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 500) {
+          floatingCta.classList.add("visible");
+        } else {
+          floatingCta.classList.remove("visible");
+        }
+      });
+    }
+  </script>
+</body>
 </html>

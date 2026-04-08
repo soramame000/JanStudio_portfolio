@@ -1,0 +1,351 @@
+/* assets/css/renewal.css */
+/* Overrides for JAN STUDIO Renewal Phase 1 */
+
+:root {
+  --color-bg: #0C0C10 !important;
+  --color-surface: #16161C !important;
+  --color-text: #EDEDF0 !important;
+  --color-muted: #7A7A8C !important;
+  --color-accent: #E8572A !important;
+  --color-accent-blue: #F0A030 !important;
+  --color-forge: #2ABFA0 !important;
+  --radius-lg: 16px !important;
+  --radius-md: 12px !important;
+}
+
+body {
+  background: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+
+.hero-renewal {
+  position: relative;
+  height: 85vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  transform: scale(1);
+}
+
+.hero-slide.active {
+  opacity: 0.6;
+  animation: kenBurns 10s ease-out forwards;
+}
+
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.hero-slide-genre {
+  position: absolute;
+  bottom: 15%;
+  right: 15%;
+  font-size: 1.2rem;
+  letter-spacing: 0.2em;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+
+.hero-slide.active .hero-slide-genre {
+  opacity: 0.8;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  color: #fff;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+.hero-tagline {
+  font-size: 1.2rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-accent-blue);
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.hero-copy {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 32px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-blue)) !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.2) !important;
+  box-shadow: 0 10px 20px rgba(232, 87, 42, 0.3) !important;
+}
+
+.btn.ghost {
+  border-color: rgba(255,255,255,0.3) !important;
+  color: #fff !important;
+}
+
+/* Statement */
+.section-brand-statement {
+  padding: 120px 0;
+}
+.text-center {
+  text-align: center;
+}
+.statement-text {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.6;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.statement-sub {
+  color: var(--color-muted);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* Pillars */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.pillar-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pillar-card.pointer {
+  cursor: pointer;
+}
+
+.pillar-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  border-color: var(--color-accent);
+}
+
+.pillar-card.disabled {
+  opacity: 0.7;
+}
+
+.pillar-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  margin-bottom: 24px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.pillar-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pillar-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 16px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+
+.pillar-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.pillar-card h3 {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.pillar-link {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* Services Teaser */
+.services-teaser-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+.teaser-item {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 3/2;
+}
+.teaser-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+.teaser-item:hover img {
+  opacity: 1;
+}
+.teaser-item h4 {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.section-title::after {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-blue)) !important;
+}
+
+/* Force light theme elements back to dark */
+.site-header {
+  background: rgba(12, 12, 16, 0.8) !important;
+  border-color: var(--color-border) !important;
+}
+.logo, .global-nav ul {
+  color: var(--color-text) !important;
+}
+.global-nav a::after {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-blue)) !important;
+}
+.section-kicker {
+  color: var(--color-accent-blue) !important;
+}
+.contact-form,
+.landing-about .about-preview-inner {
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+}
+input, select, textarea {
+  background: rgba(255,255,255,0.05) !important;
+  color: var(--color-text) !important;
+  border-color: rgba(255,255,255,0.1) !important;
+}
+.site-footer {
+  background: rgba(8, 8, 12, 0.9) !important;
+  border-top-color: var(--color-border) !important;
+}
+.footer-copy {
+  color: var(--color-muted) !important;
+}
+
+/* Disable old apple-chargers overrides completely on page-index */
+.fx-grid-overlay.is-reduced {
+  opacity: 0.05 !important;
+  background: linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px) 0 0 / 100px 100px,
+              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px) 0 0 / 100px 100px !important;
+  mask-image: none !important;
+  animation: none !important;
+}
+
+.ticker-track {
+  background: transparent !important;
+  border-color: var(--color-border) !important;
+}
+.ticker-track p {
+  color: var(--color-text) !important;
+  opacity: 0.3;
+  text-shadow: none !important;
+}
+
+.gallery-card {
+  background: #000 !important;
+  border-color: var(--color-border) !important;
+}
+.gallery-card-meta {
+  background: rgba(0,0,0,0.8) !important;
+}
+
+/* Floating CTA button */
+.floating-cta {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 100;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-blue));
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 8px 32px rgba(232, 87, 42, 0.4);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.floating-cta.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+.floating-cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(232, 87, 42, 0.6);
+}

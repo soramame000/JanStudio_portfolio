@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Works | JAN STUDIO</title>
+  <meta name="description" content="JAN STUDIOの撮影実績。スポーツ、音楽、ポートレートなどのCase Studyをご紹介します。" />
+  <link rel="stylesheet" href="assets/css/reset.css?v=2" />
+  <link rel="stylesheet" href="assets/css/style.css?v=2" />
+  <link rel="stylesheet" href="assets/css/renewal.css?v=2" />
+</head>
+
+<body class="page-gallery">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">JAN STUDIO</a>
+      <nav class="global-nav" aria-label="メインナビゲーション">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="global-nav-list">
+          <span></span><span></span>
+        </button>
+        <ul id="global-nav-list">
+          <li><a href="index.html">Top</a></li>
+          <li><a href="works.html" aria-current="page">Works</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="journal.html">Journal</a></li>
+          <li><a href="about.html">About</a></li>
+          <li>
+            <a href="https://thebase.com/" target="_blank" rel="noopener noreferrer">Store</a>
+          </li>
+          <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="apple-chargers-gallery">
+    <section class="page-hero page-hero-gallery container">
+      <div class="page-hero-copy">
+        <p class="hero-collab-tag">SHOOT METHOGOLOGY</p>
+        <p class="page-eyebrow">Works</p>
+        <h1 class="page-title">仕事の実績</h1>
+        <p class="page-lead">
+          単なる写真の記録にとどまらず、現場の熱量や被写体の文脈を伝えるために設計された実践の記録です。<br>
+          各案件（Case Study）では、背景から成果物までをご覧いただけます。
+        </p>
+        <div class="gallery-hero-pills">
+          <span>Sports</span>
+          <span>Live</span>
+          <span>Portrait</span>
+          <span>Art</span>
+        </div>
+      </div>
+      <div class="gallery-hero-visual" aria-hidden="true">
+        <img class="gallery-hero-video"
+          src="assets/img/hero-bg.jpg"
+          alt="Works Hero" loading="eager" />
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container gallery-controls gallery-controls-panel">
+        <div class="gallery-controls-head">
+          <p class="section-kicker">Filter</p>
+          <h2 class="section-title">ジャンル・用途で絞り込み</h2>
+          <p class="gallery-count" id="gallery-count" aria-live="polite"></p>
+        </div>
+        <div class="filter-group" aria-label="ジャンルで絞り込み">
+          <button class="filter-btn is-active" data-genre="all">すべて</button>
+          <button class="filter-btn" data-genre="american-football">Sports</button>
+          <button class="filter-btn" data-genre="music-event">Live (Music event)</button>
+          <button class="filter-btn" data-genre="portrait">Portrait</button>
+          <button class="filter-btn" data-genre="fine art">Art</button>
+        </div>
+      </div>
+
+      <div class="container gallery-grid gallery-grid-premium" id="gallery-grid" aria-live="polite">
+        <!-- CMSから取得した写真をJavaScriptで描画 -->
+      </div>
+    </section>
+
+    <section class="section section-cta">
+      <div class="container cta-inner text-center">
+        <p class="section-kicker section-kicker-light">From Sideline to Campaign</p>
+        <h2 class="section-title">似た撮影をご希望ですか？</h2>
+        <p class="section-lead">
+          イメージに近い写真や案件があれば、それに沿った撮影をご提案します。<br>
+          まずは目的や課題をお聞かせください。
+        </p>
+        <div class="super-cta-actions">
+          <a href="contact.html?type=shoot" class="btn primary">撮影を相談する</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox-backdrop" data-lightbox-close></div>
+      <div class="lightbox-dialog" role="dialog" aria-modal="true">
+        <button class="lightbox-close" type="button" aria-label="閉じる" data-lightbox-close>×</button>
+        <div class="lightbox-image-wrapper">
+          <img src="" alt="" id="lightbox-image" />
+          <button class="lightbox-nav lightbox-prev" type="button" id="lightbox-prev" aria-label="前の写真">‹</button>
+          <button class="lightbox-nav lightbox-next" type="button" id="lightbox-next" aria-label="次の写真">›</button>
+        </div>
+        <div class="lightbox-meta">
+          <p class="lightbox-title" id="lightbox-title"></p>
+          <p class="lightbox-caption" id="lightbox-caption"></p>
+          <div class="lightbox-thumbs" id="lightbox-thumbs" aria-label="サムネイル一覧"></div>
+          <a href="#" id="lightbox-project-link" class="section-link target-link" target="_self" style="display:inline-block; margin-top: 10px;">
+            この案件（Case Study）を見る →
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-small">JAN STUDIO</span>
+        <p class="footer-copy">
+          © <span id="footer-year-gallery"></span> JAN STUDIO. All rights reserved.
+        </p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-sns">
+          <a href="https://www.instagram.com/itsu_photoooo" target="_blank" rel="noopener noreferrer">Instagram @itsu_photoooo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="contact.html?type=shoot" class="floating-cta" id="floating-cta">撮影を相談する</a>
+
+  <script src="assets/js/config.js?v=2"></script>
+  <script src="assets/js/main.js?v=2"></script>
+  <script src="assets/js/works.js?v=2"></script>
+  <script>
+    const floatingCta = document.getElementById("floating-cta");
+    if (floatingCta) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 500) {
+          floatingCta.classList.add("visible");
+        } else {
+          floatingCta.classList.remove("visible");
+        }
+      });
+    }
+  </script>
+</body>
+</html>

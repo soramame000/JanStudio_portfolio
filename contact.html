@@ -1,162 +1,138 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact | JAN Studio</title>
-    <meta
-      name="description"
-      content="JAN Studioへの撮影依頼・お問い合わせフォーム。"
-    />
-    <link rel="stylesheet" href="assets/css/reset.css?v=1771923701" />
-    <link rel="stylesheet" href="assets/css/style.css?v=1771923701" />
-  </head>
-  <body class="page-contact">
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="index.html" class="logo">JAN Studio</a>
-        <nav class="global-nav" aria-label="メインナビゲーション">
-          <button
-            class="nav-toggle"
-            aria-expanded="false"
-            aria-controls="global-nav-list"
-          >
-            <span></span><span></span>
-          </button>
-          <ul id="global-nav-list">
-            <li><a href="index.html">Top</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Presets</a
-              >
-            </li>
-            <li><a href="contact.html" aria-current="page" class="nav-cta">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | JAN STUDIO</title>
+  <meta name="description" content="JAN STUDIOへのご相談・お問い合わせフォーム。" />
+  <link rel="stylesheet" href="assets/css/reset.css?v=2" />
+  <link rel="stylesheet" href="assets/css/style.css?v=2" />
+  <link rel="stylesheet" href="assets/css/renewal.css?v=2" />
+</head>
+<body class="page-contact">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">JAN STUDIO</a>
+      <nav class="global-nav" aria-label="メインナビゲーション">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="global-nav-list">
+          <span></span><span></span>
+        </button>
+        <ul id="global-nav-list">
+          <li><a href="index.html">Top</a></li>
+          <li><a href="works.html">Works</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="journal.html">Journal</a></li>
+          <li><a href="about.html">About</a></li>
+          <li>
+            <a href="https://thebase.com/" target="_blank" rel="noopener noreferrer">Store</a>
+          </li>
+          <li><a href="contact.html" aria-current="page" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-      <section class="page-hero container">
-        <p class="page-eyebrow">Contact</p>
-        <h1 class="page-title">撮影のご相談・お問い合わせ</h1>
-        <p class="page-lead">
-          関西を拠点に、出張撮影にも対応しています。どの試合で、どんなカットが必要かまだ決まっていなくてもお気軽にご相談ください。
-        </p>
-      </section>
+  <main>
+    <section class="page-hero container">
+      <p class="page-eyebrow">Contact</p>
+      <h1 class="page-title">お問い合わせ</h1>
+      <p class="page-lead">
+        撮影のご依頼はもちろん、物販（EQUIP）や育成事業（FORGE）についてのお問い合わせもこちらから承ります。お気軽にご相談ください。
+      </p>
+    </section>
 
-      <section class="section">
-        <div class="container contact-layout">
-          <form
-            id="contact-form"
-            class="contact-form"
-            novalidate
-          >
-            <div class="form-field">
-              <label for="name">お名前 <span class="required">*</span></label>
-              <input type="text" id="name" name="name" required />
-              <p class="field-error" data-error-for="name"></p>
-            </div>
+    <section class="section">
+      <div class="container contact-layout">
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-field">
+            <label for="type">ご用件 <span class="required">*</span></label>
+            <select id="type" name="type" required>
+              <option value="">選択してください</option>
+              <option value="shoot">撮影のご依頼・ご相談</option>
+              <option value="equip">商品・物販について</option>
+              <option value="forge">育成プログラム（FORGE）について</option>
+              <option value="media">取材・メディア掲載について</option>
+              <option value="partner">協力・パートナーシップについて</option>
+              <option value="other">その他</option>
+            </select>
+            <p class="field-error" data-error-for="type"></p>
+          </div>
 
-            <div class="form-field">
-              <label for="email">メールアドレス <span class="required">*</span></label>
-              <input type="email" id="email" name="email" required />
-              <p class="field-error" data-error-for="email"></p>
-            </div>
+          <div class="form-field">
+            <label for="name">お名前 <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required />
+            <p class="field-error" data-error-for="name"></p>
+          </div>
 
-            <div class="form-field">
-              <label for="phone">お電話番号（任意）</label>
-              <input type="tel" id="phone" name="phone" />
-            </div>
+          <div class="form-field">
+            <label for="email">メールアドレス <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required />
+            <p class="field-error" data-error-for="email"></p>
+          </div>
 
-            <div class="form-field">
-              <label for="type">ご希望の撮影内容 <span class="required">*</span></label>
-              <select id="type" name="type" required>
-                <option value="">選択してください</option>
-                <option value="game">試合撮影（リーグ戦・大会など）</option>
-                <option value="team">チーム・部活動の撮影</option>
-                <option value="event">スポーツ・音楽イベントの撮影</option>
-                <option value="portrait">ポートレート撮影（個人・宣材）</option>
-                <option value="other">その他</option>
-              </select>
-              <p class="field-error" data-error-for="type"></p>
-            </div>
+          <!-- The elements below can be hidden dynamically via JS if type !== 'shoot', but kept visible for simplicity here unless they write that custom logic -->
+          <div class="form-field" id="field-date">
+            <label for="date">ご希望の時期・日程 (撮影の場合)</label>
+            <input type="text" id="date" name="date" placeholder="例）20XX年○月頃、平日希望 など" />
+          </div>
 
-            <div class="form-field">
-              <label for="date">ご希望の撮影時期・日程</label>
-              <input type="text" id="date" name="date" placeholder="例）20XX年○月頃、平日希望 など" />
-            </div>
+          <div class="form-field">
+            <label for="message">ご相談内容・お問い合わせ内容 <span class="required">*</span></label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+            <p class="field-error" data-error-for="message"></p>
+          </div>
 
-            <div class="form-field">
-              <label for="budget">ご予算感</label>
-              <input type="text" id="budget" name="budget" placeholder="例）○万円前後 など" />
-            </div>
-
-            <div class="form-field">
-              <label for="message">ご相談内容・イメージ <span class="required">*</span></label>
-              <textarea
-                id="message"
-                name="message"
-                rows="6"
-                required
-              ></textarea>
-              <p class="field-error" data-error-for="message"></p>
-            </div>
-
-            <p class="form-note">
-              送信いただいた内容を確認のうえ、通常5営業日以内にご連絡いたします。
-            </p>
-
-            <div class="form-actions">
-              <button type="submit" class="btn primary">送信する</button>
-              <p class="form-status" id="form-status" aria-live="polite"></p>
-            </div>
-          </form>
-
-          <aside class="contact-side">
-            <h2 class="section-title">直接のご連絡・SNS</h2>
-            <p>お急ぎの場合や、まずは写真の雰囲気を見てみたい場合は、Instagramもご覧ください。</p>
-            <p class="contact-email">
-              Instagram:
-              <a
-                href="https://www.instagram.com/itsu_photoooo"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>@itsu_photoooo</span>
-              </a>
-            </p>
-          </aside>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <div class="footer-brand">
-          <span class="logo-small">Itsuki Serikawa / JAN Studio</span>
-          <p class="footer-copy">
-            © <span id="footer-year-contact"></span> Itsuki Serikawa / JAN Studio. All
-            rights reserved.
+          <p class="form-note">
+            送信いただいた内容を確認のうえ、通常48時間以内にご連絡いたします。
           </p>
-        </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary">送信する</button>
+            <p class="form-status" id="form-status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <aside class="contact-side">
+          <h2 class="section-title">直接のご連絡・SNS</h2>
+          <p>お急ぎの場合や、最新の活動についてはInstagramもご活用ください。</p>
+          <p class="contact-email" style="margin-top: 16px;">
+            Instagram:
+            <a href="https://www.instagram.com/itsu_photoooo" target="_blank" rel="noopener noreferrer" style="color:var(--color-accent);">
+              <span>@itsu_photoooo</span>
+            </a>
+          </p>
+        </aside>
       </div>
-    </footer>
+    </section>
+  </main>
 
-    <script src="assets/js/config.js?v=1771923741"></script>
-    <script src="assets/js/main.js?v=1771923741"></script>
-    <script src="assets/js/contact.js?v=1771923741"></script>
-      <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js?v=1771923741"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js?v=1771923741"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?v=1771923741"></script>
-    <script src="assets/js/premium.js?v=1771923741"></script>
-  </body>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-small">JAN STUDIO</span>
+        <p class="footer-copy">
+          © <span id="footer-year-contact"></span> JAN STUDIO. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js?v=2"></script>
+  <script src="assets/js/main.js?v=2"></script>
+  <script src="assets/js/contact.js?v=2"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Auto-select type based on url param
+      const params = new URLSearchParams(window.location.search);
+      const type = params.get('type');
+      if (type) {
+        const select = document.getElementById('type');
+        if (select) {
+          const match = Array.from(select.options).find(opt => opt.value === type);
+          if (match) select.value = type;
+        }
+      }
+    });
+  </script>
+</body>
 </html>
-
