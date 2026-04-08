@@ -349,3 +349,73 @@ input, select, textarea {
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(232, 87, 42, 0.6);
 }
+
+/* ----------------------------------
+   Works Gallery Readability Overrides
+   ---------------------------------- */
+.gallery-grid-premium {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 32px !important;
+  margin-top: 40px !important;
+}
+
+.page-gallery .gallery-item {
+  border: 1px solid var(--color-border) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.page-gallery .gallery-item .img-skeleton-wrapper,
+.page-gallery .gallery-item img {
+  height: auto !important;
+  aspect-ratio: 4/5;
+}
+
+.page-gallery .gallery-item img {
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 1, 0.2, 1) !important;
+}
+
+.page-gallery .gallery-item:hover {
+  border-color: var(--color-accent) !important;
+}
+
+.page-gallery .gallery-item:hover img {
+  transform: scale(1.05) !important;
+}
+
+.gallery-item-label {
+  padding: 16px !important;
+  background: var(--color-surface) !important;
+}
+
+.gallery-item-label span:first-child {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: var(--color-text) !important;
+  margin-bottom: 4px;
+}
+
+.gallery-item-label span:last-child {
+  color: var(--color-accent-blue) !important;
+  font-size: 0.85rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Lightbox UX Improvements */
+.lightbox-dialog {
+  background: rgba(12, 12, 16, 0.95) !important;
+  backdrop-filter: blur(20px);
+}
+.lightbox-image-wrapper {
+  max-width: 90vw !important;
+  max-height: 75vh !important;
+}
+#lightbox-image {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  border-radius: 8px;
+}
