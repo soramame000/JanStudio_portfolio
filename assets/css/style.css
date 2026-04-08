@@ -323,7 +323,7 @@ body::after {
   background-image: linear-gradient(135deg,
       rgba(0, 0, 0, 0.6),
       rgba(0, 0, 0, 0.2)),
-    url("https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg?auto=compress&cs=tinysrgb&w=1200");
+    url("../img/hero-bg.jpg");
 }
 
 .hero-content {
