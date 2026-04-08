@@ -351,15 +351,21 @@ input, select, textarea {
 }
 
 /* ----------------------------------
-   Works Gallery Readability Overrides
+   Works Gallery Readability Overrides (Masonry)
    ---------------------------------- */
 .gallery-grid-premium {
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
-  gap: 32px !important;
+  display: block !important;
+  columns: 320px !important;
+  column-gap: 32px !important;
   margin-top: 40px !important;
 }
 
 .page-gallery .gallery-item {
+  display: inline-block !important;
+  width: 100% !important;
+  margin-bottom: 32px !important;
+  break-inside: avoid;
+  page-break-inside: avoid;
   border: 1px solid var(--color-border) !important;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
   border-radius: var(--radius-md);
@@ -370,11 +376,12 @@ input, select, textarea {
 .page-gallery .gallery-item .img-skeleton-wrapper,
 .page-gallery .gallery-item img {
   height: auto !important;
-  aspect-ratio: 4/5;
+  aspect-ratio: auto !important; /* Original photo ratio */
 }
 
 .page-gallery .gallery-item img {
   width: 100%;
+  display: block;
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.2, 1, 0.2, 1) !important;
 }
