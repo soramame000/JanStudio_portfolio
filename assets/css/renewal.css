@@ -1,16 +1,19 @@
 /* assets/css/renewal.css */
-/* Overrides for JAN STUDIO Renewal Phase 1 */
+/* Premium Glassmorphism Dark Theme Overrides */
 
 :root {
   --color-bg: #0C0C10 !important;
-  --color-surface: #16161C !important;
+  --color-surface: rgba(22, 22, 28, 0.6) !important;
+  --color-surface-hover: rgba(30, 30, 40, 0.8) !important;
   --color-text: #EDEDF0 !important;
-  --color-muted: #7A7A8C !important;
+  --color-muted: #8A8A9C !important;
   --color-accent: #E8572A !important;
   --color-accent-blue: #F0A030 !important;
-  --color-forge: #2ABFA0 !important;
-  --radius-lg: 16px !important;
-  --radius-md: 12px !important;
+  --color-border: rgba(255, 255, 255, 0.08) !important;
+  --radius-lg: 20px !important;
+  --radius-md: 14px !important;
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.4) !important;
+  --shadow-glow: 0 0 20px rgba(232, 87, 42, 0.15) !important;
 }
 
 body {
@@ -19,6 +22,47 @@ body {
   line-height: 1.8 !important;
 }
 
+/* ---------------------------------
+   Typography
+   --------------------------------- */
+h1, h2, h3, h4, h5, h6, .page-title, .section-title, .hero-title {
+  font-family: var(--font-display) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.section-title::after {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-blue)) !important;
+}
+
+/* ---------------------------------
+   Header & Navigation
+   --------------------------------- */
+.site-header {
+  background: rgba(12, 12, 16, 0.7) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.logo {
+  color: var(--color-text) !important;
+  text-shadow: none !important;
+  font-family: var(--font-display) !important;
+  letter-spacing: 0.15em !important;
+}
+
+.global-nav ul {
+  color: var(--color-text) !important;
+}
+
+.global-nav a::after {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-blue)) !important;
+}
+
+/* ---------------------------------
+   Hero Section
+   --------------------------------- */
 .hero-renewal {
   position: relative;
   height: 85vh;
@@ -50,30 +94,13 @@ body {
 }
 
 .hero-slide.active {
-  opacity: 0.6;
+  opacity: 0.5;
   animation: kenBurns 10s ease-out forwards;
 }
 
 @keyframes kenBurns {
   0% { transform: scale(1); }
   100% { transform: scale(1.1); }
-}
-
-.hero-slide-genre {
-  position: absolute;
-  bottom: 15%;
-  right: 15%;
-  font-size: 1.2rem;
-  letter-spacing: 0.2em;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 700;
-  opacity: 0;
-  transition: opacity 1s 1s;
-}
-
-.hero-slide.active .hero-slide-genre {
-  opacity: 0.8;
 }
 
 .hero-content {
@@ -84,315 +111,177 @@ body {
 }
 
 .hero-title {
-  font-family: var(--font-display);
   font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 800;
-  letter-spacing: 0.1em;
-  margin-bottom: 8px;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 12px;
   color: #fff;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+  text-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
 
 .hero-tagline {
   font-size: 1.2rem;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--color-accent-blue);
   margin-bottom: 24px;
   font-weight: 700;
 }
 
-.hero-copy {
-  font-size: 1.1rem;
-  color: #fff;
-  margin-bottom: 32px;
-}
-
-.hero-actions {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
+/* ---------------------------------
+   Buttons & CTAs
+   --------------------------------- */
 .btn {
   border-radius: 999px !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  font-family: var(--font-display) !important;
+  letter-spacing: 0.05em !important;
 }
 
 .btn:hover {
-  transform: translateY(-4px) !important;
+  transform: translateY(-4px) scale(1.02) !important;
 }
 
 .btn.primary {
   background: linear-gradient(135deg, var(--color-accent), var(--color-accent-blue)) !important;
   color: #fff !important;
-  border-color: rgba(255,255,255,0.2) !important;
-  box-shadow: 0 10px 20px rgba(232, 87, 42, 0.3) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  box-shadow: 0 8px 24px rgba(232, 87, 42, 0.3), inset 0 1px 1px rgba(255,255,255,0.3) !important;
 }
+
 .btn.primary:hover {
-  box-shadow: 0 15px 30px rgba(232, 87, 42, 0.5) !important;
+  box-shadow: 0 12px 32px rgba(232, 87, 42, 0.5), inset 0 1px 1px rgba(255,255,255,0.3) !important;
 }
 
 .btn.ghost {
-  border-color: rgba(255,255,255,0.3) !important;
+  background: rgba(255,255,255,0.05) !important;
+  border-color: rgba(255,255,255,0.2) !important;
   color: #fff !important;
+  backdrop-filter: blur(10px) !important;
 }
+
 .btn.ghost:hover {
   background: rgba(255,255,255,0.1) !important;
+  border-color: rgba(255,255,255,0.4) !important;
 }
 
-/* Statement */
-.section-brand-statement {
-  padding: 120px 0;
-}
-.text-center {
-  text-align: center;
-}
-.statement-text {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  line-height: 1.6;
-  font-weight: 700;
-  margin-bottom: 24px;
-}
-.statement-sub {
-  color: var(--color-muted);
-  font-size: 1.1rem;
-  line-height: 1.8;
-}
-
-/* Pillars */
-.pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.pillar-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.pillar-card.pointer {
-  cursor: pointer;
-}
-
-.pillar-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-  border-color: var(--color-accent);
-}
-
-.pillar-card.disabled {
-  opacity: 0.7;
-}
-
-.pillar-img-wrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: auto;
-  margin-bottom: 24px;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-.pillar-img-wrap img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-
-.pillar-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-  padding: 16px;
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: #fff;
-}
-
-.pillar-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(4px);
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-.pillar-card h3 {
-  font-size: 1.3rem;
-  line-height: 1.5;
-  margin-bottom: 16px;
-}
-
-.pillar-link {
-  color: var(--color-muted);
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-/* Services Teaser */
-.services-teaser-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
-  margin-top: 32px;
-}
-.teaser-item {
-  position: relative;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  aspect-ratio: auto;
-}
-.teaser-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  opacity: 0.7;
-  transition: opacity 0.3s;
-}
-.teaser-item:hover img {
-  opacity: 1;
-}
-.teaser-item h4 {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-}
-
-.section-title::after {
-  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-blue)) !important;
-}
-
-/* Force light theme elements back to dark */
-.site-header {
-  background: rgba(12, 12, 16, 0.8) !important;
-  border-color: var(--color-border) !important;
-}
-.logo, .global-nav ul {
-  color: var(--color-text) !important;
-}
-.global-nav a::after {
-  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-blue)) !important;
-}
-.section-kicker {
-  color: var(--color-accent-blue) !important;
-}
+/* ---------------------------------
+   Glassmorphism Cards (Fixes White-on-White)
+   --------------------------------- */
+.pricing-card,
+.blog-card,
+.pillar-card,
 .contact-form,
-.landing-about .about-preview-inner {
+.landing-about .about-preview-inner,
+.gallery-card {
   background: var(--color-surface) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 1px solid var(--color-border) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: var(--radius-lg) !important;
   color: var(--color-text) !important;
-  border-color: var(--color-border) !important;
+  box-shadow: var(--shadow-glass) !important;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
 }
-input, select, textarea {
-  background: rgba(255,255,255,0.05) !important;
-  color: var(--color-text) !important;
-  border-color: rgba(255,255,255,0.1) !important;
+
+.pricing-card:hover,
+.blog-card:hover,
+.pillar-card:hover,
+.gallery-card:hover {
+  transform: translateY(-8px) !important;
+  background: var(--color-surface-hover) !important;
+  border-color: rgba(232, 87, 42, 0.3) !important;
+  box-shadow: var(--shadow-glass), var(--shadow-glow) !important;
 }
-.site-footer {
-  background: rgba(8, 8, 12, 0.9) !important;
-  border-top-color: var(--color-border) !important;
+
+/* Typography inside cards */
+.pricing-card h2, .pricing-card h3, .blog-card-title, .pillar-card h3 {
+  color: #fff !important;
 }
-.footer-copy {
+
+.pricing-card ul, .blog-card-meta, .pillar-link {
   color: var(--color-muted) !important;
 }
 
-/* Disable old apple-chargers overrides completely on page-index */
-.fx-grid-overlay.is-reduced {
-  opacity: 0.05 !important;
-  background: linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px) 0 0 / 100px 100px,
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px) 0 0 / 100px 100px !important;
-  mask-image: none !important;
-  animation: none !important;
+.price {
+  color: var(--color-accent-blue) !important;
 }
 
-.ticker-track {
-  background: transparent !important;
-  border-color: var(--color-border) !important;
-}
-.ticker-track p {
+/* Pricing Rows */
+.pricing-row {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid var(--color-border) !important;
   color: var(--color-text) !important;
-  opacity: 0.3;
-  text-shadow: none !important;
 }
 
-.gallery-card {
-  background: #000 !important;
-  border-color: var(--color-border) !important;
-}
-.gallery-card-meta {
-  background: rgba(0,0,0,0.8) !important;
+.plan-name {
+  color: #fff !important;
 }
 
-/* Floating CTA button */
-.floating-cta {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  z-index: 100;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-blue));
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 999px;
-  font-weight: 700;
-  box-shadow: 0 8px 32px rgba(232, 87, 42, 0.4);
-  transform: translateY(100px);
-  opacity: 0;
-  transition: transform 0.3s, opacity 0.3s;
-}
-.floating-cta.visible {
-  transform: translateY(0);
-  opacity: 1;
-}
-.floating-cta:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(232, 87, 42, 0.6);
+.plan-detail {
+  color: var(--color-muted) !important;
 }
 
-/* ----------------------------------
-   Works Gallery Readability Overrides (Masonry)
-   ---------------------------------- */
+.plan-price {
+  color: var(--color-accent-blue) !important;
+}
+
+/* Sections with full-width backgrounds */
+.section-gallery-preview,
+.section-pricing-preview {
+  background: rgba(12, 12, 16, 0.4) !important;
+  border-top: 1px solid var(--color-border) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+/* ---------------------------------
+   Form Elements
+   --------------------------------- */
+input, select, textarea {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: var(--radius-md) !important;
+  backdrop-filter: blur(10px) !important;
+  transition: border-color 0.3s ease, background 0.3s ease !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: var(--color-accent) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(232, 87, 42, 0.2) !important;
+}
+
+/* Fix dropdown options being white-on-white in some browsers */
+select option {
+  background: var(--color-bg) !important;
+  color: #fff !important;
+}
+
+/* ---------------------------------
+   Gallery specific
+   --------------------------------- */
 .gallery-grid-premium {
   display: block !important;
   columns: 320px !important;
-  column-gap: 32px !important;
+  column-gap: 24px !important;
   margin-top: 40px !important;
 }
 
 .page-gallery .gallery-item {
   display: inline-block !important;
   width: 100% !important;
-  margin-bottom: 32px !important;
+  margin-bottom: 24px !important;
   break-inside: avoid;
-  page-break-inside: avoid;
   border: 1px solid var(--color-border) !important;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: var(--shadow-glass) !important;
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--color-surface);
-}
-
-.page-gallery .gallery-item .img-skeleton-wrapper,
-.page-gallery .gallery-item img {
-  height: auto !important;
-  aspect-ratio: auto !important; /* Original photo ratio */
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
 }
 
 .page-gallery .gallery-item img {
@@ -403,7 +292,9 @@ input, select, textarea {
 }
 
 .page-gallery .gallery-item:hover {
-  border-color: var(--color-accent) !important;
+  transform: translateY(-6px) !important;
+  border-color: rgba(232, 87, 42, 0.4) !important;
+  box-shadow: var(--shadow-glass), var(--shadow-glow) !important;
 }
 
 .page-gallery .gallery-item:hover img {
@@ -413,12 +304,13 @@ input, select, textarea {
 .gallery-item-label {
   padding: 16px !important;
   background: var(--color-surface) !important;
+  backdrop-filter: blur(12px) !important;
 }
 
 .gallery-item-label span:first-child {
   font-size: 1.1rem !important;
   font-weight: 700 !important;
-  color: var(--color-text) !important;
+  color: #fff !important;
   margin-bottom: 4px;
 }
 
@@ -429,31 +321,42 @@ input, select, textarea {
   letter-spacing: 0.1em;
 }
 
-/* Lightbox UX Improvements */
-.lightbox-dialog {
-  background: rgba(12, 12, 16, 0.95) !important;
-  backdrop-filter: blur(20px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* ---------------------------------
+   Floating CTA
+   --------------------------------- */
+.floating-cta {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 100;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-blue));
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  box-shadow: 0 10px 30px rgba(232, 87, 42, 0.4), inset 0 1px 2px rgba(255,255,255,0.3);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-.lightbox-image-wrapper {
-  max-width: 90vw !important;
-  max-height: 75vh !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent !important;
-  width: auto !important;
-  height: auto !important;
+
+.floating-cta.visible {
+  transform: translateY(0);
+  opacity: 1;
 }
-#lightbox-image {
-  width: auto !important;
-  height: auto !important;
-  max-width: 100% !important;
-  max-height: 75vh !important;
-  object-fit: contain !important;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-  border-radius: 4px;
-  background: transparent !important;
+
+.floating-cta:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(232, 87, 42, 0.6), inset 0 1px 2px rgba(255,255,255,0.4);
+}
+
+/* ---------------------------------
+   Footer
+   --------------------------------- */
+.site-footer {
+  background: rgba(12, 12, 16, 0.8) !important;
+  border-top: 1px solid var(--color-border) !important;
+  backdrop-filter: blur(20px) !important;
 }
