@@ -8,48 +8,36 @@
   <link rel="stylesheet" href="assets/css/reset.css?v=2" />
   <link rel="stylesheet" href="assets/css/style.css?v=2" />
   <link rel="stylesheet" href="assets/css/renewal.css?v=2" />
+
+  <!-- SEO & OGP -->
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="JAN STUDIO">
+  <meta property="og:description" content="あなたの大切な瞬間を、もっと美しく。記憶に残り続ける一枚を。">
+  <meta property="og:image" content="https://janstudio.app/assets/img/hero-bg.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="assets/js/components.js"></script>
 </head>
 <body class="page-contact">
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">JAN STUDIO</a>
-      <nav class="global-nav" aria-label="メインナビゲーション">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="global-nav-list">
-          <span></span><span></span>
-        </button>
-        <ul id="global-nav-list">
-          <li><a href="index.html">Top</a></li>
-          <li><a href="works.html">Works</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="journal.html">Journal</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="store.html">Store</a></li>
-          <li><a href="forge.html">Program</a></li>
-          <li><a href="contact.html" aria-current="page" class="nav-cta">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <site-header></site-header>
 
   <main>
     <section class="page-hero container">
       <p class="page-eyebrow">Contact</p>
       <h1 class="page-title">お問い合わせ</h1>
       <p class="page-lead">
-        撮影のご依頼はもちろん、物販（EQUIP）や育成事業（FORGE）についてのお問い合わせもこちらから承ります。お気軽にご相談ください。
+        撮影に関するご相談やご依頼はこちらのフォームから承ります。お気軽にご相談ください。
       </p>
     </section>
 
     <section class="section">
       <div class="container contact-layout">
-        <form id="contact-form" class="contact-form" novalidate>
+        <form id="contact-form" class="contact-form" action="https://formsubmit.co/contact@janstudio.app" method="POST" novalidate>
+          <input type="hidden" name="_next" value="https://janstudio.app/contact.html?success=true">
           <div class="form-field">
             <label for="type">ご用件 <span class="required">*</span></label>
             <select id="type" name="type" required>
-              <option value="">選択してください</option>
-              <option value="shoot">撮影のご依頼・ご相談</option>
-              <option value="equip">商品・物販について</option>
-              <option value="forge">育成プログラム（FORGE）について</option>
+              <option value="shoot" selected>撮影のご依頼・ご相談</option>
               <option value="media">取材・メディア掲載について</option>
               <option value="partner">協力・パートナーシップについて</option>
               <option value="other">その他</option>
@@ -105,16 +93,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="logo-small">JAN STUDIO</span>
-        <p class="footer-copy">
-          © <span id="footer-year-contact"></span> JAN STUDIO. All rights reserved.
-        </p>
-      </div>
-    </div>
-  </footer>
+  <site-footer></site-footer>
 
   <script src="assets/js/config.js?v=2"></script>
   <script src="assets/js/main.js?v=2"></script>

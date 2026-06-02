@@ -33,29 +33,19 @@
       padding: 16px 0;
     }
   </style>
+
+  <!-- SEO & OGP -->
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="JAN STUDIO">
+  <meta property="og:description" content="あなたの大切な瞬間を、もっと美しく。記憶に残り続ける一枚を。">
+  <meta property="og:image" content="https://janstudio.app/assets/img/hero-bg.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="assets/js/components.js"></script>
 </head>
 
 <body class="page-about">
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">JAN STUDIO</a>
-      <nav class="global-nav" aria-label="メインナビゲーション">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="global-nav-list">
-          <span></span><span></span>
-        </button>
-        <ul id="global-nav-list">
-          <li><a href="index.html">Top</a></li>
-          <li><a href="works.html">Works</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="journal.html">Journal</a></li>
-          <li><a href="about.html" aria-current="page">About</a></li>
-          <li><a href="store.html">Store</a></li>
-          <li><a href="forge.html">Program</a></li>
-          <li><a href="contact.html" class="nav-cta">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <site-header></site-header>
 
   <main>
     <section class="page-hero container">
@@ -77,7 +67,7 @@
           </p>
           <p style="margin-bottom: 16px;">
             ブランドの核は「鍛える」こと。<br>
-            撮影現場では技術と研ぎ澄まされた集中力を。そして、近い将来に立ち上げる育成事業（FORGE）では、表現と仕事を育てるプロセスを。<br>
+            撮影現場では技術と研ぎ澄まされた集中力で、被写体の魅力を最大限に引き出します。<br>
             私たちは写真を通じて、人が自らの軸をつくるためのすべての実践に伴走します。
           </p>
         </div>
@@ -94,12 +84,36 @@
         <div class="about-content">
           <h2 class="section-title">Founder — 糴川 樹 / Itsuki Serikawa</h2>
           <p style="margin-top: 24px; margin-bottom: 16px;">
-            アスリートとしての原体験（パワーリフティングU18世界3位・水泳全国2位）を持ち、競技者の息遣いや限界に挑む感覚を知るからこそ、プレーの文脈が伝わる撮影を信条としています。
+            アスリートとしての原体験（パワーリフティングU18世界3位・水泳全国2位）を持ち、競技者の息遣いや限界に挑む感覚を知るからこそ、プレーの背景にある熱量まで伝わる撮影を信条としています。
           </p>
           <p style="margin-bottom: 16px;">
-            現在は関西を拠点に、社会人アメフトリーグX3「クラブアイランズ」の公式カメラマンを務めるほか、多彩な分野の撮影に対応。また、自身が双極性障害とADHDを抱えながらも現場に立ち続ける実践そのものが、JAN STUDIOの「人の軸を鍛える」というブランド思想の原点になっています。（※当事者起点の育成事業は、現在準備中です。）
+            近年はスポーツ撮影にとどまらず、写真としての芸術性も追求。国際的な写真賞である「London Photography Awards」において金賞（Pro Fine Art Conceptual部門）を受賞するなど、被写体の魅力を引き出す独自のアプローチが世界でも評価されています。
+          </p>
+          <p style="margin-bottom: 16px;">
+            現在は関西を拠点に、社会人アメフトリーグX3「クラブアイランズ」の公式カメラマンを務めるほか、多彩な分野の撮影に対応。自身が双極性障害とADHDを抱えながらも現場に立ち続ける実践そのものが、JAN STUDIOの「人の可能性を写し出す」というブランド思想の原点になっています。
           </p>
         </div>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container" style="max-width: 800px; margin: 0 auto;">
+        <h2 class="section-title" style="margin-bottom: 24px;">受賞歴</h2>
+        <ul style="list-style-type: none; padding: 0; color: var(--color-text);">
+          <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px;">
+            <span style="color: var(--color-accent); font-size: 1.2rem;">🏆</span>
+            <span>London Photography Awards<br><span style="font-size: 0.9em; color: var(--color-muted);">Pro Fine Art Conceptual - Gold</span></span>
+          </li>
+          <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px;">
+            <span style="color: var(--color-accent); font-size: 1.2rem;">🏆</span>
+            <span>London Photography Awards<br><span style="font-size: 0.9em; color: var(--color-muted);">Pro Fine Art Minimalism - Honorable Mention</span></span>
+          </li>
+          <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px;">
+            <span style="color: var(--color-accent); font-size: 1.2rem;">⭐</span>
+            <span>1839 Awards<br><span style="font-size: 0.9em; color: var(--color-muted);">Color Photo Contest - Nominee</span></span>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -161,16 +175,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="logo-small">JAN STUDIO</span>
-        <p class="footer-copy">
-          © <span id="footer-year-about"></span> JAN STUDIO. All rights reserved.
-        </p>
-      </div>
-    </div>
-  </footer>
+  <site-footer></site-footer>
 
   <a href="contact.html?type=shoot" class="floating-cta" id="floating-cta">撮影を相談する</a>
 

@@ -10,29 +10,19 @@
   <link rel="stylesheet" href="assets/css/reset.css?v=1" />
   <link rel="stylesheet" href="assets/css/style.css?v=1" />
   <link rel="stylesheet" href="assets/css/renewal.css?v=1" />
+
+  <!-- SEO & OGP -->
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="JAN STUDIO">
+  <meta property="og:description" content="あなたの大切な瞬間を、もっと美しく。記憶に残り続ける一枚を。">
+  <meta property="og:image" content="https://janstudio.app/assets/img/hero-bg.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="assets/js/components.js"></script>
 </head>
 
 <body class="page-index">
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">JAN STUDIO</a>
-      <nav class="global-nav" aria-label="メインナビゲーション">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="global-nav-list">
-          <span></span><span></span>
-        </button>
-        <ul id="global-nav-list">
-          <li><a href="index.html" aria-current="page">Top</a></li>
-          <li><a href="works.html">Works</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="journal.html">Journal</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="store.html">Store</a></li>
-          <li><a href="forge.html">Program</a></li>
-          <li><a href="contact.html" class="nav-cta">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <site-header></site-header>
 
   <main>
     <div class="fx-grid-overlay is-reduced" aria-hidden="true"></div>
@@ -42,20 +32,19 @@
         <div class="hero-slide active" style="background-image: url('assets/img/hero-bg.jpg')">
           <span class="hero-slide-genre">Sports</span>
         </div>
-        <div class="hero-slide" style="background-image: url('assets/img/hero-bg.jpg'); filter: hue-rotate(45deg);">
+        <div class="hero-slide" style="background-image: url('assets/img/hero-bg.jpg');">
           <span class="hero-slide-genre">Live</span>
         </div>
-        <div class="hero-slide" style="background-image: url('assets/img/hero-bg.jpg'); filter: hue-rotate(90deg);">
+        <div class="hero-slide" style="background-image: url('assets/img/hero-bg.jpg');">
           <span class="hero-slide-genre">Portrait</span>
         </div>
       </div>
       <div class="hero-content container">
         <h1 class="hero-title">JAN STUDIO</h1>
-        <p class="hero-tagline">Shoot. Equip. Forge.</p>
         <p class="hero-copy">一瞬を鍛え、記憶に残す。</p>
         <div class="hero-actions">
-          <a href="works.html" class="btn primary">Works を見る</a>
-          <a href="contact.html?type=consult" class="btn ghost">撮影を相談する</a>
+          <a href="works.html" class="btn primary">Works を見る →</a>
+          <a href="contact.html?type=shoot" class="btn ghost">撮影を相談する →</a>
         </div>
       </div>
     </section>
@@ -63,60 +52,17 @@
     <section class="section section-brand-statement">
       <div class="container text-center">
         <h2 class="statement-text">
-          撮影、機材、育成。<br>
-          写真を軸に、人の可能性を鍛えるスタジオ。
+          あなたの大切な瞬間を、もっと美しく。<br>
+          記憶に残り続ける一枚を。
         </h2>
         <p class="statement-sub">
-          現場の熱量を切り取る「SHOOT」、現場から生まれた道具を届ける「EQUIP」、<br>
-          そして写真を通じて表現と仕事を鍛える「FORGE」。<br>
-          私たちは写真を通じて、人が自らの軸をつくるためのすべてのプロセスに伴走します。
+          スポーツ、ライブイベント、ポートレートなど幅広いシーンでの撮影に対応。<br>
+          事前のヒアリングから納品まで、お客様のご要望に寄り添い丁寧に伴走します。
         </p>
       </div>
     </section>
 
-    <section class="section section-pillars">
-      <div class="container pillars-grid">
-        <article class="pillar-card pointer" onclick="window.location.href='services.html'">
-          <div class="pillar-img-wrap">
-            <img src="assets/img/hero-bg.jpg" alt="SHOOT" />
-            <div class="pillar-label">SHOOT</div>
-          </div>
-          <h3>瞬間を鍛え<br>記憶に残す</h3>
-          <span class="pillar-link">詳しく →</span>
-        </article>
-        
-        <article class="pillar-card pointer" onclick="window.location.href='store.html'">
-          <div class="pillar-img-wrap">
-            <img src="assets/img/hero-bg.jpg" alt="EQUIP" style="filter: grayscale(0.2);" />
-            <div class="pillar-label">EQUIP</div>
-            <div class="pillar-badge" style="background: rgba(232, 87, 42, 0.8);">Prototyping</div>
-          </div>
-          <h3>実践者のための<br>現場の道具</h3>
-          <span class="pillar-link">詳細を見る →</span>
-        </article>
-        
-        <article class="pillar-card pointer" onclick="window.location.href='forge.html'">
-          <div class="pillar-img-wrap">
-            <img src="assets/img/profile.jpg" alt="FORGE" style="filter: grayscale(0.2);" />
-            <div class="pillar-label">FORGE</div>
-            <div class="pillar-badge" style="background: rgba(42, 191, 160, 0.8);">Pilot Program</div>
-          </div>
-          <h3>マイナスを強さに<br>変える実践の場</h3>
-          <span class="pillar-link">詳細を見る →</span>
-        </article>
-      </div>
-    </section>
 
-    <section class="section section-energy-ticker" aria-label="ブランドメッセージ">
-      <div class="ticker-track">
-        <p>
-          SHOOT. EQUIP. FORGE. / JAN STUDIO / SHOOT. EQUIP. FORGE. / JAN STUDIO / SHOOT. EQUIP. FORGE. / JAN STUDIO /
-        </p>
-        <p aria-hidden="true">
-          SHOOT. EQUIP. FORGE. / JAN STUDIO / SHOOT. EQUIP. FORGE. / JAN STUDIO / SHOOT. EQUIP. FORGE. / JAN STUDIO /
-        </p>
-      </div>
-    </section>
 
     <section class="section section-gallery-preview landing-featured">
       <div class="container section-header section-header-stack">
@@ -147,7 +93,7 @@
              <h4>スポーツチーム撮影</h4>
            </div>
            <div class="teaser-item">
-             <img src="assets/img/hero-bg.jpg" alt="Live Event" style="filter: hue-rotate(90deg);" />
+             <img src="assets/img/event.jpg" alt="Live Event" />
              <h4>イベント撮影</h4>
            </div>
            <div class="teaser-item">
@@ -155,7 +101,7 @@
              <h4>ポートレート撮影</h4>
            </div>
         </div>
-        <a href="services.html" class="section-link" style="margin-top: 16px; display: inline-block;">料金・サービスの詳細 → Services</a>
+        <a href="services.html" class="section-link" style="margin-top: 16px; display: inline-block;">料金・サービスの詳細を見る →</a>
       </div>
     </section>
 
@@ -175,7 +121,7 @@
             自らもスポーツの最前線で競い合った経験を活かし、プレーヤーの息遣いや限界に挑む瞬間を鮮明に切り取ります。
           </p>
           
-          <a href="about.html" class="section-link">About JAN STUDIO → About</a>
+          <a href="about.html" class="section-link">詳しいプロフィールを見る →</a>
         </div>
       </div>
     </section>
@@ -187,7 +133,7 @@
         <p class="section-lead">
           撮影レポート、機材レビュー、そして育成事業への構想メモなど。
         </p>
-        <a href="journal.html" class="section-link">すべての記事を見る</a>
+        <a href="journal.html" class="section-link">すべての記事を見る →</a>
       </div>
       <div class="container blog-preview-list" id="latest-posts">
         <!-- JavaScriptでCMSから取得 -->
@@ -199,35 +145,17 @@
         <p class="section-kicker section-kicker-light">Contact</p>
         <h2 class="section-title">CONTACT / 総合お問い合わせ</h2>
         <p class="section-lead">
-          撮影のご依頼から、育成プログラム（FORGE）への参加・パートナーシップのご相談、<br>物販（EQUIP）に関するお問い合わせまで、すべてのコンタクトを承ります。
+          撮影のご依頼から、お見積りやご相談まで、お気軽にお問い合わせください。
         </p>
         <div style="display: flex; gap: 16px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
-          <a href="contact.html?type=shoot" class="btn primary large">撮影の相談をする</a>
-          <a href="store.html" class="btn ghost large">EQUIPについて</a>
-          <a href="contact.html?type=forge" class="btn ghost large">FORGEについて</a>
+          <a href="contact.html?type=shoot" class="btn primary large">撮影のご相談・ご依頼はこちら →</a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="logo-small">JAN STUDIO</span>
-        <p class="footer-copy">
-          © <span id="copyright-year"></span>
-          JAN STUDIO. All rights reserved.
-        </p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-sns">
-          <a href="https://www.instagram.com/itsu_photoooo" target="_blank" rel="noopener noreferrer"
-            aria-label="Instagram @itsu_photoooo">Instagram @itsu_photoooo</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <site-footer></site-footer>
 
   <a href="contact.html?type=shoot" class="floating-cta" id="floating-cta">撮影を相談する</a>
 

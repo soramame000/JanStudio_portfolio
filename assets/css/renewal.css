@@ -16,6 +16,7 @@
 body {
   background: var(--color-bg) !important;
   color: var(--color-text) !important;
+  line-height: 1.8 !important;
 }
 
 .hero-renewal {
@@ -114,16 +115,31 @@ body {
   flex-wrap: wrap;
 }
 
+.btn {
+  border-radius: 999px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.btn:hover {
+  transform: translateY(-4px) !important;
+}
+
 .btn.primary {
   background: linear-gradient(135deg, var(--color-accent), var(--color-accent-blue)) !important;
   color: #fff !important;
   border-color: rgba(255,255,255,0.2) !important;
   box-shadow: 0 10px 20px rgba(232, 87, 42, 0.3) !important;
 }
+.btn.primary:hover {
+  box-shadow: 0 15px 30px rgba(232, 87, 42, 0.5) !important;
+}
 
 .btn.ghost {
   border-color: rgba(255,255,255,0.3) !important;
   color: #fff !important;
+}
+.btn.ghost:hover {
+  background: rgba(255,255,255,0.1) !important;
 }
 
 /* Statement */
@@ -178,16 +194,16 @@ body {
 .pillar-img-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: auto;
   margin-bottom: 24px;
   border-radius: var(--radius-md);
   overflow: hidden;
 }
-
 .pillar-img-wrap img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .pillar-label {
@@ -239,12 +255,12 @@ body {
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
-  aspect-ratio: 3/2;
+  aspect-ratio: auto;
 }
 .teaser-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
   opacity: 0.7;
   transition: opacity 0.3s;
 }

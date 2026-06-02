@@ -2,7 +2,7 @@
   const form = document.getElementById("contact-form");
   const statusEl = document.getElementById("form-status");
 
-  const ENDPOINT = ""; // ここにFormspree等のエンドポイントURLを設定
+  // ENDPOINT is now handled via form action attribute in contact.html
 
   if (!form) return;
 
@@ -55,41 +55,13 @@
     return valid;
   }
 
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (!validate()) return;
-
-    if (!ENDPOINT) {
-      if (statusEl) {
-        statusEl.textContent =
-          "デモ環境のため送信は行われませんでした。Formspreeなどのエンドポイントを設定してください。";
-      }
-      form.reset();
-      return;
-    }
-
-    const formData = new FormData(form);
-
-    try {
-      if (statusEl) statusEl.textContent = "送信中です…";
-
-      const res = await fetch(ENDPOINT, {
-        method: "POST",
-        body: formData
-      });
-
-      if (!res.ok) {
-        throw new Error("送信エラー");
-      }
-
-      if (statusEl) statusEl.textContent = "送信が完了しました。ありがとうございます。";
-      form.reset();
-    } catch (err) {
-      console.error(err);
-      if (statusEl)
-        statusEl.textContent =
-          "送信に失敗しました。お手数ですが時間をおいて再度お試しください。";
-    }
+    
+    // Validated successfully, submit the form normally
+    if (statusEl) statusEl.textContent = "送信画面へ移動します…";
+    form.submit();
   });
 })();
 
