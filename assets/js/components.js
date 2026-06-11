@@ -5,7 +5,7 @@ class SiteHeader extends HTMLElement {
         <div class="container header-inner">
           <a href="index.html" class="logo">JAN STUDIO</a>
           <nav class="global-nav" aria-label="メインナビゲーション">
-            <button class="nav-toggle" aria-expanded="false" aria-controls="global-nav-list">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="global-nav-list" aria-label="メニューを開閉">
               <span></span><span></span>
             </button>
             <ul id="global-nav-list">

@@ -1,27 +1,5 @@
 (() => {
-  const config = window.PORTFOLIO_CONFIG || {};
-
-  async function fetchJson(path, params = {}) {
-    const baseUrl = config.CMS_BASE_URL;
-    if (!baseUrl) {
-      console.warn("CMSの設定が未完了のため、ギャラリーはダミー表示になります。");
-      return null;
-    }
-
-    const base = baseUrl.replace(/\/+$/, '');
-    const endpoint = path.startsWith('/') ? path : '/' + path;
-    const url = new URL(base + endpoint);
-    Object.entries(params).forEach(([key, value]) =>
-      url.searchParams.set(key, String(value))
-    );
-
-    const res = await fetch(url.toString());
-    if (!res.ok) {
-      console.error("CMS fetch error", res.status, await res.text());
-      return null;
-    }
-    return res.json();
-  }
+  const { fetchJson, esc, toTimestamp, isPublic } = window.JAN;
 
   const gridEl = document.getElementById("gallery-grid");
   const filterButtons = document.querySelectorAll(".filter-btn");
@@ -34,11 +12,17 @@
   const lbPrev = document.getElementById("lightbox-prev");
   const lbNext = document.getElementById("lightbox-next");
   const lbThumbs = document.getElementById("lightbox-thumbs");
+  const lbCloseBtn = lightboxEl?.querySelector(".lightbox-close");
 
   let allPhotos = [];
   let currentGenre = "all";
   let currentItems = [];
   let currentIndex = -1;
+  let lastFocusedEl = null;
+
+  function isLightboxOpen() {
+    return Boolean(lightboxEl?.classList.contains("is-open"));
+  }
 
   function getCurrentItems(genre) {
     return genre === "all" ? allPhotos : allPhotos.filter((p) => {
@@ -47,12 +31,6 @@
       }
       return p.genre === genre;
     });
-  }
-
-  function toTimestamp(value) {
-    if (!value) return 0;
-    const ts = new Date(value).getTime();
-    return Number.isNaN(ts) ? 0 : ts;
   }
 
   function preloadNeighbors(index) {
@@ -80,12 +58,12 @@
           type="button"
           class="lightbox-thumb ${index === currentIndex ? "is-active" : ""}"
           data-thumb-index="${index}"
-          aria-label="${item.title || "Untitled"}"
+          aria-label="${esc(item.title || "Untitled")}"
         >
           <div class="img-skeleton-wrapper" style="height: 100%;">
             <img
-              src="${item.image?.url ? item.image.url + '?w=200&q=60' : ''}"
-              alt="${item.title || ""}"
+              src="${item.image?.url ? esc(item.image.url) + '?w=200&q=60' : ''}"
+              alt="${esc(item.title || "")}"
               loading="lazy"
               decoding="async"
               onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');"
@@ -125,26 +103,22 @@
       .map(
         (item, index) => `
       <article class="gallery-item"
-        data-id="${item.id}"
-        data-title="${item.title || ""}"
-        data-caption="${item.caption || ""}"
-        data-project-id="${item.projectId || ""}"
-        data-src="${item.image?.url || ""}"
+        data-id="${esc(item.id)}"
         data-index="${index}"
         style="--item-delay:${index * 36}ms"
       >
         <div class="img-skeleton-wrapper">
           <img
-            src="${item.image?.url ? item.image.url + '?w=800&q=80' : ''}"
-            alt="${item.title || ""}"
+            src="${item.image?.url ? esc(item.image.url) + '?w=800&q=80' : ''}"
+            alt="${esc(item.title || "")}"
             loading="lazy"
             decoding="async"
             onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');"
           />
         </div>
         <div class="gallery-item-label">
-          <span>${item.title || "Untitled"}</span>
-          <span>${Array.isArray(item.genre) ? item.genre.join(", ") : (item.genre || "")}</span>
+          <span>${esc(item.title || "Untitled")}</span>
+          <span>${esc(Array.isArray(item.genre) ? item.genre.join(", ") : (item.genre || ""))}</span>
         </div>
       </article>
     `
@@ -186,8 +160,14 @@
     updateLightboxNavigationState();
     renderLightboxThumbs();
     preloadNeighbors(currentIndex);
-    lightboxEl.classList.add("is-open");
-    lightboxEl.setAttribute("aria-hidden", "false");
+
+    if (!isLightboxOpen()) {
+      lastFocusedEl = document.activeElement;
+      lightboxEl.classList.add("is-open");
+      lightboxEl.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      lbCloseBtn?.focus();
+    }
   }
 
   function moveLightbox(step) {
@@ -196,9 +176,14 @@
   }
 
   function closeLightbox() {
-    if (!lightboxEl) return;
+    if (!lightboxEl || !isLightboxOpen()) return;
     lightboxEl.classList.remove("is-open");
     lightboxEl.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (lastFocusedEl instanceof HTMLElement) {
+      lastFocusedEl.focus();
+      lastFocusedEl = null;
+    }
   }
 
   async function loadPhotos() {
@@ -207,15 +192,11 @@
     const data =
       (await fetchJson("/photos", {
         limit: 100,
-        orders: "-createdAt"
+        orders: "-createdAt",
+        fields: "id,title,caption,image,genre,eventDate,createdAt,publishStatus,projectId"
       })) || {};
     allPhotos = (data.contents || [])
-      .filter((item) => {
-        const status = item.publishStatus;
-        if (!status) return true;
-        if (Array.isArray(status)) return status.includes("public");
-        return status === "public";
-      })
+      .filter(isPublic)
       .sort((a, b) => {
         const byEventDate = toTimestamp(b.eventDate) - toTimestamp(a.eventDate);
         if (byEventDate !== 0) return byEventDate;
@@ -232,9 +213,14 @@
   }
 
   filterButtons.forEach((btn) => {
+    btn.setAttribute("aria-pressed", String(btn.classList.contains("is-active")));
     btn.addEventListener("click", () => {
-      filterButtons.forEach((b) => b.classList.remove("is-active"));
+      filterButtons.forEach((b) => {
+        b.classList.remove("is-active");
+        b.setAttribute("aria-pressed", "false");
+      });
       btn.classList.add("is-active");
+      btn.setAttribute("aria-pressed", "true");
       const genre = btn.dataset.genre || "all";
       renderPhotos(genre);
     });
@@ -273,6 +259,7 @@
       }
     });
     document.addEventListener("keydown", (e) => {
+      if (!isLightboxOpen()) return;
       if (e.key === "Escape") {
         closeLightbox();
       } else if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
@@ -283,4 +270,3 @@
 
   loadPhotos();
 })();
-

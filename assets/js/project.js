@@ -1,27 +1,5 @@
 (() => {
-  const config = window.PORTFOLIO_CONFIG || {};
-
-  async function fetchJson(path, params = {}) {
-    const baseUrl = config.CMS_BASE_URL;
-    if (!baseUrl) {
-      console.warn("CMSの設定が未完了のため、案件詳細はダミー表示になります。");
-      return null;
-    }
-
-    const base = baseUrl.replace(/\/+$/, '');
-    const endpoint = path.startsWith('/') ? path : '/' + path;
-    const url = new URL(base + endpoint);
-    Object.entries(params).forEach(([key, value]) =>
-      url.searchParams.set(key, String(value))
-    );
-
-    const res = await fetch(url.toString());
-    if (!res.ok) {
-      console.error("CMS fetch error", res.status, await res.text());
-      return null;
-    }
-    return res.json();
-  }
+  const { fetchJson, esc } = window.JAN;
 
   function getProjectId() {
     const params = new URLSearchParams(window.location.search);
@@ -40,18 +18,21 @@
     const galleryEl = document.getElementById("project-gallery");
     const creditsEl = document.getElementById("project-credits-list");
 
-    const project = await fetchJson(`/projects/${id}`);
+    const project = await fetchJson(`/projects/${encodeURIComponent(id)}`);
     if (!project) {
       if (titleEl) titleEl.textContent = "案件が見つかりませんでした";
       return;
     }
 
+    if (project.title) {
+      document.title = `${project.title} | JAN STUDIO`;
+    }
     if (titleEl) titleEl.textContent = project.title || "";
     if (metaEl) {
       const date = project.shootDate || project.createdAt;
       metaEl.textContent = [
         project.clientName,
-        project.category,
+        Array.isArray(project.category) ? project.category.join(", ") : project.category,
         date ? date.substring(0, 10) : ""
       ]
         .filter(Boolean)
@@ -75,7 +56,7 @@
           .map(
             (p) => `
           <div class="project-gallery-item img-skeleton-wrapper" style="height: 200px;">
-            <img src="${p.image?.url ? p.image.url + '?w=800&q=80' : ''}" alt="${p.title || ""}" onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');" />
+            <img src="${p.image?.url ? esc(p.image.url) + '?w=800&q=80' : ''}" alt="${esc(p.title || "")}" loading="lazy" decoding="async" onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');" />
           </div>
         `
           )
@@ -86,11 +67,10 @@
     if (creditsEl) {
       const credits = project.credits || [];
       creditsEl.innerHTML = credits
-        .map((c) => `<li>${c.role || ""}：${c.name || ""}</li>`)
+        .map((c) => `<li>${esc(c.role || "")}：${esc(c.name || "")}</li>`)
         .join("");
     }
   }
 
   renderProject();
 })();
-

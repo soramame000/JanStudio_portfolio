@@ -1,10 +1,18 @@
 (() => {
   const form = document.getElementById("contact-form");
   const statusEl = document.getElementById("form-status");
-
-  // ENDPOINT is now handled via form action attribute in contact.html
+  const successEl = document.getElementById("form-success");
 
   if (!form) return;
+
+  // 送信完了後（formsubmit の _next リダイレクト）に完了メッセージを表示する
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("success") === "true") {
+    form.hidden = true;
+    if (successEl) successEl.hidden = false;
+    successEl?.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
 
   function setError(name, message) {
     const errorEl = document.querySelector(
@@ -58,10 +66,8 @@
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (!validate()) return;
-    
-    // Validated successfully, submit the form normally
-    if (statusEl) statusEl.textContent = "送信画面へ移動します…";
+
+    if (statusEl) statusEl.textContent = "送信しています…";
     form.submit();
   });
 })();
-

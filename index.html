@@ -7,18 +7,21 @@
   <title>JAN STUDIO | 写真で、人の軸をつくる。</title>
   <meta name="description"
     content="JAN STUDIOは、撮影、機材、育成という3つの事業を通じて、人の可能性を鍛える写真ブランドスタジオです。" />
-  <link rel="stylesheet" href="assets/css/reset.css?v=1" />
-  <link rel="stylesheet" href="assets/css/style.css?v=1" />
-  <link rel="stylesheet" href="assets/css/renewal.css?v=1" />
+  <link rel="stylesheet" href="assets/css/reset.css?v=3" />
+  <link rel="stylesheet" href="assets/css/style.css?v=3" />
+  <link rel="stylesheet" href="assets/css/renewal.css?v=3" />
 
   <!-- SEO & OGP -->
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <meta property="og:title" content="JAN STUDIO">
+  <link rel="canonical" href="https://janstudio.app/">
+  <meta property="og:site_name" content="JAN STUDIO">
+  <meta property="og:title" content="JAN STUDIO | 写真で、人の軸をつくる。">
   <meta property="og:description" content="あなたの大切な瞬間を、もっと美しく。記憶に残り続ける一枚を。">
   <meta property="og:image" content="https://janstudio.app/assets/img/hero-bg.jpg">
+  <meta property="og:url" content="https://janstudio.app/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <script src="assets/js/components.js"></script>
+  <script src="assets/js/components.js?v=3" defer></script>
 </head>
 
 <body class="page-index">
@@ -29,13 +32,13 @@
 
     <section class="hero-renewal">
       <div class="hero-slideshow" id="hero-slider">
-        <div class="hero-slide active" style="background-image: url('assets/img/hero-bg.jpg')">
+        <div class="hero-slide active" style="background-image: url('assets/img/hero-bg.webp')">
           <span class="hero-slide-genre">Sports</span>
         </div>
-        <div class="hero-slide" style="background-image: url('assets/img/hero-bg.jpg');">
+        <div class="hero-slide" style="background-image: url('assets/img/event.webp');">
           <span class="hero-slide-genre">Live</span>
         </div>
-        <div class="hero-slide" style="background-image: url('assets/img/hero-bg.jpg');">
+        <div class="hero-slide" style="background-image: url('assets/img/profile.webp');">
           <span class="hero-slide-genre">Portrait</span>
         </div>
       </div>
@@ -89,15 +92,15 @@
         </div>
         <div class="services-teaser-grid">
            <div class="teaser-item">
-             <img src="assets/img/hero-bg.jpg" alt="Team Sports" />
+             <img src="assets/img/hero-bg.webp" alt="Team Sports" />
              <h4>スポーツチーム撮影</h4>
            </div>
            <div class="teaser-item">
-             <img src="assets/img/event.jpg" alt="Live Event" />
+             <img src="assets/img/event.webp" alt="Live Event" />
              <h4>イベント撮影</h4>
            </div>
            <div class="teaser-item">
-             <img src="assets/img/profile.jpg" alt="Portrait" />
+             <img src="assets/img/profile.webp" alt="Portrait" />
              <h4>ポートレート撮影</h4>
            </div>
         </div>
@@ -108,7 +111,7 @@
     <section class="section section-about-preview landing-about">
       <div class="container about-preview-inner">
         <div class="about-preview-photo">
-          <img src="assets/img/profile.jpg" alt="JAN STUDIO" class="avatar-image"
+          <img src="assets/img/profile.webp" alt="JAN STUDIO" class="avatar-image"
             onerror="this.outerHTML='<div class=\'avatar-placeholder\'></div>'">
         </div>
         <div class="about-preview-content">
@@ -159,9 +162,9 @@
 
   <a href="contact.html?type=shoot" class="floating-cta" id="floating-cta">撮影を相談する</a>
 
-  <script src="assets/js/config.js?v=2"></script>
-  <script src="assets/js/main.js?v=2"></script>
-  <script src="assets/js/index.js?v=2"></script>
+  <script src="assets/js/config.js?v=3"></script>
+  <script src="assets/js/api.js?v=3"></script>
+  <script src="assets/js/index.js?v=3"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const slides = document.querySelectorAll(".hero-slide");
@@ -172,18 +175,6 @@
           currentSlide = (currentSlide + 1) % slides.length;
           slides[currentSlide].classList.add("active");
         }, 5000);
-      }
-
-      // Floating CTA logic
-      const floatingCta = document.getElementById("floating-cta");
-      if (floatingCta) {
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > 500) {
-            floatingCta.classList.add("visible");
-          } else {
-            floatingCta.classList.remove("visible");
-          }
-        });
       }
     });
   </script>

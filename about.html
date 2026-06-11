@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | JAN STUDIO</title>
   <meta name="description" content="JAN STUDIOのブランドストーリー。写真を軸に、人の可能性を鍛えるスタジオです。" />
-  <link rel="stylesheet" href="assets/css/reset.css?v=2" />
-  <link rel="stylesheet" href="assets/css/style.css?v=2" />
-  <link rel="stylesheet" href="assets/css/renewal.css?v=2" />
+  <link rel="stylesheet" href="assets/css/reset.css?v=3" />
+  <link rel="stylesheet" href="assets/css/style.css?v=3" />
+  <link rel="stylesheet" href="assets/css/renewal.css?v=3" />
   <style>
     /* Add specific styles for about page accordion */
     .equipment-accordion summary {
@@ -36,12 +36,15 @@
 
   <!-- SEO & OGP -->
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <meta property="og:title" content="JAN STUDIO">
-  <meta property="og:description" content="あなたの大切な瞬間を、もっと美しく。記憶に残り続ける一枚を。">
-  <meta property="og:image" content="https://janstudio.app/assets/img/hero-bg.jpg">
+  <link rel="canonical" href="https://janstudio.app/about.html">
+  <meta property="og:site_name" content="JAN STUDIO">
+  <meta property="og:title" content="About | JAN STUDIO">
+  <meta property="og:description" content="JAN STUDIOのブランドストーリー。写真を軸に、人の可能性を鍛えるスタジオです。">
+  <meta property="og:image" content="https://janstudio.app/assets/img/profile.jpg">
+  <meta property="og:url" content="https://janstudio.app/about.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <script src="assets/js/components.js"></script>
+  <script src="assets/js/components.js?v=3" defer></script>
 </head>
 
 <body class="page-about">
@@ -78,7 +81,7 @@
     <section class="section" style="background: rgba(255,255,255,0.03); border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
       <div class="container about-layout">
         <div class="about-photo">
-          <img src="assets/img/profile.jpg" alt="糴川 樹 / Itsuki Serikawa" class="avatar-image avatar-large-image"
+          <img src="assets/img/profile.webp" alt="糴川 樹 / Itsuki Serikawa" class="avatar-image avatar-large-image"
             onerror="this.outerHTML='<div class=\'avatar-large-placeholder\'></div>'">
         </div>
         <div class="about-content">
@@ -179,19 +182,7 @@
 
   <a href="contact.html?type=shoot" class="floating-cta" id="floating-cta">撮影を相談する</a>
 
-  <script src="assets/js/config.js?v=2"></script>
-  <script src="assets/js/main.js?v=2"></script>
-  <script>
-    const floatingCta = document.getElementById("floating-cta");
-    if (floatingCta) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 500) {
-          floatingCta.classList.add("visible");
-        } else {
-          floatingCta.classList.remove("visible");
-        }
-      });
-    }
-  </script>
+  <script src="assets/js/config.js?v=3"></script>
+  <script src="assets/js/api.js?v=3"></script>
 </body>
 </html>

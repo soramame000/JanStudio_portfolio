@@ -11,6 +11,9 @@ const router = AutoRouter({
     finally: [corsify],
 });
 
+// 公開して良いCMSエンドポイントの許可リスト
+const ALLOWED_ENDPOINTS = ['photos', 'blogPosts', 'projects', 'siteSettings'];
+
 // microCMS API fetch function
 async function fetchCMS(endpoint, env) {
     const baseUrl = env.CMS_BASE_URL.replace(/\/+$/, '');
@@ -53,7 +56,6 @@ class OGPInjector {
 }
 
 // /api/* のリクエストをmicroCMSにプロキシする
-// itty-router v5+ では router.get('/') の第一引数が request, 第二引数が env 等になります
 router.get('/api/*', async (request, env) => {
     if (!env.CMS_BASE_URL || !env.CMS_API_KEY) {
         return new Response(JSON.stringify({ error: 'CMS configurations are missing in the environment' }), { status: 500 });
@@ -63,6 +65,14 @@ router.get('/api/*', async (request, env) => {
 
     // 例: /api/photos?limit=10 -> https://your-service.microcms.io/api/v1/photos?limit=10
     const cmsPath = url.pathname.replace('/api/', '/');
+
+    // 許可リスト外のエンドポイントは拒否する
+    const segments = cmsPath.split('/').filter(Boolean);
+    const endpointName = segments[0] || '';
+    if (!ALLOWED_ENDPOINTS.includes(endpointName) || segments.length > 2) {
+        return new Response(JSON.stringify({ error: 'Endpoint not allowed' }), { status: 404 });
+    }
+
     const baseUrl = env.CMS_BASE_URL.replace(/\/+$/, '');
     const path = cmsPath.startsWith('/') ? cmsPath : '/' + cmsPath;
     const targetUrl = new URL(baseUrl + path);
@@ -70,6 +80,17 @@ router.get('/api/*', async (request, env) => {
     url.searchParams.forEach((value, key) => {
         targetUrl.searchParams.append(key, value);
     });
+
+    // photos 一覧は公開ステータスのものだけを返す（下書きの漏えい防止）
+    const isListRequest = segments.length === 1;
+    if (endpointName === 'photos' && isListRequest) {
+        const publicFilter = 'publishStatus[contains]public';
+        const clientFilters = targetUrl.searchParams.get('filters');
+        targetUrl.searchParams.set(
+            'filters',
+            clientFilters ? `(${clientFilters})[and]${publicFilter}` : publicFilter
+        );
+    }
 
     try {
         const response = await fetch(targetUrl.toString(), {
@@ -83,7 +104,10 @@ router.get('/api/*', async (request, env) => {
         const data = await response.json();
         return new Response(JSON.stringify(data), {
             status: response.status,
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'Cache-Control': 'public, max-age=60',
+            },
         });
     } catch (error) {
         console.error("Error making request to CMS:", error.message, error.stack);
@@ -92,28 +116,26 @@ router.get('/api/*', async (request, env) => {
 });
 
 // HTMLリクエストに対するOGPタグの動的生成
+// 注意: この機能を本番で有効にするには、このWorkerにサイト本体のassetsバインディング
+// (wrangler.jsonc の "assets" 設定) を追加し、ドメインのルーティングをWorker経由にする必要がある
 router.get('/*.html', async (request, env) => {
     const url = new URL(request.url);
     const path = url.pathname;
     const id = url.searchParams.get('id');
 
-    // Cloudflare Pages 等でホストされている元のHTMLを取得
-    // ※ローカルテスト時はWranglerがAssetsを参照するため、本番では env.ASSETS.fetch を使う想定
     let htmlResponse;
     try {
-        // env.ASSETS が存在する場合はそれを使う (Pages/Workers Assets)
         if (env.ASSETS) {
             htmlResponse = await env.ASSETS.fetch(request);
         } else {
-            // なければそのまま返すか、オリジンへフォールバック
-            htmlResponse = await fetch(request);
+            return new Response("Not Found", { status: 404 });
         }
     } catch (e) {
         return new Response("Not Found", { status: 404 });
     }
 
     // idがなければそのままHTMLを返す
-    if (!id || (path !== '/project.html' && path !== '/blog.html')) {
+    if (!id || (path !== '/project.html' && path !== '/journal.html')) {
         return htmlResponse;
     }
 
@@ -121,21 +143,23 @@ router.get('/*.html', async (request, env) => {
         url: request.url
     };
 
+    const escapeAttr = (value) => String(value || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+
     if (path === '/project.html') {
-        const project = await fetchCMS(`/projects/${id}`, env);
+        const project = await fetchCMS(`/projects/${encodeURIComponent(id)}`, env);
         if (project) {
-            ogData.title = `${project.title || 'Project'} | JAN Studio`;
-            ogData.description = project.summary || 'JAN Studio の撮影案件詳細。';
+            ogData.title = escapeAttr(`${project.title || 'Project'} | JAN STUDIO`);
+            ogData.description = escapeAttr(project.summary || 'JAN STUDIO の撮影案件詳細。');
             if (project.mainImage?.url) {
                 ogData.image = project.mainImage.url + "?w=1200&h=630&fit=crop";
             }
         }
-    } else if (path === '/blog.html') {
-        const post = await fetchCMS(`/blogPosts/${id}`, env);
+    } else if (path === '/journal.html') {
+        const post = await fetchCMS(`/blogPosts/${encodeURIComponent(id)}`, env);
         if (post) {
-            ogData.title = `${post.title || 'Blog'} | JAN Studio`;
+            ogData.title = escapeAttr(`${post.title || 'Journal'} | JAN STUDIO`);
             // htmlタグを取り除く簡易処理
-            ogData.description = post.body ? post.body.replace(/<[^>]*>?/gm, '').substring(0, 100) + '...' : 'JAN Studio ジャーナル記事';
+            ogData.description = escapeAttr(post.body ? post.body.replace(/<[^>]*>?/gm, '').substring(0, 100) + '...' : 'JAN STUDIO ジャーナル記事');
             if (post.thumbnail?.url) {
                 ogData.image = post.thumbnail.url + "?w=1200&h=630&fit=crop";
             }
