@@ -6,9 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Journal | JAN STUDIO</title>
   <meta name="description" content="JAN STUDIOのジャーナル。撮影レコード、機材レビュー、そして育成への構想。" />
-  <link rel="stylesheet" href="assets/css/reset.css?v=3" />
-  <link rel="stylesheet" href="assets/css/style.css?v=3" />
-  <link rel="stylesheet" href="assets/css/renewal.css?v=3" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/reset.css?v=4" />
+  <link rel="stylesheet" href="assets/css/style.css?v=4" />
 
   <!-- SEO & OGP -->
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -20,43 +25,44 @@
   <meta property="og:url" content="https://janstudio.app/journal.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <script src="assets/js/components.js?v=3" defer></script>
+  <script src="assets/js/components.js?v=4" defer></script>
 </head>
 
 <body class="page-blog">
   <site-header></site-header>
 
-  <main>
+  <main id="main">
     <section class="page-hero container">
-      <p class="page-eyebrow">Journal</p>
-      <h1 class="page-title">活動の発信と現場の記録</h1>
-      <p class="page-lead">
-        現場から得た気づき、機材のレビュー、被写体に向き合う哲学など、JAN STUDIOの舞台裏と未来への構想を綴ります。
-      </p>
+      <div data-reveal>
+        <p class="page-eyebrow">Journal</p>
+        <h1 class="page-title">活動の発信と<br>現場の記録</h1>
+        <p class="page-lead">
+          現場から得た気づき、機材のレビュー、被写体に向き合う哲学など、JAN STUDIOの舞台裏と未来への構想を綴ります。
+        </p>
+      </div>
     </section>
 
-    <!-- Journal categories -->
     <section class="section" style="padding-top: 0;">
       <div class="container">
-        <div class="filter-group" id="journal-controls" style="margin-bottom: 32px;" aria-label="カテゴリで絞り込み">
+        <div class="filter-group" id="journal-controls" style="margin-bottom: 48px;" aria-label="カテゴリで絞り込み">
           <button class="filter-btn is-active" data-cat="all">すべて</button>
-          <button class="filter-btn" data-cat="SHOOT">SHOOT (撮影)</button>
-          <button class="filter-btn" data-cat="EQUIP">EQUIP (機材)</button>
-          <button class="filter-btn" data-cat="FORGE">FORGE (育成)</button>
-          <button class="filter-btn" data-cat="STUDIO">STUDIO</button>
+          <button class="filter-btn" data-cat="SHOOT">Shoot</button>
+          <button class="filter-btn" data-cat="EQUIP">Equip</button>
+          <button class="filter-btn" data-cat="FORGE">Forge</button>
+          <button class="filter-btn" data-cat="STUDIO">Studio</button>
         </div>
 
         <div class="blog-list" id="blog-list" aria-live="polite">
           <!-- CMSから取得した記事をJavaScriptで描画 -->
         </div>
 
-        <div class="pagination" id="pagination" style="margin-top: 40px; display: flex; gap: 8px; justify-content: center;">
+        <div class="pagination" id="pagination">
           <!-- JS Pagination -->
         </div>
 
         <!-- 記事詳細（?id= 付きでアクセスされた場合に表示） -->
         <article class="blog-detail" id="blog-detail" hidden>
-          <button type="button" class="blog-back filter-btn" id="blog-back-button">← 記事一覧へ戻る</button>
+          <a href="journal.html" class="back-link" id="blog-back-button">記事一覧へ戻る</a>
           <header class="blog-detail-header">
             <h2 class="blog-detail-title" id="blog-detail-title"></h2>
             <p class="blog-detail-date" id="blog-detail-date"></p>
@@ -72,8 +78,10 @@
 
   <a href="contact.html?type=shoot" class="floating-cta" id="floating-cta">撮影を相談する</a>
 
-  <script src="assets/js/config.js?v=3"></script>
-  <script src="assets/js/api.js?v=3"></script>
-  <script src="assets/js/journal.js?v=3"></script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/api.js?v=4"></script>
+  <script src="assets/js/motion.js?v=4"></script>
+  <script src="assets/js/journal.js?v=4"></script>
 </body>
+
 </html>

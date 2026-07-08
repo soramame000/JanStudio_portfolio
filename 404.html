@@ -6,21 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ページが見つかりません | JAN STUDIO</title>
   <meta name="robots" content="noindex">
-  <link rel="stylesheet" href="assets/css/reset.css?v=3" />
-  <link rel="stylesheet" href="assets/css/style.css?v=3" />
-  <link rel="stylesheet" href="assets/css/renewal.css?v=3" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/reset.css?v=4" />
+  <link rel="stylesheet" href="assets/css/style.css?v=4" />
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <script src="assets/js/components.js?v=3" defer></script>
+  <script src="assets/js/components.js?v=4" defer></script>
 </head>
 
 <body class="page-404">
   <site-header></site-header>
 
-  <main>
-    <section class="page-hero container text-center" style="padding-top: 120px; padding-bottom: 120px;">
-      <p class="page-eyebrow">404 Not Found</p>
-      <h1 class="page-title">ページが見つかりません</h1>
-      <p class="page-lead" style="margin: 16px auto 32px;">
+  <main id="main">
+    <section class="page-hero container text-center">
+      <p class="error-code" aria-hidden="true">4<em>0</em>4</p>
+      <h1 class="page-title" style="margin-top: 24px;">ページが見つかりません</h1>
+      <p class="page-lead" style="margin: 20px auto 40px;">
         お探しのページは移動または削除された可能性があります。
       </p>
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">

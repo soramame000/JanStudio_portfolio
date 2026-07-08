@@ -13,7 +13,6 @@
   const filterButtons = document.querySelectorAll(".filter-btn[data-cat]");
   const filterSection = document.getElementById("journal-controls");
   const detailSection = document.getElementById("blog-detail");
-  const backButton = document.getElementById("blog-back-button");
   const detailTitle = document.getElementById("blog-detail-title");
   const detailDate = document.getElementById("blog-detail-date");
   const detailBody = document.getElementById("blog-detail-body");
@@ -70,13 +69,14 @@
       return;
     }
 
+    // クローラにも辿れる本物のリンクとして描画する
     listEl.innerHTML = pagePosts
       .map(
         (post) => `
-      <article class="blog-card" data-id="${esc(post.id)}">
-        <div class="blog-card-thumb">
+      <a class="blog-card" href="journal.html?id=${encodeURIComponent(post.id)}">
+        <div class="blog-card-thumb img-skeleton-wrapper">
           ${post.thumbnail?.url
-            ? `<img src="${esc(post.thumbnail.url)}?w=800&q=80" alt="${esc(post.title)}" loading="lazy" decoding="async" />`
+            ? `<img src="${esc(post.thumbnail.url)}?w=800&q=80" alt="" loading="lazy" decoding="async" onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');" />`
             : ""
           }
         </div>
@@ -86,7 +86,7 @@
             ${post.publishedAt ? esc(post.publishedAt.substring(0, 10)) : ""}
           </p>
         </div>
-      </article>
+      </a>
     `
       )
       .join("");
@@ -157,23 +157,6 @@
       currentPage = Number(btn.dataset.page) || 1;
       renderList();
       listEl?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  }
-
-  if (listEl) {
-    listEl.addEventListener("click", (e) => {
-      const card = e.target.closest(".blog-card");
-      if (!card) return;
-      const id = card.dataset.id;
-      if (id) {
-        window.location.search = `?id=${encodeURIComponent(id)}`;
-      }
-    });
-  }
-
-  if (backButton) {
-    backButton.addEventListener("click", () => {
-      window.location.search = "";
     });
   }
 

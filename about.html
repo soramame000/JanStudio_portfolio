@@ -6,33 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | JAN STUDIO</title>
   <meta name="description" content="JAN STUDIOのブランドストーリー。写真を軸に、人の可能性を鍛えるスタジオです。" />
-  <link rel="stylesheet" href="assets/css/reset.css?v=3" />
-  <link rel="stylesheet" href="assets/css/style.css?v=3" />
-  <link rel="stylesheet" href="assets/css/renewal.css?v=3" />
-  <style>
-    /* Add specific styles for about page accordion */
-    .equipment-accordion summary {
-      cursor: pointer;
-      font-weight: 700;
-      color: var(--color-accent);
-      padding: 16px 0;
-      border-bottom: 1px solid var(--color-border);
-      outline: none;
-      list-style-type: none;
-      display: flex;
-      justify-content: space-between;
-    }
-    .equipment-accordion summary::after {
-      content: '+';
-      color: var(--color-muted);
-    }
-    .equipment-accordion[open] summary::after {
-      content: '-';
-    }
-    .equipment-accordion .accordion-content {
-      padding: 16px 0;
-    }
-  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/reset.css?v=4" />
+  <link rel="stylesheet" href="assets/css/style.css?v=4" />
 
   <!-- SEO & OGP -->
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -44,33 +25,36 @@
   <meta property="og:url" content="https://janstudio.app/about.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <script src="assets/js/components.js?v=3" defer></script>
+  <script src="assets/js/components.js?v=4" defer></script>
 </head>
 
 <body class="page-about">
   <site-header></site-header>
 
-  <main>
+  <main id="main">
     <section class="page-hero container">
-      <p class="page-eyebrow">About</p>
-      <h1 class="page-title">JAN STUDIOについて</h1>
-      <p class="page-lead">
-        写真を軸に、人の可能性を鍛える。
-      </p>
+      <div data-reveal>
+        <p class="page-eyebrow">About</p>
+        <h1 class="page-title">写真を軸に、<br>人の可能性を<span class="serif-accent" style="color:var(--accent);">鍛える。</span></h1>
+        <p class="page-lead">
+          JAN STUDIOのブランドストーリーと、ファウンダーの歩み。
+        </p>
+      </div>
     </section>
 
     <!-- BRAND STORY -->
     <section class="section" style="padding-top: 0;">
-      <div class="container">
-        <h2 class="section-title">ブランドストーリー</h2>
-        <div style="margin-top: 24px; max-width: 800px; color: var(--color-text);">
-          <p style="margin-bottom: 16px;">
-            JAN STUDIOは、ただ目の前の光景を記録するだけのカメラマンではありません。<br>
+      <div class="container" data-reveal>
+        <p class="section-kicker">Brand Story</p>
+        <h2 class="section-title">記録ではなく、記憶を撮る。</h2>
+        <div class="prose" style="margin-top: 32px;">
+          <p>
+            JAN STUDIOは、ただ目の前の光景を記録するだけのカメラマンではありません。
             私たちは、被写体の「熱量」と「文脈」を理解し、一瞬をプロダクトのように美しく切り取ります。
           </p>
-          <p style="margin-bottom: 16px;">
-            ブランドの核は「鍛える」こと。<br>
-            撮影現場では技術と研ぎ澄まされた集中力で、被写体の魅力を最大限に引き出します。<br>
+          <p>
+            ブランドの核は<strong>「鍛える」</strong>こと。
+            撮影現場では技術と研ぎ澄まされた集中力で、被写体の魅力を最大限に引き出します。
             私たちは写真を通じて、人が自らの軸をつくるためのすべての実践に伴走します。
           </p>
         </div>
@@ -78,21 +62,23 @@
     </section>
 
     <!-- FOUNDER -->
-    <section class="section" style="background: rgba(255,255,255,0.03); border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+    <section class="section band">
       <div class="container about-layout">
-        <div class="about-photo">
+        <div class="about-photo" data-reveal="left">
           <img src="assets/img/profile.webp" alt="糴川 樹 / Itsuki Serikawa" class="avatar-image avatar-large-image"
+            loading="lazy" decoding="async"
             onerror="this.outerHTML='<div class=\'avatar-large-placeholder\'></div>'">
         </div>
-        <div class="about-content">
-          <h2 class="section-title">Founder — 糴川 樹 / Itsuki Serikawa</h2>
-          <p style="margin-top: 24px; margin-bottom: 16px;">
+        <div class="about-content" data-reveal="right">
+          <p class="section-kicker">Founder</p>
+          <h2 class="section-title">糴川 樹 <span class="serif-accent" style="color:var(--muted); font-size:0.6em;">Itsuki Serikawa</span></h2>
+          <p>
             アスリートとしての原体験（パワーリフティングU18世界3位・水泳全国2位）を持ち、競技者の息遣いや限界に挑む感覚を知るからこそ、プレーの背景にある熱量まで伝わる撮影を信条としています。
           </p>
-          <p style="margin-bottom: 16px;">
+          <p>
             近年はスポーツ撮影にとどまらず、写真としての芸術性も追求。国際的な写真賞である「London Photography Awards」において金賞（Pro Fine Art Conceptual部門）を受賞するなど、被写体の魅力を引き出す独自のアプローチが世界でも評価されています。
           </p>
-          <p style="margin-bottom: 16px;">
+          <p>
             現在は関西を拠点に、社会人アメフトリーグX3「クラブアイランズ」の公式カメラマンを務めるほか、多彩な分野の撮影に対応。自身が双極性障害とADHDを抱えながらも現場に立ち続ける実践そのものが、JAN STUDIOの「人の可能性を写し出す」というブランド思想の原点になっています。
           </p>
         </div>
@@ -100,31 +86,45 @@
     </section>
 
     <!-- AWARDS -->
-    <section class="section" style="padding-top: 0;">
-      <div class="container" style="max-width: 800px; margin: 0 auto;">
-        <h2 class="section-title" style="margin-bottom: 24px;">受賞歴</h2>
-        <ul style="list-style-type: none; padding: 0; color: var(--color-text);">
-          <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px;">
-            <span style="color: var(--color-accent); font-size: 1.2rem;">🏆</span>
-            <span>London Photography Awards<br><span style="font-size: 0.9em; color: var(--color-muted);">Pro Fine Art Conceptual - Gold</span></span>
+    <section class="section">
+      <div class="container" style="max-width: 880px;" data-reveal>
+        <p class="section-kicker">Awards</p>
+        <h2 class="section-title">受賞歴</h2>
+        <ul class="award-list" style="margin-top: 40px;">
+          <li class="award-item">
+            <span class="award-year">LPA</span>
+            <span>
+              <span class="award-name">London Photography Awards</span>
+              <span class="award-detail" style="display:block;">Pro Fine Art Conceptual</span>
+            </span>
+            <span class="award-rank">Gold</span>
           </li>
-          <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px;">
-            <span style="color: var(--color-accent); font-size: 1.2rem;">🏆</span>
-            <span>London Photography Awards<br><span style="font-size: 0.9em; color: var(--color-muted);">Pro Fine Art Minimalism - Honorable Mention</span></span>
+          <li class="award-item">
+            <span class="award-year">LPA</span>
+            <span>
+              <span class="award-name">London Photography Awards</span>
+              <span class="award-detail" style="display:block;">Pro Fine Art Minimalism</span>
+            </span>
+            <span class="award-rank">Honorable Mention</span>
           </li>
-          <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px;">
-            <span style="color: var(--color-accent); font-size: 1.2rem;">⭐</span>
-            <span>1839 Awards<br><span style="font-size: 0.9em; color: var(--color-muted);">Color Photo Contest - Nominee</span></span>
+          <li class="award-item">
+            <span class="award-year">1839</span>
+            <span>
+              <span class="award-name">1839 Awards</span>
+              <span class="award-detail" style="display:block;">Color Photo Contest</span>
+            </span>
+            <span class="award-rank">Nominee</span>
           </li>
         </ul>
       </div>
     </section>
 
     <!-- EQUIPMENT (Accordion) -->
-    <section class="section">
-      <div class="container" style="max-width: 800px; margin: 0 auto;">
-        <h2 class="section-title" style="margin-bottom: 32px;">使用機材</h2>
-        
+    <section class="section" style="padding-top: 0;">
+      <div class="container" style="max-width: 880px;" data-reveal>
+        <p class="section-kicker">Equipment</p>
+        <h2 class="section-title" style="margin-bottom: 40px;">使用機材</h2>
+
         <details class="equipment-accordion">
           <summary>Camera Bodies</summary>
           <div class="accordion-content">
@@ -137,7 +137,7 @@
             </ul>
           </div>
         </details>
-        
+
         <details class="equipment-accordion">
           <summary>Lenses</summary>
           <div class="accordion-content">
@@ -151,9 +151,9 @@
             </ul>
           </div>
         </details>
-        
+
         <details class="equipment-accordion">
-          <summary>Lighting & Other</summary>
+          <summary>Lighting &amp; Other</summary>
           <div class="accordion-content">
             <ul class="options-list">
               <li>Godox V1Pro Nikon / Godox V100S Sony</li>
@@ -165,12 +165,13 @@
     </section>
 
     <section class="section section-cta">
-      <div class="container text-center">
+      <div class="container cta-inner" data-reveal>
+        <p class="section-kicker section-kicker-light">Contact</p>
         <h2 class="section-title">撮影のご依頼について</h2>
-        <p class="section-lead" style="margin: 0 auto 24px auto;">
+        <p class="section-lead">
           撮影の目的やイメージ、納期やご予算などをお伺いしながら、最適なプランをご提案します。
         </p>
-        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <div class="cta-actions">
           <a href="services.html" class="btn ghost">料金プランを見る</a>
           <a href="contact.html" class="btn primary">問い合わせフォームへ</a>
         </div>
@@ -182,7 +183,9 @@
 
   <a href="contact.html?type=shoot" class="floating-cta" id="floating-cta">撮影を相談する</a>
 
-  <script src="assets/js/config.js?v=3"></script>
-  <script src="assets/js/api.js?v=3"></script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/api.js?v=4"></script>
+  <script src="assets/js/motion.js?v=4"></script>
 </body>
+
 </html>

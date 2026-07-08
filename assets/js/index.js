@@ -2,6 +2,72 @@
   const config = window.PORTFOLIO_CONFIG || {};
   const { fetchJson, esc, toTimestamp, isPublic } = window.JAN;
 
+  /* ---------------------------------------------
+     Hero slideshow — progress bars / reduced motion
+     --------------------------------------------- */
+  function initHeroSlideshow() {
+    const slides = Array.from(document.querySelectorAll(".hero-slide"));
+    const progressEl = document.getElementById("hero-progress");
+    if (slides.length <= 1) return;
+
+    const SLIDE_DUR = 6000;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let current = 0;
+    let timer = null;
+
+    document.documentElement.style.setProperty("--slide-dur", `${SLIDE_DUR}ms`);
+
+    const dots = slides.map((_, i) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.setAttribute("aria-label", `スライド ${i + 1}`);
+      btn.addEventListener("click", () => {
+        goTo(i);
+        restart();
+      });
+      progressEl?.appendChild(btn);
+      return btn;
+    });
+
+    function render() {
+      slides.forEach((s, i) => s.classList.toggle("active", i === current));
+      dots.forEach((d, i) => {
+        d.classList.remove("active");
+        if (i === current) {
+          // reflow して progress アニメーションを最初から再生する
+          void d.offsetWidth;
+          d.classList.add("active");
+        }
+      });
+    }
+
+    function goTo(index) {
+      current = (index + slides.length) % slides.length;
+      render();
+    }
+
+    function restart() {
+      if (reduceMotion) return;
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), SLIDE_DUR);
+    }
+
+    // タブ非表示中は止める（バッテリー・CPU節約）
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        clearInterval(timer);
+      } else {
+        restart();
+      }
+    });
+
+    render();
+    restart();
+  }
+
+  /* ---------------------------------------------
+     Featured works
+     --------------------------------------------- */
   async function renderFeatured() {
     const container = document.getElementById("featured-gallery");
     if (!container) return;
@@ -33,11 +99,15 @@
       return;
     }
 
+    // クローラにも辿れる本物のリンクとして描画する
     container.innerHTML = items
-      .map(
-        (item) => `
-        <article class="gallery-card" data-project-id="${esc(item.projectId || "")}">
-          <div class="img-skeleton-wrapper" style="height: 220px;">
+      .map((item) => {
+        const href = item.projectId
+          ? `project.html?id=${encodeURIComponent(item.projectId)}`
+          : "works.html";
+        return `
+        <a class="gallery-card" href="${esc(href)}">
+          <div class="img-skeleton-wrapper" style="height: 300px;">
             <img
               src="${item.image?.url ? esc(item.image.url) + '?w=800&q=80' : ''}"
               alt="${esc(item.title || "")}"
@@ -50,23 +120,15 @@
             <span>${esc(item.title || "Untitled")}</span>
             <span>${esc(Array.isArray(item.genre) ? item.genre.join(", ") : (item.genre || ""))}</span>
           </div>
-        </article>
-      `
-      )
+        </a>
+      `;
+      })
       .join("");
-
-    container.addEventListener("click", (e) => {
-      const card = e.target.closest(".gallery-card");
-      if (!card) return;
-      const projectId = card.dataset.projectId;
-      if (projectId) {
-        window.location.href = `project.html?id=${encodeURIComponent(projectId)}`;
-      } else {
-        window.location.href = "works.html";
-      }
-    });
   }
 
+  /* ---------------------------------------------
+     Latest journal posts
+     --------------------------------------------- */
   async function renderLatestPosts() {
     const container = document.getElementById("latest-posts");
     if (!container) return;
@@ -87,10 +149,10 @@
     container.innerHTML = posts
       .map(
         (post) => `
-        <article class="blog-card" data-id="${esc(post.id)}">
+        <a class="blog-card" href="journal.html?id=${encodeURIComponent(post.id)}">
           <div class="blog-card-thumb img-skeleton-wrapper">
             ${post.thumbnail?.url
-            ? `<img src="${esc(post.thumbnail.url)}?w=600&q=80" alt="${esc(post.title)}" loading="lazy" decoding="async" onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');" />`
+            ? `<img src="${esc(post.thumbnail.url)}?w=600&q=80" alt="" loading="lazy" decoding="async" onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');" />`
             : ""
           }
           </div>
@@ -100,21 +162,13 @@
               ${post.publishedAt ? esc(post.publishedAt.substring(0, 10)) : ""}
             </p>
           </div>
-        </article>
+        </a>
       `
       )
       .join("");
-
-    container.addEventListener("click", (e) => {
-      const card = e.target.closest(".blog-card");
-      if (!card) return;
-      const id = card.dataset.id;
-      if (id) {
-        window.location.href = `journal.html?id=${encodeURIComponent(id)}`;
-      }
-    });
   }
 
+  initHeroSlideshow();
   renderFeatured();
   renderLatestPosts();
 })();
