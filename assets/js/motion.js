@@ -188,7 +188,7 @@
      --------------------------------------------- */
   function initMagnetic() {
     if (reduceMotion || !finePointer) return;
-    document.querySelectorAll(".btn, .floating-cta, .nav-cta").forEach((el) => {
+    document.querySelectorAll(".btn, .floating-cta, .nav-cta, .mega-cta").forEach((el) => {
       const strength = 0.28;
       el.addEventListener("mousemove", (e) => {
         const r = el.getBoundingClientRect();
@@ -202,12 +202,77 @@
     });
   }
 
+  /* ---------------------------------------------
+     6. Chapters — ピン留め横スクロール
+        非対応環境（モバイル・reduced-motion）は
+        CSSデフォルトの縦積みにフォールバック
+     --------------------------------------------- */
+  function initChapters() {
+    const wrap = document.getElementById("chapters");
+    const track = document.getElementById("chapters-track");
+    if (!wrap || !track) return;
+    if (reduceMotion || window.matchMedia("(max-width: 860px)").matches) return;
+
+    wrap.classList.add("is-pinned");
+
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const rect = wrap.getBoundingClientRect();
+      const total = wrap.offsetHeight - window.innerHeight;
+      if (total <= 0) return;
+      const progress = Math.min(1, Math.max(0, -rect.top / total));
+      const max = track.scrollWidth - window.innerWidth;
+      track.style.transform = `translate3d(${(-progress * max).toFixed(1)}px, 0, 0)`;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  }
+
+  /* ---------------------------------------------
+     7. スクロール進捗バー
+     --------------------------------------------- */
+  function initScrollProgress() {
+    if (reduceMotion) return;
+    const bar = document.createElement("div");
+    bar.className = "scroll-progress";
+    bar.setAttribute("aria-hidden", "true");
+    document.body.appendChild(bar);
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const p = max > 0 ? window.scrollY / max : 0;
+      bar.style.transform = `scaleX(${p.toFixed(4)})`;
+    };
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      },
+      { passive: true }
+    );
+    update();
+  }
+
   function init() {
     initReveal();
     initScrollText();
     initParallax();
     initCursor();
     initMagnetic();
+    initChapters();
+    initScrollProgress();
   }
 
   if (document.readyState === "loading") {
