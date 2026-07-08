@@ -1883,6 +1883,204 @@ main { position: relative; z-index: 1; }
   color: var(--accent);
 }
 
+/* ============================================================
+   FORGE v2 — Signature layer
+   ページ遷移・プリローダー・カーソル・視差・縦書き・稼働ステータス
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   v2-1. Cross-document view transitions（対応ブラウザのみ）
+   ------------------------------------------------------------ */
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root) {
+  animation: vt-out 0.28s var(--ease-inout) both;
+}
+::view-transition-new(root) {
+  animation: vt-in 0.5s var(--ease-out) both;
+}
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; } }
+
+/* ------------------------------------------------------------
+   v2-2. Preloader — 初回訪問だけの「開幕」
+   ------------------------------------------------------------ */
+html.is-loading { overflow: hidden; }
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  background: var(--bg);
+  transition: transform 0.8s var(--ease-inout);
+}
+.preloader.is-done { transform: translateY(-100.5%); }
+
+.preloader-word {
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  font-weight: 800;
+  font-stretch: 122%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-strong);
+}
+.preloader-word span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: hero-line-in 0.9s 0.15s var(--ease-out) forwards;
+}
+.preloader-tag {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--muted);
+  font-size: 1rem;
+  opacity: 0;
+  animation: preloader-fade 0.8s 0.6s var(--ease-out) forwards;
+}
+@keyframes preloader-fade { to { opacity: 1; } }
+
+.preloader-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: var(--accent);
+  animation: preloader-bar 1.1s 0.1s var(--ease-inout) forwards;
+}
+@keyframes preloader-bar { to { transform: scaleX(1); } }
+
+/* ------------------------------------------------------------
+   v2-3. Custom cursor（デスクトップのみ / mix-blend で写真上でも反転）
+   ------------------------------------------------------------ */
+@media (pointer: fine) {
+  body.has-cursor,
+  body.has-cursor a,
+  body.has-cursor button,
+  body.has-cursor summary,
+  body.has-cursor [role="button"] {
+    cursor: none;
+  }
+  body.has-cursor input,
+  body.has-cursor textarea,
+  body.has-cursor select,
+  body.has-cursor label {
+    cursor: auto;
+  }
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5000;
+  pointer-events: none;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: #fff;
+}
+.cursor-ring {
+  width: 38px;
+  height: 38px;
+  margin: -19px 0 0 -19px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out), margin 0.3s var(--ease-out), opacity 0.3s;
+}
+.cursor-ring.is-active {
+  width: 62px;
+  height: 62px;
+  margin: -31px 0 0 -31px;
+}
+.cursor-dot.is-hidden,
+.cursor-ring.is-hidden { opacity: 0; }
+
+/* ------------------------------------------------------------
+   v2-4. スクロール連動の文字点灯（brand statement）
+   ------------------------------------------------------------ */
+[data-split-words] .word {
+  opacity: 0.13;
+  transition: opacity 0.45s var(--ease-out);
+}
+[data-split-words] .word.is-lit { opacity: 1; }
+
+/* ------------------------------------------------------------
+   v2-5. 縦書きアクセント — 日本のスタジオの署名
+   ------------------------------------------------------------ */
+.section-brand-statement { position: relative; }
+.tategaki {
+  position: absolute;
+  top: 50%;
+  right: calc(var(--gutter) * 0.75);
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-family: var(--font-body);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  color: var(--faint);
+  padding-block: 20px;
+  border-right: 1px solid var(--line-soft);
+  padding-right: 14px;
+  user-select: none;
+}
+@media (max-width: 1100px) { .tategaki { display: none; } }
+
+/* ------------------------------------------------------------
+   v2-6. Footer — 稼働ステータス・現地時刻・座標
+   ------------------------------------------------------------ */
+.footer-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+  font-family: var(--font-display);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #46d47e;
+  box-shadow: 0 0 0 0 rgba(70, 212, 126, 0.5);
+  animation: status-pulse 2.4s var(--ease-inout) infinite;
+}
+@keyframes status-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(70, 212, 126, 0.45); }
+  70% { box-shadow: 0 0 0 9px rgba(70, 212, 126, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(70, 212, 126, 0); }
+}
+.footer-status .sep { color: var(--faint); }
+.footer-clock {
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+/* ------------------------------------------------------------
+   v2-7. Parallax hint
+   ------------------------------------------------------------ */
+[data-parallax] { will-change: transform; }
+
 /* ------------------------------------------------------------
    25. Reduced motion
    ------------------------------------------------------------ */
@@ -1899,4 +2097,7 @@ main { position: relative; z-index: 1; }
   .gallery-item { opacity: 1; transform: none; }
   .hero-title .line > span { transform: none; animation: none; }
   .marquee-track { animation: none; }
+  [data-split-words] .word { opacity: 1; }
+  .preloader { display: none; }
+  .cursor-dot, .cursor-ring { display: none; }
 }

@@ -96,6 +96,14 @@ class SiteFooter extends HTMLElement {
             <div class="footer-brand">
               <span class="logo-small">JAN STUDIO</span>
               <p class="footer-tagline">一瞬を鍛え、記憶に残す。</p>
+              <p class="footer-status">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span>Available for bookings</span>
+                <span class="sep" aria-hidden="true">/</span>
+                <span>Osaka, JP <span class="footer-clock" data-footer-clock>--:--:--</span> JST</span>
+                <span class="sep" aria-hidden="true">/</span>
+                <span aria-hidden="true">34.69°N 135.50°E</span>
+              </p>
               <p class="footer-copy">© ${year} JAN STUDIO. All rights reserved.</p>
             </div>
             <nav class="footer-links" aria-label="フッターナビゲーション">
@@ -117,6 +125,23 @@ class SiteFooter extends HTMLElement {
         </div>
       </footer>
     `;
+
+    // 大阪（JST）の現在時刻
+    const clockEl = this.querySelector("[data-footer-clock]");
+    if (clockEl) {
+      const fmt = new Intl.DateTimeFormat("ja-JP", {
+        timeZone: "Asia/Tokyo",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      });
+      const tick = () => {
+        clockEl.textContent = fmt.format(new Date());
+      };
+      tick();
+      setInterval(tick, 1000);
+    }
   }
 }
 customElements.define("site-footer", SiteFooter);

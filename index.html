@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0b" />
   <title>JAN STUDIO | 写真で、人の軸をつくる。</title>
   <meta name="description"
     content="JAN STUDIOは、撮影、機材、育成という3つの事業を通じて、人の可能性を鍛える写真ブランドスタジオです。" />
@@ -13,8 +14,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/reset.css?v=4" />
-  <link rel="stylesheet" href="assets/css/style.css?v=4" />
+  <link rel="stylesheet" href="assets/css/reset.css?v=5" />
+  <link rel="stylesheet" href="assets/css/style.css?v=5" />
   <link rel="preload" as="image" href="assets/img/hero-bg.webp" fetchpriority="high">
 
   <!-- SEO & OGP -->
@@ -27,15 +28,41 @@
   <meta property="og:url" content="https://janstudio.app/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <script src="assets/js/components.js?v=4" defer></script>
+  <script src="assets/js/components.js?v=5" defer></script>
 </head>
 
 <body class="page-index">
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <p class="preloader-word"><span>Jan Studio</span></p>
+    <p class="preloader-tag">Forge the moment.</p>
+    <span class="preloader-bar"></span>
+  </div>
+  <script>
+    // 初回訪問のみプリローダーを表示（reduced-motion では出さない）
+    (function () {
+      var p = document.getElementById("preloader");
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var seen = false;
+      try { seen = sessionStorage.getItem("janPreloaded"); } catch (e) {}
+      if (reduce || seen) { p.remove(); return; }
+      try { sessionStorage.setItem("janPreloaded", "1"); } catch (e) {}
+      document.documentElement.classList.add("is-loading");
+      var dismiss = function () {
+        if (!document.body.contains(p)) return;
+        p.classList.add("is-done");
+        document.documentElement.classList.remove("is-loading");
+        setTimeout(function () { p.remove(); }, 900);
+      };
+      window.addEventListener("load", function () { setTimeout(dismiss, 600); });
+      setTimeout(dismiss, 3200); // フェイルセーフ
+    })();
+  </script>
+
   <site-header></site-header>
 
   <main id="main">
     <section class="hero-renewal">
-      <div class="hero-slideshow" id="hero-slider">
+      <div class="hero-slideshow" id="hero-slider" data-parallax="0.22">
         <div class="hero-slide active" style="background-image: url('assets/img/hero-bg.webp')">
           <span class="hero-slide-genre">Sports</span>
         </div>
@@ -81,8 +108,9 @@
     </div>
 
     <section class="section section-brand-statement">
+      <span class="tategaki" aria-hidden="true">写真で、人の軸をつくる。</span>
       <div class="container text-center" data-reveal>
-        <h2 class="statement-text">
+        <h2 class="statement-text" data-split-words>
           あなたの大切な瞬間を、<br>
           <span class="serif-accent">もっと美しく。</span><br>
           記憶に残り続ける一枚を。
@@ -188,10 +216,10 @@
 
   <a href="contact.html?type=shoot" class="floating-cta" id="floating-cta">撮影を相談する</a>
 
-  <script src="assets/js/config.js?v=4"></script>
-  <script src="assets/js/api.js?v=4"></script>
-  <script src="assets/js/motion.js?v=4"></script>
-  <script src="assets/js/index.js?v=4"></script>
+  <script src="assets/js/config.js?v=5"></script>
+  <script src="assets/js/api.js?v=5"></script>
+  <script src="assets/js/motion.js?v=5"></script>
+  <script src="assets/js/index.js?v=5"></script>
 </body>
 
 </html>
