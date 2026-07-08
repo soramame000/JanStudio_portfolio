@@ -106,6 +106,9 @@
         data-id="${esc(item.id)}"
         data-index="${index}"
         style="--item-delay:${index * 36}ms"
+        role="button"
+        tabindex="0"
+        aria-label="${esc(item.title || "Untitled")} を拡大表示"
       >
         <div class="img-skeleton-wrapper">
           <img
@@ -233,6 +236,15 @@
         openLightboxByIndex(Number(item.dataset.index || "0"));
       }
     });
+    // キーボードでも開けるように（role="button" の実装）
+    gridEl.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      const item = e.target.closest(".gallery-item");
+      if (item) {
+        e.preventDefault();
+        openLightboxByIndex(Number(item.dataset.index || "0"));
+      }
+    });
   }
 
   if (lbThumbs) {
@@ -264,6 +276,21 @@
         closeLightbox();
       } else if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
         moveLightbox(e.key === "ArrowRight" ? 1 : -1);
+      } else if (e.key === "Tab") {
+        // フォーカスをダイアログ内に閉じ込める
+        const focusables = lightboxEl.querySelectorAll(
+          'button, a[href], [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusables.length) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     });
   }

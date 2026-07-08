@@ -7,9 +7,15 @@
   <title>JAN STUDIO | 写真で、人の軸をつくる。</title>
   <meta name="description"
     content="JAN STUDIOは、撮影、機材、育成という3つの事業を通じて、人の可能性を鍛える写真ブランドスタジオです。" />
-  <link rel="stylesheet" href="assets/css/reset.css?v=3" />
-  <link rel="stylesheet" href="assets/css/style.css?v=3" />
-  <link rel="stylesheet" href="assets/css/renewal.css?v=3" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/reset.css?v=4" />
+  <link rel="stylesheet" href="assets/css/style.css?v=4" />
+  <link rel="preload" as="image" href="assets/img/hero-bg.webp" fetchpriority="high">
 
   <!-- SEO & OGP -->
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -21,15 +27,13 @@
   <meta property="og:url" content="https://janstudio.app/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <script src="assets/js/components.js?v=3" defer></script>
+  <script src="assets/js/components.js?v=4" defer></script>
 </head>
 
 <body class="page-index">
   <site-header></site-header>
 
-  <main>
-    <div class="fx-grid-overlay is-reduced" aria-hidden="true"></div>
-
+  <main id="main">
     <section class="hero-renewal">
       <div class="hero-slideshow" id="hero-slider">
         <div class="hero-slide active" style="background-image: url('assets/img/hero-bg.webp')">
@@ -42,20 +46,45 @@
           <span class="hero-slide-genre">Portrait</span>
         </div>
       </div>
-      <div class="hero-content container">
-        <h1 class="hero-title">JAN STUDIO</h1>
-        <p class="hero-copy">一瞬を鍛え、記憶に残す。</p>
+
+      <div class="hero-content container wide">
+        <p class="hero-eyebrow">Photography Brand Studio — Kansai, Japan</p>
+        <h1 class="hero-title">
+          <span class="line"><span>Jan</span></span>
+          <span class="line"><span>Studio<span style="color:var(--accent)">.</span></span></span>
+        </h1>
+        <p class="hero-copy">
+          <span class="serif-accent">Forge the moment.</span>
+          <span>一瞬を鍛え、記憶に残す。</span>
+        </p>
         <div class="hero-actions">
-          <a href="works.html" class="btn primary">Works を見る →</a>
-          <a href="contact.html?type=shoot" class="btn ghost">撮影を相談する →</a>
+          <a href="works.html" class="btn primary">Works を見る</a>
+          <a href="contact.html?type=shoot" class="btn ghost">撮影を相談する</a>
         </div>
       </div>
+
+      <div class="hero-progress" id="hero-progress" role="tablist" aria-label="スライド切り替え"></div>
+      <p class="hero-scroll-cue" aria-hidden="true">Scroll</p>
     </section>
 
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Sports <em>試合の熱量</em></span>
+        <span>Live <em>音の一瞬</em></span>
+        <span>Portrait <em>人の軸</em></span>
+        <span>Fine Art <em>世界基準</em></span>
+        <span>Sports <em>試合の熱量</em></span>
+        <span>Live <em>音の一瞬</em></span>
+        <span>Portrait <em>人の軸</em></span>
+        <span>Fine Art <em>世界基準</em></span>
+      </div>
+    </div>
+
     <section class="section section-brand-statement">
-      <div class="container text-center">
+      <div class="container text-center" data-reveal>
         <h2 class="statement-text">
-          あなたの大切な瞬間を、もっと美しく。<br>
+          あなたの大切な瞬間を、<br>
+          <span class="serif-accent">もっと美しく。</span><br>
           記憶に残り続ける一枚を。
         </h2>
         <p class="statement-sub">
@@ -65,25 +94,23 @@
       </div>
     </section>
 
-
-
     <section class="section section-gallery-preview landing-featured">
-      <div class="container section-header section-header-stack">
+      <div class="container section-header" data-reveal>
         <p class="section-kicker">Featured Works</p>
         <h2 class="section-title">最新の撮影実績</h2>
         <p class="section-lead">
           スポーツ・音楽・ポートレートなど、一瞬を美しく切り取った案件をご紹介します。
         </p>
-        <a href="works.html" class="section-link">すべての作品を見る → Works</a>
+        <a href="works.html" class="section-link">すべての作品を見る</a>
       </div>
-      <div class="container gallery-preview-grid" id="featured-gallery" aria-live="polite">
+      <div class="container gallery-preview-grid" id="featured-gallery" aria-live="polite" data-reveal>
         <!-- JavaScriptでCMSから取得 -->
       </div>
     </section>
 
     <section class="section section-services-teaser">
       <div class="container">
-        <div class="section-header section-header-stack">
+        <div class="section-header" data-reveal>
           <p class="section-kicker">Services</p>
           <h2 class="section-title">どんな場面でも、一瞬を逃さない。</h2>
           <p class="section-lead">
@@ -91,67 +118,66 @@
           </p>
         </div>
         <div class="services-teaser-grid">
-           <div class="teaser-item">
-             <img src="assets/img/hero-bg.webp" alt="Team Sports" />
-             <h4>スポーツチーム撮影</h4>
-           </div>
-           <div class="teaser-item">
-             <img src="assets/img/event.webp" alt="Live Event" />
-             <h4>イベント撮影</h4>
-           </div>
-           <div class="teaser-item">
-             <img src="assets/img/profile.webp" alt="Portrait" />
-             <h4>ポートレート撮影</h4>
-           </div>
+          <a href="services.html" class="teaser-item" data-reveal>
+            <img src="assets/img/hero-bg.webp" alt="スポーツチーム撮影" loading="lazy" decoding="async" />
+            <h4>スポーツチーム撮影</h4>
+          </a>
+          <a href="services.html" class="teaser-item" data-reveal data-reveal-delay="90">
+            <img src="assets/img/event.webp" alt="イベント撮影" loading="lazy" decoding="async" />
+            <h4>イベント撮影</h4>
+          </a>
+          <a href="services.html" class="teaser-item" data-reveal data-reveal-delay="180">
+            <img src="assets/img/profile.webp" alt="ポートレート撮影" loading="lazy" decoding="async" />
+            <h4>ポートレート撮影</h4>
+          </a>
         </div>
-        <a href="services.html" class="section-link" style="margin-top: 16px; display: inline-block;">料金・サービスの詳細を見る →</a>
+        <a href="services.html" class="section-link" data-reveal>料金・サービスの詳細を見る</a>
       </div>
     </section>
 
-    <section class="section section-about-preview landing-about">
+    <section class="section section-about-preview landing-about band">
       <div class="container about-preview-inner">
-        <div class="about-preview-photo">
-          <img src="assets/img/profile.webp" alt="JAN STUDIO" class="avatar-image"
+        <div class="about-preview-photo" data-reveal="left">
+          <img src="assets/img/profile.webp" alt="JAN STUDIO 糴川 樹" class="avatar-image" loading="lazy" decoding="async"
             onerror="this.outerHTML='<div class=\'avatar-placeholder\'></div>'">
         </div>
-        <div class="about-preview-content">
+        <div class="about-preview-content" data-reveal="right">
           <p class="section-kicker">Founder</p>
-          <h2 class="section-title">JAN STUDIO 糴川 樹</h2>
+          <h2 class="section-title">糴川 樹 <span class="serif-accent" style="color:var(--muted); font-size:0.6em;">Itsuki Serikawa</span></h2>
           <p class="section-lead">
             アスリートとしての原体験から、スポーツ撮影の道へ。そして、写真を通じて人の可能性を鍛えるブランドの構想へ。
           </p>
           <p>
             自らもスポーツの最前線で競い合った経験を活かし、プレーヤーの息遣いや限界に挑む瞬間を鮮明に切り取ります。
           </p>
-          
-          <a href="about.html" class="section-link">詳しいプロフィールを見る →</a>
+          <a href="about.html" class="section-link">詳しいプロフィールを見る</a>
         </div>
       </div>
     </section>
 
     <section class="section section-blog-preview landing-journal">
-      <div class="container section-header section-header-stack">
+      <div class="container section-header" data-reveal>
         <p class="section-kicker">Journal</p>
         <h2 class="section-title">活動の発信と現場の記録</h2>
         <p class="section-lead">
           撮影レポート、機材レビュー、そして育成事業への構想メモなど。
         </p>
-        <a href="journal.html" class="section-link">すべての記事を見る →</a>
+        <a href="journal.html" class="section-link">すべての記事を見る</a>
       </div>
-      <div class="container blog-preview-list" id="latest-posts">
+      <div class="container blog-preview-list" id="latest-posts" data-reveal>
         <!-- JavaScriptでCMSから取得 -->
       </div>
     </section>
 
     <section class="section section-cta">
-      <div class="container cta-inner">
+      <div class="container cta-inner" data-reveal>
         <p class="section-kicker section-kicker-light">Contact</p>
-        <h2 class="section-title">CONTACT / 総合お問い合わせ</h2>
+        <h2 class="section-title">まずは、話すことから。</h2>
         <p class="section-lead">
           撮影のご依頼から、お見積りやご相談まで、お気軽にお問い合わせください。
         </p>
-        <div style="display: flex; gap: 16px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
-          <a href="contact.html?type=shoot" class="btn primary large">撮影のご相談・ご依頼はこちら →</a>
+        <div class="cta-actions">
+          <a href="contact.html?type=shoot" class="btn primary large">撮影のご相談・ご依頼はこちら</a>
         </div>
       </div>
     </section>
@@ -162,22 +188,10 @@
 
   <a href="contact.html?type=shoot" class="floating-cta" id="floating-cta">撮影を相談する</a>
 
-  <script src="assets/js/config.js?v=3"></script>
-  <script src="assets/js/api.js?v=3"></script>
-  <script src="assets/js/index.js?v=3"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const slides = document.querySelectorAll(".hero-slide");
-      let currentSlide = 0;
-      if (slides.length > 1) {
-        setInterval(() => {
-          slides[currentSlide].classList.remove("active");
-          currentSlide = (currentSlide + 1) % slides.length;
-          slides[currentSlide].classList.add("active");
-        }, 5000);
-      }
-    });
-  </script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/api.js?v=4"></script>
+  <script src="assets/js/motion.js?v=4"></script>
+  <script src="assets/js/index.js?v=4"></script>
 </body>
 
 </html>

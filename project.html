@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Case Study | JAN STUDIO</title>
   <meta name="description" content="JAN STUDIO の撮影実績・Case Study詳細ページ。" />
-  <link rel="stylesheet" href="assets/css/reset.css?v=3" />
-  <link rel="stylesheet" href="assets/css/style.css?v=3" />
-  <link rel="stylesheet" href="assets/css/renewal.css?v=3" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/reset.css?v=4" />
+  <link rel="stylesheet" href="assets/css/style.css?v=4" />
 
   <!-- SEO & OGP -->
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -17,31 +23,31 @@
   <meta property="og:image" content="https://janstudio.app/assets/img/hero-bg.jpg">
   <meta property="og:type" content="article">
   <meta name="twitter:card" content="summary_large_image">
-  <script src="assets/js/components.js?v=3" defer></script>
+  <script src="assets/js/components.js?v=4" defer></script>
 </head>
+
 <body class="page-project">
   <site-header></site-header>
 
-  <main id="project-root">
+  <main id="main">
     <section class="page-hero container">
-      <div style="margin-bottom: 16px;">
-        <a href="works.html" style="color: var(--color-muted); font-size: 0.9rem; text-decoration: none;">← Works一覧へ戻る</a>
-      </div>
+      <a href="works.html" class="back-link">Works一覧へ戻る</a>
       <p class="page-eyebrow">Case Study</p>
       <h1 class="page-title" id="project-title">撮影案件タイトル</h1>
-      <p class="page-meta" id="project-meta" style="color: var(--color-accent-blue); font-weight: 700; margin-top: 12px;">
+      <p class="page-meta" id="project-meta">
         <!-- クライアント名やカテゴリーを表示 -->
       </p>
     </section>
 
     <section class="section" style="padding-top: 0;">
-      <div class="container project-hero" style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 32px; align-items: start;">
-        <div class="project-hero-image" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-          <img src="" alt="" id="project-main-image" class="responsive-image" style="width: 100%; height: auto; display: block;" />
+      <div class="container project-hero">
+        <div class="project-hero-image">
+          <img src="" alt="" id="project-main-image" />
         </div>
-        <div class="project-summary" style="background: var(--color-surface); padding: 32px; border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
-          <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 20px;">背景と課題</h2>
-          <p id="project-summary-text" style="color: var(--color-text); line-height: 1.8;">
+        <div class="project-summary">
+          <p class="section-kicker">Background</p>
+          <h2 class="section-title">背景と課題</h2>
+          <p id="project-summary-text">
             <!-- 案件の概要テキスト -->
           </p>
         </div>
@@ -50,17 +56,19 @@
 
     <section class="section">
       <div class="container">
-        <h2 class="section-title">成果物 (Works)</h2>
-        <div class="project-gallery-grid" id="project-gallery" aria-live="polite" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 32px;">
+        <p class="section-kicker">Works</p>
+        <h2 class="section-title">成果物</h2>
+        <div class="project-gallery-grid" id="project-gallery" aria-live="polite" style="margin-top: 40px;">
           <!-- 案件に紐づく写真一覧 -->
         </div>
       </div>
     </section>
 
-    <section class="section" style="background: rgba(255,255,255,0.03); border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+    <section class="section band">
       <div class="container project-story">
+        <p class="section-kicker">Process</p>
         <h2 class="section-title">撮影プロセス・成果</h2>
-        <p id="project-story-text" style="margin-top: 24px; line-height: 1.8; max-width: 800px;">
+        <p id="project-story-text">
           <!-- 撮影ストーリー -->
         </p>
       </div>
@@ -68,21 +76,24 @@
 
     <section class="section">
       <div class="container project-credits" style="max-width: 800px;">
-        <h2 class="section-title">Credits</h2>
-        <ul id="project-credits-list" style="margin-top: 24px; display: grid; gap: 12px; color: var(--color-muted);">
+        <p class="section-kicker">Credits</p>
+        <h2 class="section-title">クレジット</h2>
+        <ul id="project-credits-list">
           <!-- クレジット情報 -->
         </ul>
       </div>
     </section>
 
     <section class="section section-cta">
-      <div class="container text-center">
+      <div class="container cta-inner" data-reveal>
         <p class="section-kicker section-kicker-light">Contact</p>
         <h2 class="section-title">似た案件をご希望ですか？</h2>
-        <p class="section-lead" style="margin: 0 auto 24px auto; max-width: 600px;">
+        <p class="section-lead">
           このCase Studyのようなテイストでの撮影や、近い課題をお持ちの方は、お気軽にご相談ください。
         </p>
-        <a href="contact.html?type=shoot" class="btn primary large">似た撮影を依頼する</a>
+        <div class="cta-actions">
+          <a href="contact.html?type=shoot" class="btn primary large">似た撮影を依頼する</a>
+        </div>
       </div>
     </section>
   </main>
@@ -91,8 +102,10 @@
 
   <a href="contact.html?type=shoot" class="floating-cta" id="floating-cta">撮影を相談する</a>
 
-  <script src="assets/js/config.js?v=3"></script>
-  <script src="assets/js/api.js?v=3"></script>
-  <script src="assets/js/project.js?v=3"></script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/api.js?v=4"></script>
+  <script src="assets/js/motion.js?v=4"></script>
+  <script src="assets/js/project.js?v=4"></script>
 </body>
+
 </html>

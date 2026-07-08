@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | JAN STUDIO</title>
   <meta name="description" content="JAN STUDIOへのご相談・お問い合わせフォーム。" />
-  <link rel="stylesheet" href="assets/css/reset.css?v=3" />
-  <link rel="stylesheet" href="assets/css/style.css?v=3" />
-  <link rel="stylesheet" href="assets/css/renewal.css?v=3" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/reset.css?v=4" />
+  <link rel="stylesheet" href="assets/css/style.css?v=4" />
 
   <!-- SEO & OGP -->
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -19,37 +25,43 @@
   <meta property="og:url" content="https://janstudio.app/contact.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <script src="assets/js/components.js?v=3" defer></script>
+  <script src="assets/js/components.js?v=4" defer></script>
 </head>
+
 <body class="page-contact">
   <site-header></site-header>
 
-  <main>
+  <main id="main">
     <section class="page-hero container">
-      <p class="page-eyebrow">Contact</p>
-      <h1 class="page-title">お問い合わせ</h1>
-      <p class="page-lead">
-        撮影に関するご相談やご依頼はこちらのフォームから承ります。お気軽にご相談ください。
-      </p>
+      <div data-reveal>
+        <p class="page-eyebrow">Contact</p>
+        <h1 class="page-title">まずは、<span class="serif-accent" style="color:var(--accent);">話す</span>ことから。</h1>
+        <p class="page-lead">
+          撮影に関するご相談やご依頼はこちらのフォームから承ります。お気軽にご相談ください。
+        </p>
+      </div>
     </section>
 
-    <section class="section">
+    <section class="section" style="padding-top: 0;">
       <div class="container contact-layout">
         <!-- 送信完了メッセージ（?success=true でリダイレクトされた際にJSで表示） -->
         <div id="form-success" class="contact-form" hidden>
+          <p class="section-kicker">Thank you</p>
           <h2 class="section-title">送信が完了しました</h2>
-          <p style="margin-top: 16px;">
+          <p style="margin-top: 16px; color: var(--muted);">
             お問い合わせありがとうございます。内容を確認のうえ、通常48時間以内にご連絡いたします。
           </p>
-          <a href="index.html" class="btn primary" style="margin-top: 24px; display: inline-block;">トップへ戻る</a>
+          <a href="index.html" class="btn primary" style="margin-top: 28px;">トップへ戻る</a>
         </div>
 
-        <form id="contact-form" class="contact-form" action="https://formsubmit.co/contact@janstudio.app" method="POST" novalidate>
+        <form id="contact-form" class="contact-form" action="https://formsubmit.co/contact@janstudio.app" method="POST"
+          novalidate data-reveal>
           <input type="hidden" name="_next" value="https://janstudio.app/contact.html?success=true">
           <input type="hidden" name="_subject" value="【JAN STUDIO】サイトからのお問い合わせ">
           <input type="hidden" name="_captcha" value="false">
           <!-- スパムボット対策のハニーポット（人間には見えない） -->
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
           <div class="form-field">
             <label for="type">ご用件 <span class="required">*</span></label>
             <select id="type" name="type" required>
@@ -63,19 +75,18 @@
 
           <div class="form-field">
             <label for="name">お名前 <span class="required">*</span></label>
-            <input type="text" id="name" name="name" required />
+            <input type="text" id="name" name="name" autocomplete="name" required />
             <p class="field-error" data-error-for="name"></p>
           </div>
 
           <div class="form-field">
             <label for="email">メールアドレス <span class="required">*</span></label>
-            <input type="email" id="email" name="email" required />
+            <input type="email" id="email" name="email" autocomplete="email" required />
             <p class="field-error" data-error-for="email"></p>
           </div>
 
-          <!-- The elements below can be hidden dynamically via JS if type !== 'shoot', but kept visible for simplicity here unless they write that custom logic -->
           <div class="form-field" id="field-date">
-            <label for="date">ご希望の時期・日程 (撮影の場合)</label>
+            <label for="date">ご希望の時期・日程（撮影の場合）</label>
             <input type="text" id="date" name="date" placeholder="例）20XX年○月頃、平日希望 など" />
           </div>
 
@@ -95,13 +106,13 @@
           </div>
         </form>
 
-        <aside class="contact-side">
-          <h2 class="section-title">直接のご連絡・SNS</h2>
+        <aside class="contact-side" data-reveal data-reveal-delay="120">
+          <p class="section-kicker">SNS</p>
+          <h2 class="section-title">直接のご連絡</h2>
           <p>お急ぎの場合や、最新の活動についてはInstagramもご活用ください。</p>
-          <p class="contact-email" style="margin-top: 16px;">
-            Instagram:
-            <a href="https://www.instagram.com/itsu_photoooo" target="_blank" rel="noopener noreferrer" style="color:var(--color-accent);">
-              <span>@itsu_photoooo</span>
+          <p class="contact-email" style="margin-top: 20px;">
+            <a href="https://www.instagram.com/itsu_photoooo" target="_blank" rel="noopener noreferrer">
+              Instagram @itsu_photoooo ↗
             </a>
           </p>
         </aside>
@@ -111,12 +122,13 @@
 
   <site-footer></site-footer>
 
-  <script src="assets/js/config.js?v=3"></script>
-  <script src="assets/js/api.js?v=3"></script>
-  <script src="assets/js/contact.js?v=3"></script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/api.js?v=4"></script>
+  <script src="assets/js/motion.js?v=4"></script>
+  <script src="assets/js/contact.js?v=4"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Auto-select type based on url param
+      // URLパラメータに応じてご用件を自動選択
       const params = new URLSearchParams(window.location.search);
       const type = params.get('type');
       if (type) {
@@ -129,4 +141,5 @@
     });
   </script>
 </body>
+
 </html>
