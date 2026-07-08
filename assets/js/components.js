@@ -117,8 +117,8 @@ class SiteFooter extends HTMLElement {
                 </ul>
               </div>
               <div class="footer-sns">
-                <a href="https://www.instagram.com/itsu_photoooo" target="_blank" rel="noopener noreferrer"
-                  aria-label="Instagram @itsu_photoooo">Instagram ↗</a>
+                <a href="https://www.instagram.com/jantsuruoka_etuning" target="_blank" rel="noopener noreferrer"
+                  aria-label="Instagram @jantsuruoka_etuning">Instagram ↗</a>
               </div>
             </nav>
           </div>

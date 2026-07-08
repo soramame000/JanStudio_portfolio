@@ -2254,6 +2254,66 @@ html.is-loading { overflow: hidden; }
 .mega-cta:hover .mega-cta-note::after { transform: translateX(8px); }
 
 /* ------------------------------------------------------------
+   v3-x. Awards — 受賞歴の前面化
+   ------------------------------------------------------------ */
+.hero-awards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 36px;
+  margin-top: 38px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(242, 239, 232, 0.16);
+  max-width: 640px;
+  font-family: var(--font-display);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(242, 239, 232, 0.75);
+}
+.hero-awards span { display: inline-flex; align-items: baseline; gap: 10px; white-space: nowrap; }
+.hero-awards em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25em;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--accent);
+}
+
+.award-line {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+  font-family: var(--font-display);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.award-line em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.3em;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--accent);
+}
+
+.mini-awards { display: grid; gap: 12px; margin-top: 28px; }
+.mini-awards li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: var(--fs-small);
+  color: var(--muted);
+}
+.mini-awards .award-rank { font-size: 0.62rem; padding: 4px 12px; flex: none; }
+
+/* ------------------------------------------------------------
    v3-4. スクロール進捗バー
    ------------------------------------------------------------ */
 .scroll-progress {
