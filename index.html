@@ -14,8 +14,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/reset.css?v=5" />
-  <link rel="stylesheet" href="assets/css/style.css?v=5" />
+  <link rel="stylesheet" href="assets/css/reset.css?v=6" />
+  <link rel="stylesheet" href="assets/css/style.css?v=6" />
   <link rel="preload" as="image" href="assets/img/hero-bg.webp" fetchpriority="high">
 
   <!-- SEO & OGP -->
@@ -28,7 +28,7 @@
   <meta property="og:url" content="https://janstudio.app/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <script src="assets/js/components.js?v=5" defer></script>
+  <script src="assets/js/components.js?v=6" defer></script>
 </head>
 
 <body class="page-index">
@@ -78,7 +78,7 @@
         <p class="hero-eyebrow">Photography Brand Studio — Kansai, Japan</p>
         <h1 class="hero-title">
           <span class="line"><span>Jan</span></span>
-          <span class="line"><span>Studio<span style="color:var(--accent)">.</span></span></span>
+          <span class="line"><span class="outline">Studio<i class="dot">.</i></span></span>
         </h1>
         <p class="hero-copy">
           <span class="serif-accent">Forge the moment.</span>
@@ -136,30 +136,50 @@
       </div>
     </section>
 
-    <section class="section section-services-teaser">
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <p class="section-kicker">Services</p>
-          <h2 class="section-title">どんな場面でも、一瞬を逃さない。</h2>
-          <p class="section-lead">
-            チーム撮影からイベント、ポートレートまで、目的に応じた撮影プランをご用意しています。
-          </p>
+    <!-- Chapters — スクロールで横に流れる3つの全画面フィールド -->
+    <section class="chapters" id="chapters" aria-label="撮影ジャンル">
+      <div class="chapters-sticky">
+        <div class="chapters-head">
+          <p class="section-kicker">Fields</p>
         </div>
-        <div class="services-teaser-grid">
-          <a href="services.html" class="teaser-item" data-reveal>
-            <img src="assets/img/hero-bg.webp" alt="スポーツチーム撮影" loading="lazy" decoding="async" />
-            <h4>スポーツチーム撮影</h4>
-          </a>
-          <a href="services.html" class="teaser-item" data-reveal data-reveal-delay="90">
-            <img src="assets/img/event.webp" alt="イベント撮影" loading="lazy" decoding="async" />
-            <h4>イベント撮影</h4>
-          </a>
-          <a href="services.html" class="teaser-item" data-reveal data-reveal-delay="180">
-            <img src="assets/img/profile.webp" alt="ポートレート撮影" loading="lazy" decoding="async" />
-            <h4>ポートレート撮影</h4>
-          </a>
+        <div class="chapters-track" id="chapters-track">
+          <article class="chapter">
+            <div class="chapter-bg"><img src="assets/img/hero-bg.webp" alt="" loading="lazy" decoding="async"></div>
+            <span class="chapter-num" aria-hidden="true">01</span>
+            <div class="chapter-body">
+              <h3 class="chapter-genre">Sports</h3>
+              <p class="chapter-copy">試合の熱量を、逃さない。</p>
+              <p class="chapter-desc">
+                アスリート出身のカメラマンが、プレーの前後にある「文脈」を先読みして構える。単発の試合から年間契約まで。
+              </p>
+              <a href="services.html" class="section-link">チーム撮影プランを見る</a>
+            </div>
+          </article>
+          <article class="chapter">
+            <div class="chapter-bg"><img src="assets/img/event.webp" alt="" loading="lazy" decoding="async"></div>
+            <span class="chapter-num" aria-hidden="true">02</span>
+            <div class="chapter-body">
+              <h3 class="chapter-genre">Live</h3>
+              <p class="chapter-copy">音の一瞬を、光で刻む。</p>
+              <p class="chapter-desc">
+                暗所・逆光・高速の動き。過酷な照明条件のライブやイベントでも、機材のポテンシャルを引き出して一瞬を残します。
+              </p>
+              <a href="services.html" class="section-link">イベント撮影プランを見る</a>
+            </div>
+          </article>
+          <article class="chapter">
+            <div class="chapter-bg"><img src="assets/img/profile.webp" alt="" loading="lazy" decoding="async"></div>
+            <span class="chapter-num" aria-hidden="true">03</span>
+            <div class="chapter-body">
+              <h3 class="chapter-genre">Portrait</h3>
+              <p class="chapter-copy">人の軸が、写真になる。</p>
+              <p class="chapter-desc">
+                宣材からプロフィールまで。被写体の魅力を引き出す対話と、世界基準のファインアートで培ったレタッチで仕上げます。
+              </p>
+              <a href="services.html" class="section-link">ポートレートプランを見る</a>
+            </div>
+          </article>
         </div>
-        <a href="services.html" class="section-link" data-reveal>料金・サービスの詳細を見る</a>
       </div>
     </section>
 
@@ -198,15 +218,13 @@
     </section>
 
     <section class="section section-cta">
-      <div class="container cta-inner" data-reveal>
-        <p class="section-kicker section-kicker-light">Contact</p>
-        <h2 class="section-title">まずは、話すことから。</h2>
-        <p class="section-lead">
-          撮影のご依頼から、お見積りやご相談まで、お気軽にお問い合わせください。
-        </p>
-        <div class="cta-actions">
-          <a href="contact.html?type=shoot" class="btn primary large">撮影のご相談・ご依頼はこちら</a>
-        </div>
+      <div class="container wide" data-reveal>
+        <p class="section-kicker section-kicker-light" style="margin-bottom: 40px;">Contact — まずは、話すことから</p>
+        <a class="mega-cta" href="contact.html?type=shoot" aria-label="撮影を相談する">
+          <span class="mega-cta-line">Let's</span>
+          <span class="mega-cta-line">Talk<span class="serif-accent">.</span></span>
+          <span class="mega-cta-note">撮影のご相談・ご依頼はこちら</span>
+        </a>
       </div>
     </section>
 
@@ -216,10 +234,10 @@
 
   <a href="contact.html?type=shoot" class="floating-cta" id="floating-cta">撮影を相談する</a>
 
-  <script src="assets/js/config.js?v=5"></script>
-  <script src="assets/js/api.js?v=5"></script>
-  <script src="assets/js/motion.js?v=5"></script>
-  <script src="assets/js/index.js?v=5"></script>
+  <script src="assets/js/config.js?v=6"></script>
+  <script src="assets/js/api.js?v=6"></script>
+  <script src="assets/js/motion.js?v=6"></script>
+  <script src="assets/js/index.js?v=6"></script>
 </body>
 
 </html>

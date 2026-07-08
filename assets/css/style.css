@@ -2081,6 +2081,203 @@ html.is-loading { overflow: hidden; }
    ------------------------------------------------------------ */
 [data-parallax] { will-change: transform; }
 
+/* ============================================================
+   FORGE v3 — Structural layer
+   ピン留め横スクロールチャプター・混植タイポ・巨大CTA・進捗バー
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   v3-1. Hero — 塗り × 中抜きの混植
+   ------------------------------------------------------------ */
+.hero-title .outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--text-strong);
+}
+.hero-title .dot {
+  font-style: normal;
+  color: var(--accent);
+  -webkit-text-stroke: 0;
+}
+
+/* ------------------------------------------------------------
+   v3-2. Chapters — ピン留め横スクロール（JSが .is-pinned を付与）
+   デフォルトは縦積み（モバイル・reduced-motion・非対応環境の
+   フォールバック）
+   ------------------------------------------------------------ */
+.chapters { position: relative; }
+.chapters-track { display: block; }
+
+.chapter {
+  position: relative;
+  min-height: 72vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.chapter-bg,
+.chapter-bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.chapter-bg img {
+  object-fit: cover;
+  filter: grayscale(0.35);
+  transform: scale(1.06);
+  transition: filter 1.2s var(--ease-out), transform 1.6s var(--ease-out);
+}
+.chapter:hover .chapter-bg img { filter: grayscale(0); transform: scale(1.01); }
+.chapter-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 10, 11, 0.92) 0%, rgba(10, 10, 11, 0.25) 55%, rgba(10, 10, 11, 0.35) 100%);
+}
+
+.chapter-num {
+  position: absolute;
+  top: clamp(60px, 12vh, 130px);
+  right: var(--gutter);
+  z-index: 2;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(5rem, 16vh, 11rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(242, 239, 232, 0.35);
+  user-select: none;
+}
+
+.chapter-body {
+  position: relative;
+  z-index: 2;
+  padding: 0 var(--gutter) clamp(48px, 9vh, 96px);
+  max-width: 720px;
+}
+.chapter-genre {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 7vh, 4.6rem);
+  font-weight: 800;
+  font-stretch: 122%;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--text-strong);
+}
+.chapter-copy {
+  margin-top: 18px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 3vh, 1.7rem);
+  color: rgba(242, 239, 232, 0.9);
+}
+.chapter-desc {
+  margin-top: 16px;
+  max-width: 480px;
+  color: var(--muted);
+  font-size: var(--fs-small);
+  line-height: 2;
+}
+.chapter .section-link { margin-top: 24px; }
+
+.chapters-head {
+  position: absolute;
+  top: clamp(40px, 8vh, 80px);
+  left: var(--gutter);
+  z-index: 3;
+}
+
+/* ピン留めモード（デスクトップ & JS有効時） */
+.chapters.is-pinned { height: 400vh; }
+.chapters.is-pinned .chapters-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+.chapters.is-pinned .chapters-track {
+  display: flex;
+  height: 100vh;
+  width: max-content;
+  will-change: transform;
+}
+.chapters.is-pinned .chapter {
+  width: 100vw;
+  height: 100vh;
+  min-height: 0;
+  flex: none;
+}
+.chapters.is-pinned .chapter-body { padding-bottom: clamp(64px, 12vh, 128px); }
+
+/* ------------------------------------------------------------
+   v3-3. Mega CTA — 縁取りが塗りに変わる巨大タイポリンク
+   ------------------------------------------------------------ */
+.mega-cta {
+  display: block;
+  text-align: center;
+  padding-block: clamp(24px, 5vh, 56px);
+}
+.mega-cta-line {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3.6rem, 13vw, 11rem);
+  font-weight: 800;
+  font-stretch: 122%;
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--text-strong);
+  transition: color 0.5s var(--ease-out), -webkit-text-stroke-color 0.5s;
+}
+.mega-cta .serif-accent {
+  color: var(--accent);
+  -webkit-text-stroke: 0;
+}
+.mega-cta:hover .mega-cta-line { color: var(--text-strong); }
+.mega-cta:hover .mega-cta-line .serif-accent { color: var(--accent); }
+.mega-cta-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+  font-family: var(--font-display);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.4s;
+}
+.mega-cta-note::after { content: "→"; color: var(--accent); transition: transform 0.35s var(--ease-out); }
+.mega-cta:hover .mega-cta-note { color: var(--text-strong); }
+.mega-cta:hover .mega-cta-note::after { transform: translateX(8px); }
+
+/* ------------------------------------------------------------
+   v3-4. スクロール進捗バー
+   ------------------------------------------------------------ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 1200;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------
+   v3-5. Featured works — 変化のあるタイル
+   ------------------------------------------------------------ */
+@media (min-width: 961px) {
+  .gallery-preview-grid { grid-template-columns: repeat(4, 1fr); }
+  .gallery-card:nth-child(6n + 1),
+  .gallery-card:nth-child(6n + 4) { grid-column: span 2; }
+}
+
 /* ------------------------------------------------------------
    25. Reduced motion
    ------------------------------------------------------------ */
