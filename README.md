@@ -108,7 +108,7 @@ OGP 用には互換性のため JPG 版（`assets/img/*.jpg`)を残していま�
 - 固定ページはページ固有の title / description / OGP / Twitter Card / JSON-LD を持ちます。
 - `/journal/:id` と `/project/:id` はPages FunctionsがCMSデータをサーバー描画し、固有のcanonical、本文、画像、`BlogPosting` / `CreativeWork` 構造化データを返します。
 - `/sitemap.xml` は固定ページに加えて、公開済みのJournal / Project詳細URLをCMSから動的生成します。CMSが未作成・空でも固定ページのsitemapを返します。
-- `robots.txt` はGoogle等に加え、OAI-SearchBot、ChatGPT-User、GPTBot、ClaudeBot、PerplexityBotを許可しています。
+- `robots.txt` はGoogle等に加え、OAI-SearchBot、ChatGPT-User、Claude-SearchBot、Claude-User、PerplexityBotを許可しています。Cloudflare管理ルールでは学習用のGPTBot / ClaudeBotを遮断し、検索・ユーザー起点の参照だけを許可します。
 - Google Searchでは `llms.txt` はランキング要因ではありません。AI検索の主対策は、クロール可能なHTML、明確な事業・著者情報、一次情報、最終URLの統一です。
 
 公開後はGoogle Search Consoleで `https://janstudio.app/sitemap.xml` を送信し、主要6ページのURL検査を行ってください。
