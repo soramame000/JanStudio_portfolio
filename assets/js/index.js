@@ -1,6 +1,6 @@
 (() => {
   const config = window.PORTFOLIO_CONFIG || {};
-  const { fetchJson, esc, toTimestamp, isPublic } = window.JAN;
+  const { fetchJson, esc, toTimestamp, isPublic, photoAlt } = window.JAN;
 
   /* ---------------------------------------------
      Hero slideshow — progress bars / reduced motion
@@ -103,14 +103,16 @@
     container.innerHTML = items
       .map((item) => {
         const href = item.projectId
-          ? `project.html?id=${encodeURIComponent(item.projectId)}`
-          : "works.html";
+          ? `/project/${encodeURIComponent(item.projectId)}`
+          : "/works";
         return `
         <a class="gallery-card" href="${esc(href)}">
           <div class="img-skeleton-wrapper" style="height: 300px;">
             <img
               src="${item.image?.url ? esc(item.image.url) + '?w=800&q=80' : ''}"
-              alt="${esc(item.title || "")}"
+              alt="${esc(photoAlt(item))}"
+              width="${Number(item.image?.width) || 800}"
+              height="${Number(item.image?.height) || 600}"
               loading="lazy"
               decoding="async"
               onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');"
@@ -149,10 +151,10 @@
     container.innerHTML = posts
       .map(
         (post) => `
-        <a class="blog-card" href="journal.html?id=${encodeURIComponent(post.id)}">
+        <a class="blog-card" href="/journal/${encodeURIComponent(post.id)}">
           <div class="blog-card-thumb img-skeleton-wrapper">
             ${post.thumbnail?.url
-            ? `<img src="${esc(post.thumbnail.url)}?w=600&q=80" alt="" loading="lazy" decoding="async" onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');" />`
+            ? `<img src="${esc(post.thumbnail.url)}?w=600&q=80" alt="${esc(post.title)}" width="${Number(post.thumbnail.width) || 600}" height="${Number(post.thumbnail.height) || 400}" loading="lazy" decoding="async" onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');" />`
             : ""
           }
           </div>

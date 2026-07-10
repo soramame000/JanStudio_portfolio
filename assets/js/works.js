@@ -1,5 +1,5 @@
 (() => {
-  const { fetchJson, esc, toTimestamp, isPublic } = window.JAN;
+  const { fetchJson, esc, toTimestamp, isPublic, photoAlt } = window.JAN;
 
   const gridEl = document.getElementById("gallery-grid");
   const filterButtons = document.querySelectorAll(".filter-btn");
@@ -63,7 +63,9 @@
           <div class="img-skeleton-wrapper" style="height: 100%;">
             <img
               src="${item.image?.url ? esc(item.image.url) + '?w=200&q=60' : ''}"
-              alt="${esc(item.title || "")}"
+              alt="${esc(photoAlt(item))}"
+              width="${Number(item.image?.width) || 200}"
+              height="${Number(item.image?.height) || 150}"
               loading="lazy"
               decoding="async"
               onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');"
@@ -113,7 +115,9 @@
         <div class="img-skeleton-wrapper">
           <img
             src="${item.image?.url ? esc(item.image.url) + '?w=800&q=80' : ''}"
-            alt="${esc(item.title || "")}"
+            alt="${esc(photoAlt(item))}"
+            width="${Number(item.image?.width) || 800}"
+            height="${Number(item.image?.height) || 600}"
             loading="lazy"
             decoding="async"
             onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');"
@@ -154,7 +158,7 @@
     lbCaption.textContent = caption;
 
     if (projectId) {
-      lbProjectLink.href = `project.html?id=${encodeURIComponent(projectId)}`;
+      lbProjectLink.href = `/project/${encodeURIComponent(projectId)}`;
       lbProjectLink.style.display = "";
     } else {
       lbProjectLink.style.display = "none";

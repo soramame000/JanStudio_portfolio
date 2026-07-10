@@ -42,6 +42,8 @@
     if (mainImageEl && project.mainImage?.url) {
       mainImageEl.src = project.mainImage.url + "?w=1600&q=85";
       mainImageEl.alt = project.title || "";
+      mainImageEl.width = Number(project.mainImage.width) || 1600;
+      mainImageEl.height = Number(project.mainImage.height) || 1067;
     }
 
     if (summaryEl) summaryEl.textContent = project.summary || "";
@@ -56,7 +58,7 @@
           .map(
             (p) => `
           <div class="project-gallery-item img-skeleton-wrapper" style="height: 200px;">
-            <img src="${p.image?.url ? esc(p.image.url) + '?w=800&q=80' : ''}" alt="${esc(p.title || "")}" loading="lazy" decoding="async" onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');" />
+            <img src="${p.image?.url ? esc(p.image.url) + '?w=800&q=80' : ''}" alt="${esc(p.title || project.title || "撮影実績")}" width="${Number(p.image?.width) || 800}" height="${Number(p.image?.height) || 600}" loading="lazy" decoding="async" onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');" />
           </div>
         `
           )

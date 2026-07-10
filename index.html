@@ -5,30 +5,83 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a0a0b" />
-  <title>JAN STUDIO | 写真で、人の軸をつくる。</title>
+  <title>関西のスポーツ・イベント撮影 | JAN STUDIO</title>
   <meta name="description"
-    content="JAN STUDIOは、撮影、機材、育成という3つの事業を通じて、人の可能性を鍛える写真ブランドスタジオです。" />
+    content="JAN STUDIOは関西を拠点に、スポーツ、ライブ・イベント、ポートレートを撮影する写真スタジオです。受賞歴を持つフォトグラファー糴川樹が、ご相談から撮影・納品まで伴走します。" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/reset.css?v=7" />
-  <link rel="stylesheet" href="assets/css/style.css?v=7" />
+  <link rel="stylesheet" href="assets/css/reset.css?v=8" />
+  <link rel="stylesheet" href="assets/css/style.css?v=8" />
   <link rel="preload" as="image" href="assets/img/hero-bg.webp" fetchpriority="high">
 
   <!-- SEO & OGP -->
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://janstudio.app/">
   <meta property="og:site_name" content="JAN STUDIO">
-  <meta property="og:title" content="JAN STUDIO | 写真で、人の軸をつくる。">
-  <meta property="og:description" content="あなたの大切な瞬間を、もっと美しく。記憶に残り続ける一枚を。">
+  <meta property="og:title" content="関西のスポーツ・イベント撮影 | JAN STUDIO">
+  <meta property="og:description" content="関西を拠点に、スポーツ、ライブ・イベント、ポートレートを撮影。フォトグラファー糴川樹が一瞬の熱量を写真に残します。">
   <meta property="og:image" content="https://janstudio.app/assets/img/hero-bg.jpg">
+  <meta property="og:image:alt" content="JAN STUDIOによるスポーツ撮影作品">
   <meta property="og:url" content="https://janstudio.app/">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
-  <script src="assets/js/components.js?v=7" defer></script>
+  <meta name="twitter:title" content="関西のスポーツ・イベント撮影 | JAN STUDIO">
+  <meta name="twitter:description" content="スポーツ、ライブ・イベント、ポートレートの撮影を関西から全国へ。">
+  <meta name="twitter:image" content="https://janstudio.app/assets/img/hero-bg.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://janstudio.app/#website",
+        "url": "https://janstudio.app/",
+        "name": "JAN STUDIO",
+        "inLanguage": "ja-JP",
+        "publisher": { "@id": "https://janstudio.app/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://janstudio.app/#organization",
+        "name": "JAN STUDIO",
+        "alternateName": "Itsuki Serikawa / JAN Studio",
+        "url": "https://janstudio.app/",
+        "email": "contact@janstudio.app",
+        "image": "https://janstudio.app/assets/img/profile.jpg",
+        "description": "関西を拠点にスポーツ、ライブ・イベント、ポートレート撮影を行う写真スタジオ。",
+        "areaServed": ["関西", "日本"],
+        "sameAs": ["https://www.instagram.com/jantsuruoka_etuning"],
+        "founder": { "@id": "https://janstudio.app/about#itsuki-serikawa" },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "撮影相談・お問い合わせ",
+          "email": "contact@janstudio.app",
+          "availableLanguage": ["ja"]
+        },
+        "knowsAbout": ["スポーツ撮影", "ライブ撮影", "イベント撮影", "ポートレート撮影", "ファインアート写真"]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://janstudio.app/about#itsuki-serikawa",
+        "name": "糴川 樹",
+        "alternateName": "Itsuki Serikawa",
+        "jobTitle": "フォトグラファー",
+        "url": "https://janstudio.app/about",
+        "image": "https://janstudio.app/assets/img/profile.jpg",
+        "worksFor": { "@id": "https://janstudio.app/#organization" },
+        "sameAs": ["https://www.instagram.com/jantsuruoka_etuning"],
+        "knowsAbout": ["スポーツ写真", "アメリカンフットボール撮影", "ライブ撮影", "ポートレート", "ファインアート写真"]
+      }
+    ]
+  }
+  </script>
+  <script src="assets/js/components.js?v=8" defer></script>
 </head>
 
 <body class="page-index">
@@ -85,8 +138,8 @@
           <span>一瞬を鍛え、記憶に残す。</span>
         </p>
         <div class="hero-actions">
-          <a href="works.html" class="btn primary">Works を見る</a>
-          <a href="contact.html?type=shoot" class="btn ghost">撮影を相談する</a>
+          <a href="/works" class="btn primary">Works を見る</a>
+          <a href="/contact?type=shoot" class="btn ghost">撮影を相談する</a>
         </div>
         <p class="hero-awards" aria-label="受賞歴">
           <span>London Photography Awards 2026 <em>Gold</em></span>
@@ -134,7 +187,7 @@
         <p class="section-lead">
           スポーツ・音楽・ポートレートなど、一瞬を美しく切り取った案件をご紹介します。
         </p>
-        <a href="works.html" class="section-link">すべての作品を見る</a>
+        <a href="/works" class="section-link">すべての作品を見る</a>
       </div>
       <div class="container gallery-preview-grid" id="featured-gallery" aria-live="polite" data-reveal>
         <!-- JavaScriptでCMSから取得 -->
@@ -149,7 +202,7 @@
         </div>
         <div class="chapters-track" id="chapters-track">
           <article class="chapter">
-            <div class="chapter-bg"><img src="assets/img/hero-bg.webp" alt="" loading="lazy" decoding="async"></div>
+            <div class="chapter-bg"><img src="assets/img/hero-bg.webp" alt="" width="1920" height="1371" loading="lazy" decoding="async"></div>
             <span class="chapter-num" aria-hidden="true">01</span>
             <div class="chapter-body">
               <h3 class="chapter-genre">Sports</h3>
@@ -157,11 +210,11 @@
               <p class="chapter-desc">
                 アスリート出身のカメラマンが、プレーの前後にある「文脈」を先読みして構える。単発の試合から年間契約まで。
               </p>
-              <a href="services.html" class="section-link">チーム撮影プランを見る</a>
+              <a href="/services" class="section-link">チーム撮影プランを見る</a>
             </div>
           </article>
           <article class="chapter">
-            <div class="chapter-bg"><img src="assets/img/event.webp" alt="" loading="lazy" decoding="async"></div>
+            <div class="chapter-bg"><img src="assets/img/event.webp" alt="" width="1920" height="1371" loading="lazy" decoding="async"></div>
             <span class="chapter-num" aria-hidden="true">02</span>
             <div class="chapter-body">
               <h3 class="chapter-genre">Live</h3>
@@ -169,11 +222,11 @@
               <p class="chapter-desc">
                 暗所・逆光・高速の動き。過酷な照明条件のライブやイベントでも、機材のポテンシャルを引き出して一瞬を残します。
               </p>
-              <a href="services.html" class="section-link">イベント撮影プランを見る</a>
+              <a href="/services" class="section-link">イベント撮影プランを見る</a>
             </div>
           </article>
           <article class="chapter">
-            <div class="chapter-bg"><img src="assets/img/profile.webp" alt="" loading="lazy" decoding="async"></div>
+            <div class="chapter-bg"><img src="assets/img/profile.webp" alt="" width="1920" height="1920" loading="lazy" decoding="async"></div>
             <span class="chapter-num" aria-hidden="true">03</span>
             <div class="chapter-body">
               <h3 class="chapter-genre">Portrait</h3>
@@ -181,7 +234,7 @@
               <p class="chapter-desc">
                 宣材からプロフィールまで。被写体の魅力を引き出す対話と、世界基準のファインアートで培ったレタッチで仕上げます。
               </p>
-              <a href="services.html" class="section-link">ポートレートプランを見る</a>
+              <a href="/services" class="section-link">ポートレートプランを見る</a>
             </div>
           </article>
         </div>
@@ -191,7 +244,7 @@
     <section class="section section-about-preview landing-about band">
       <div class="container about-preview-inner">
         <div class="about-preview-photo" data-reveal="left">
-          <img src="assets/img/profile.webp" alt="JAN STUDIO 糴川 樹" class="avatar-image" loading="lazy" decoding="async"
+          <img src="assets/img/profile.webp" alt="JAN STUDIO代表・フォトグラファー糴川樹" class="avatar-image" width="1920" height="1920" loading="lazy" decoding="async"
             onerror="this.outerHTML='<div class=\'avatar-placeholder\'></div>'">
         </div>
         <div class="about-preview-content" data-reveal="right">
@@ -208,7 +261,7 @@
             <li><span class="award-rank">Honorable Mention</span>London Photography Awards 2026 — Pro Fine Art Minimalism</li>
             <li><span class="award-rank">Nominee</span>1839 Awards 2026 — Color Photo Contest</li>
           </ul>
-          <a href="about.html" class="section-link">詳しいプロフィールを見る</a>
+          <a href="/about" class="section-link">詳しいプロフィールを見る</a>
         </div>
       </div>
     </section>
@@ -220,7 +273,7 @@
         <p class="section-lead">
           撮影レポート、機材レビュー、そして育成事業への構想メモなど。
         </p>
-        <a href="journal.html" class="section-link">すべての記事を見る</a>
+        <a href="/journal" class="section-link">すべての記事を見る</a>
       </div>
       <div class="container blog-preview-list" id="latest-posts" data-reveal>
         <!-- JavaScriptでCMSから取得 -->
@@ -230,7 +283,7 @@
     <section class="section section-cta">
       <div class="container wide" data-reveal>
         <p class="section-kicker section-kicker-light" style="margin-bottom: 40px;">Contact — まずは、話すことから</p>
-        <a class="mega-cta" href="contact.html?type=shoot" aria-label="撮影を相談する">
+        <a class="mega-cta" href="/contact?type=shoot" aria-label="撮影を相談する">
           <span class="mega-cta-line">Let's</span>
           <span class="mega-cta-line">Talk<span class="serif-accent">.</span></span>
           <span class="mega-cta-note">撮影のご相談・ご依頼はこちら</span>
@@ -242,12 +295,12 @@
 
   <site-footer></site-footer>
 
-  <a href="contact.html?type=shoot" class="floating-cta" id="floating-cta">撮影を相談する</a>
+  <a href="/contact?type=shoot" class="floating-cta" id="floating-cta">撮影を相談する</a>
 
-  <script src="assets/js/config.js?v=7"></script>
-  <script src="assets/js/api.js?v=7"></script>
-  <script src="assets/js/motion.js?v=7"></script>
-  <script src="assets/js/index.js?v=7"></script>
+  <script src="assets/js/config.js?v=8"></script>
+  <script src="assets/js/api.js?v=8"></script>
+  <script src="assets/js/motion.js?v=8"></script>
+  <script src="assets/js/index.js?v=8"></script>
 </body>
 
 </html>

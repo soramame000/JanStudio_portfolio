@@ -73,10 +73,10 @@
     listEl.innerHTML = pagePosts
       .map(
         (post) => `
-      <a class="blog-card" href="journal.html?id=${encodeURIComponent(post.id)}">
+      <a class="blog-card" href="/journal/${encodeURIComponent(post.id)}">
         <div class="blog-card-thumb img-skeleton-wrapper">
           ${post.thumbnail?.url
-            ? `<img src="${esc(post.thumbnail.url)}?w=800&q=80" alt="" loading="lazy" decoding="async" onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');" />`
+            ? `<img src="${esc(post.thumbnail.url)}?w=800&q=80" alt="${esc(post.title)}" width="${Number(post.thumbnail.width) || 800}" height="${Number(post.thumbnail.height) || 533}" loading="lazy" decoding="async" onload="this.classList.add('img-loaded'); this.parentElement.classList.add('is-loaded');" />`
             : ""
           }
         </div>

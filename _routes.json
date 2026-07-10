@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "include": ["/journal/*", "/project/*", "/sitemap.xml"],
+  "exclude": []
+}

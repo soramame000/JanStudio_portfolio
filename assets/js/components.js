@@ -4,18 +4,18 @@ class SiteHeader extends HTMLElement {
       <a class="skip-link" href="#main">本文へスキップ</a>
       <header class="site-header">
         <div class="container header-inner">
-          <a href="index.html" class="logo">JAN STUDIO</a>
+          <a href="/" class="logo">JAN STUDIO</a>
           <nav class="global-nav" aria-label="メインナビゲーション">
             <button class="nav-toggle" aria-expanded="false" aria-controls="global-nav-list" aria-label="メニューを開閉">
               <span></span><span></span>
             </button>
             <ul id="global-nav-list">
-              <li><a href="index.html">Top</a></li>
-              <li><a href="works.html">Works</a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="journal.html">Journal</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html" class="nav-cta">Contact</a></li>
+              <li><a href="/">Top</a></li>
+              <li><a href="/works">Works</a></li>
+              <li><a href="/services">Services</a></li>
+              <li><a href="/journal">Journal</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact" class="nav-cta">Contact</a></li>
             </ul>
           </nav>
         </div>
@@ -72,10 +72,10 @@ class SiteHeader extends HTMLElement {
     onScroll();
 
     // Set active link
-    const path = window.location.pathname.split("/").pop() || "index.html";
+    const path = window.location.pathname.replace(/\/+$/, "") || "/";
     this.querySelectorAll("#global-nav-list a").forEach((link) => {
-      const href = link.getAttribute("href");
-      if (href === path || (path === "" && href === "index.html")) {
+      const href = new URL(link.href, window.location.origin).pathname.replace(/\/+$/, "") || "/";
+      if (href === path) {
         link.setAttribute("aria-current", "page");
       } else {
         link.removeAttribute("aria-current");
@@ -109,11 +109,11 @@ class SiteFooter extends HTMLElement {
             <nav class="footer-links" aria-label="フッターナビゲーション">
               <div class="footer-nav">
                 <ul>
-                  <li><a href="works.html">Works</a></li>
-                  <li><a href="services.html">Services</a></li>
-                  <li><a href="journal.html">Journal</a></li>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="/works">Works</a></li>
+                  <li><a href="/services">Services</a></li>
+                  <li><a href="/journal">Journal</a></li>
+                  <li><a href="/about">About</a></li>
+                  <li><a href="/contact">Contact</a></li>
                 </ul>
               </div>
               <div class="footer-sns">

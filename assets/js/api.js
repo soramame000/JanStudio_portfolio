@@ -19,7 +19,9 @@
     try {
       const res = await fetch(url.toString());
       if (!res.ok) {
-        console.error("CMS fetch error", res.status, await res.text());
+        if (res.status !== 404) {
+          console.error("CMS fetch error", res.status, await res.text());
+        }
         return null;
       }
       return res.json();
@@ -52,6 +54,20 @@
     return status === "public";
   }
 
+  function photoAlt(item) {
+    if (item?.title) return String(item.title);
+    const genres = Array.isArray(item?.genre) ? item.genre : [item?.genre].filter(Boolean);
+    const labels = {
+      "american-football": "アメリカンフットボール",
+      "music-event": "ライブ・イベント",
+      portrait: "ポートレート",
+      "fine art": "ファインアート"
+    };
+    const genre = genres.map((value) => labels[value] || value).join("・") || "撮影実績";
+    const date = item?.eventDate ? String(item.eventDate).slice(0, 10).replace(/-/g, "年").replace(/年(\d{2})年/, "年$1月").replace(/月(\d{2})$/, "月$1日") : "";
+    return `${genre}の撮影写真${date ? `（${date}）` : ""}`;
+  }
+
   function initFloatingCta() {
     const floatingCta = document.getElementById("floating-cta");
     if (!floatingCta) return;
@@ -66,5 +82,5 @@
 
   document.addEventListener("DOMContentLoaded", initFloatingCta);
 
-  window.JAN = { fetchJson, esc, toTimestamp, isPublic };
+  window.JAN = { fetchJson, esc, toTimestamp, isPublic, photoAlt };
 })();
