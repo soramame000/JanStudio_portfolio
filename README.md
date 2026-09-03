@@ -14,6 +14,7 @@
 - `journal.html` ジャーナル（記事一覧・詳細）
 - `contact.html` お問い合わせ
 - `404.html` Not Found ページ
+- `palmares.html` / `palmares/` Mac アプリ「Palmarès」の製品ページ・プライバシーポリシー・サポート（`/palmares`, `/palmares/privacy`, `/palmares/support`）。連絡先は contact@janstudio.app、解析タグは入れない
 - `assets/css/` スタイル
 - `assets/js/` JavaScript ロジック
   - `config.js` CMSプロキシのURL等の設定

@@ -1,0 +1,166 @@
+/* ============================================================
+   Palmarès — product / legal pages
+   墨色の地・象牙色の文字・真鍮のアクセント。サイト共通レイヤーの上に重ねる。
+   ============================================================ */
+.page-palmares {
+  --pm-ink: #0f0f10;
+  --pm-ink-elev: #151517;
+  --pm-ivory: #ebe6dc;
+  --pm-ivory-strong: #f6f2ea;
+  --pm-muted: #a39d92;
+  --pm-brass: #c8a86b;
+  --pm-brass-soft: rgba(200, 168, 107, 0.16);
+  --pm-line: rgba(235, 230, 220, 0.12);
+  --pm-serif: "Cormorant Garamond", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --accent: var(--pm-brass);
+  --accent-soft: var(--pm-brass-soft);
+  background: var(--pm-ink);
+  color: var(--pm-ivory);
+}
+.page-palmares ::selection { background: var(--pm-brass); color: var(--pm-ink); }
+.page-palmares .page-eyebrow,
+.page-palmares .section-kicker { color: var(--pm-brass); }
+.page-palmares .page-eyebrow::before,
+.page-palmares .section-kicker::before { background: var(--pm-brass); }
+
+.pm-brand {
+  font-family: var(--pm-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  color: var(--pm-brass);
+  margin-bottom: 18px;
+}
+.pm-title {
+  font-family: var(--pm-serif);
+  font-weight: 500;
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+  color: var(--pm-ivory-strong);
+  text-wrap: balance;
+}
+.pm-lead { margin-top: 26px; max-width: 640px; color: var(--pm-muted); line-height: 2.1; }
+
+/* ---- Legal / support article ---- */
+.pm-article {
+  max-width: 720px;
+  padding-bottom: clamp(80px, 12vh, 160px);
+  line-height: 2.1;
+}
+.pm-article small { display: block; color: var(--pm-muted); font-size: var(--fs-small); margin-bottom: 8px; }
+.pm-article h2 {
+  font-family: var(--pm-serif);
+  font-weight: 600;
+  font-size: 1.35rem;
+  margin: 2.4em 0 0.8em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--pm-line);
+  color: var(--pm-ivory-strong);
+}
+.pm-article h1.pm-title-en {
+  font-family: var(--pm-serif);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  color: var(--pm-ivory-strong);
+  margin-bottom: 0.6em;
+}
+.pm-article p { margin-bottom: 1.4em; }
+.pm-article p b { color: var(--pm-ivory-strong); }
+.pm-article a { color: var(--pm-brass); text-decoration: underline; text-underline-offset: 4px; }
+.pm-article a:hover { color: var(--pm-ivory-strong); }
+.pm-article hr { border: 0; border-top: 1px solid var(--pm-line); margin: 56px 0; }
+.pm-article .pm-note { color: var(--pm-muted); font-size: var(--fs-small); }
+
+.pm-legal-nav {
+  display: flex; flex-wrap: wrap; gap: 8px 28px;
+  padding-block: 32px 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.pm-legal-nav a { color: var(--pm-muted); }
+.pm-legal-nav a:hover, .pm-legal-nav a[aria-current="page"] { color: var(--pm-brass); }
+
+/* ---- Product page ---- */
+.pm-hero { padding-bottom: clamp(32px, 6vh, 64px); }
+.pm-hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 36px; }
+.pm-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 32px; border-radius: 999px;
+  font-family: var(--font-display); font-size: var(--fs-small); font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  border: 1px solid var(--pm-brass); color: var(--pm-brass);
+  transition: background-color 0.3s, color 0.3s;
+}
+.pm-btn.is-placeholder { cursor: default; opacity: 0.85; }
+.pm-btn:hover { background: var(--pm-brass-soft); }
+.pm-price { color: var(--pm-muted); font-size: var(--fs-small); letter-spacing: 0.04em; }
+.pm-price strong { color: var(--pm-ivory-strong); font-family: var(--pm-serif); font-size: 1.5rem; font-weight: 500; margin-right: 6px; }
+
+.pm-hero-shot { margin-top: clamp(40px, 7vh, 80px); }
+.pm-shot {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--pm-line);
+  background: var(--pm-ink-elev);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+}
+.pm-shot img { width: 100%; display: block; }
+
+.pm-features { padding-block: clamp(80px, 12vh, 160px); }
+.pm-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+  padding-block: clamp(40px, 7vh, 88px);
+  border-top: 1px solid var(--pm-line);
+}
+.pm-feature:first-child { border-top: 0; padding-top: 0; }
+.pm-feature:nth-child(even) .pm-feature-copy { order: 2; }
+.pm-feature-copy h2 {
+  font-family: var(--pm-serif);
+  font-weight: 500;
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  line-height: 1.3;
+  color: var(--pm-ivory-strong);
+  margin-bottom: 18px;
+}
+.pm-feature-copy p { color: var(--pm-muted); line-height: 2.1; white-space: pre-line; }
+.pm-feature-index {
+  display: block;
+  font-family: var(--pm-serif); font-style: italic;
+  color: var(--pm-brass); font-size: 1.1rem; margin-bottom: 14px;
+}
+@media (max-width: 860px) {
+  .pm-feature { grid-template-columns: 1fr; }
+  .pm-feature:nth-child(even) .pm-feature-copy { order: 0; }
+}
+
+.pm-desc { padding-block: clamp(80px, 12vh, 160px); border-top: 1px solid var(--pm-line); }
+.pm-desc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(32px, 5vw, 80px);
+}
+@media (max-width: 860px) { .pm-desc-grid { grid-template-columns: 1fr; } }
+.pm-desc-body { color: var(--pm-ivory); line-height: 2.1; white-space: pre-line; }
+.pm-desc-body p { margin-bottom: 1.5em; }
+.pm-desc-body .pm-h { color: var(--pm-brass); font-family: var(--pm-serif); font-weight: 600; font-size: 1.15rem; display: block; margin-top: 1.4em; }
+.pm-desc-lang {
+  font-family: var(--font-display); font-size: var(--fs-micro); letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--pm-brass); margin-bottom: 22px;
+}
+
+.pm-cta {
+  border-top: 1px solid var(--pm-line);
+  padding-block: clamp(80px, 12vh, 160px);
+  text-align: center;
+  background: radial-gradient(ellipse 60% 90% at 50% 110%, rgba(200, 168, 107, 0.12), transparent), var(--pm-ink);
+}
+.pm-cta .pm-title { font-size: clamp(2rem, 5vw, 3.6rem); }
+.pm-cta .pm-hero-actions { justify-content: center; }
+.pm-cta .pm-legal-nav { justify-content: center; padding-top: 40px; }

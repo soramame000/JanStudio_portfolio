@@ -6,7 +6,10 @@ const FIXED_PAGES = [
   ["/services", "0.9"],
   ["/journal", "0.8"],
   ["/about", "0.8"],
-  ["/contact", "0.7"]
+  ["/contact", "0.7"],
+  ["/palmares", "0.6"],
+  ["/palmares/privacy", "0.3"],
+  ["/palmares/support", "0.3"]
 ];
 
 async function fetchList(endpoint, fields) {
