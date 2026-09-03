@@ -95,7 +95,7 @@ export function renderPage({
   <meta name="twitter:description" content="${safeDescription}">
   <meta name="twitter:image" content="${safeImage}">
   <script type="application/ld+json">${structuredData}</script>
-  <script src="/assets/js/components.js?v=8" defer></script>
+  <script src="/assets/js/components.js?v=9" defer></script>
 </head>
 <body class="${escapeHtml(bodyClass)}">
   <site-header></site-header>

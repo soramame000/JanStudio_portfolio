@@ -170,3 +170,27 @@
 .pm-cta .pm-title { font-size: clamp(2rem, 5vw, 3.6rem); }
 .pm-cta .pm-hero-actions { justify-content: center; }
 .pm-cta .pm-legal-nav { justify-content: center; padding-top: 40px; }
+
+/* ---- Home teaser (index.html) ---- */
+.home-palmares { border-top: 1px solid var(--line-soft); }
+.home-palmares-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+.home-palmares-copy .section-kicker { color: #c8a86b; }
+.home-palmares-copy .section-kicker::before { background: #c8a86b; }
+.home-palmares-shot { display: block; }
+.home-palmares-shot img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  transition: transform 0.8s var(--ease-out);
+}
+.home-palmares-shot:hover img { transform: translateY(-4px); }
+@media (max-width: 860px) { .home-palmares-inner { grid-template-columns: 1fr; } }
