@@ -108,7 +108,13 @@
   background: var(--pm-ink-elev);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
 }
-.pm-shot img { width: 100%; display: block; }
+.pm-shot img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
 
 .pm-features { padding-block: clamp(80px, 12vh, 160px); }
 .pm-feature {

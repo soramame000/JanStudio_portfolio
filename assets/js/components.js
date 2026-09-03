@@ -15,6 +15,7 @@ class SiteHeader extends HTMLElement {
               <li><a href="/services">Services</a></li>
               <li><a href="/journal">Journal</a></li>
               <li><a href="/about">About</a></li>
+              <li><a href="/palmares">Palmarès</a></li>
               <li><a href="/contact" class="nav-cta">Contact</a></li>
             </ul>
           </nav>
@@ -113,6 +114,7 @@ class SiteFooter extends HTMLElement {
                   <li><a href="/services">Services</a></li>
                   <li><a href="/journal">Journal</a></li>
                   <li><a href="/about">About</a></li>
+                  <li><a href="/palmares">Palmarès</a></li>
                   <li><a href="/contact">Contact</a></li>
                 </ul>
               </div>
