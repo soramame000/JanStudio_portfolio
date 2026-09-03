@@ -25,6 +25,7 @@
 - `confirmed`: ライティング機材（Godox V1Pro Nikon / V100S Sony / AD300Pro）を公開する
 - `confirmed`: メモリーカード（SD・CFexpress 256GB〜1TB複数運用）を公開する
 - `confirmed`: 健康情報（双極性障害・ADHD）を公開する
+- `confirmed`: 受賞歴11件（2026年）は Palmarès 書き出しの受賞歴PDF（2026-09-03作成）に基づく
 
 ## Pricing (`pricing.html`)
 
